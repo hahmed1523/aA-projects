@@ -36,7 +36,7 @@ class PolyTreeNode
 
     end
 
-    #check if the node has the target_value
+    #check if the node has the target_value using depth first
     def dfs(target_value)
         if @value == target_value 
             return self 
@@ -63,18 +63,16 @@ class PolyTreeNode
     #checks if target value is in node with breadth first
     def bfs(target_value)
         q = [self]
-        
+
+        until q.empty?
+            node = q.shift 
+
+            if node.value == target_value
+                return node 
+            end
+
+            q.concat(node.children)
+        end
     end
 
 end
-
-node1 = PolyTreeNode.new("root")
-node2 = PolyTreeNode.new("child1")
-node3 = PolyTreeNode.new("child2")
-node4 = PolyTreeNode.new("child3")
-
-node2.parent = node1
-node3.parent = node1
-node4.parent = node2
-
-
