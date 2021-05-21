@@ -29,3 +29,43 @@ class Array
         new_arr
     end
 end
+
+#Array of Array -> Array of Array
+#convert between row-oriented and column-oriented representations
+def my_transpose(arr)
+    new_arr = []
+
+    col_length = arr[0].length
+    current_idx = 0
+    while current_idx < col_length
+        new_row = []
+        arr.each do |row|
+            new_row << row[current_idx]
+        end
+
+        new_arr << new_row
+        current_idx += 1
+    end
+
+    return new_arr
+end
+
+def pick_stocks(prices)
+    # can always make zero dollars by not buying/selling
+    best_pair = nil
+    best_profit = 0
+  
+    prices.each_index do |buy_date|
+      prices.each_index do |sell_date|
+        # can't sell before buy
+        next if sell_date < buy_date
+  
+        profit = prices[sell_date] - prices[buy_date]
+        if profit > best_profit
+          # Choose best days.
+          best_pair, best_profit = [buy_date, sell_date], profit
+        end
+      end
+    end
+    return best_pair
+end
