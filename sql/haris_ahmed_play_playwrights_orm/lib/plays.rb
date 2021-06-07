@@ -5,7 +5,7 @@ class PlayDBConnection < SQLite3::Database
     include Singleton 
 
     def initialize
-        super('plays.db')
+        super('data/plays.db')
         self.type_translation = true
         self.results_as_hash = true 
     end
@@ -16,6 +16,30 @@ class Play
 
     def self.all
         data = PlayDBConnection.instance.execute("SELECT * FROM plays")
+        data.map {|datum| Play.new(datum)}
+    end
+
+    def self.find_by_title(title)
+        data = PlayDBConnection.instance.execute(<<-SQL, title)
+            SELECT 
+                *
+            FROM
+                plays
+            WHERE
+                title = ?
+            SQL
+        data.map {|datum| Play.new(datum)}
+    end
+
+    def self.find_by_playwright(name)
+        data = PlayDBConnection.instance.execute(<<-SQL, name)
+            SELECT 
+                *
+            FROM
+                plays
+            WHERE
+                id = (SELECT id FROM playwrights WHERE name = ?)
+            SQL
         data.map {|datum| Play.new(datum)}
     end
 
