@@ -20,6 +20,18 @@ class User
         SQL
 
         User.new(data[0])
+    end
+
+    def self.find_by_id (id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, id)
+            SELECT
+                *
+            FROM
+                users
+            WHERE id = ?
+        SQL
+
+        User.new(data[0])
     end 
 
     def initialize(options)
