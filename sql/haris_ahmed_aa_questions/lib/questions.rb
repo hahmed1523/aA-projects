@@ -10,18 +10,6 @@ class Question
         data.map { |datum| Question.new(datum)}
     end
 
-    def self.find_by_title (title)
-        data = QuestionsDatabase.instance.execute(<<-SQL, title)
-            SELECT
-                *
-            FROM
-                questions
-            WHERE title = ?
-        SQL
-
-        Question.new(data[0])
-    end 
-
     def self.find_by_id (id)
         data = QuestionsDatabase.instance.execute(<<-SQL, id)
             SELECT
@@ -32,6 +20,18 @@ class Question
         SQL
 
         Question.new(data[0])
+    end
+
+    def self.find_by_author_id (author_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, author_id)
+            SELECT
+                *
+            FROM
+                questions
+            WHERE author_id = ?
+        SQL
+
+        data.map {|datum| Question.new(datum)}
     end 
 
     def initialize(options)

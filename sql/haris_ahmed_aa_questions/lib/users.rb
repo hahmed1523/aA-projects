@@ -1,4 +1,6 @@
 require_relative  './connect.rb'
+require_relative  './questions.rb'
+require_relative  './replies.rb'
 
 # Interact with Users table with Ruby objects
 
@@ -19,7 +21,7 @@ class User
             WHERE fname = ? AND lname = ?
         SQL
 
-        User.new(data[0])
+        data.map { |datum| User.new(datum) }
     end
 
     def self.find_by_id (id)
@@ -61,5 +63,15 @@ class User
             WHERE
                 id = ?
         SQL
+    end
+
+    def authored_questions
+        raise "#{self} not in database" unless @id 
+        Question.find_by_author_id(@id)
+    end
+
+    def authored_replies
+        raise "#{self} not in database" unless @id
+        Reply.find_by_author_id(@id)
     end
 end
