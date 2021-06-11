@@ -1,4 +1,6 @@
 require_relative  './connect.rb'
+require_relative  './users.rb'
+require_relative  './replies.rb'
 
 # Interact with Questions table with Ruby objects
 
@@ -62,5 +64,15 @@ class Question
             WHERE
                 id = ?
         SQL
+    end
+
+    def author
+        raise "#{self} not in database" unless @id 
+        User.find_by_id(@author_id)
+    end
+
+    def replies
+        raise "#{self} not in database" unless @id 
+        Reply.find_by_question_id(@id)
     end
 end

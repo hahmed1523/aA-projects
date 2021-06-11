@@ -44,7 +44,20 @@ class Reply
         SQL
 
         data.map {|datum| Reply.new(datum) }
-    end 
+    end
+
+    def self.find_by_parent_id(parent_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, parent_id)
+            SELECT
+                *
+            FROM
+                replies
+            WHERE parent_reply_id = ?
+        SQL
+
+        data.map {|datum| Reply.new(datum) }
+
+    end
 
     def initialize(options)
         @id = options['id']
@@ -76,4 +89,24 @@ class Reply
                 id = ?
         SQL
     end
+
+    def author
+        raise "#{self} not in database" unless @id 
+        User.find_by_id(@author_id)
+    end
+
+    def question
+        raise "#{self} not in database" unless @id 
+        Question.find_by_id(@question_id)
+    end
+
+    def parent_reply
+        raise "This is the parent reply" unless @parent_reply_id
+        Reply.find_by_id(@parent_reply_id)
+    end
+
+    def child_replies 
+        Reply.find_by_parent_id(@id)
+    end
+
 end
