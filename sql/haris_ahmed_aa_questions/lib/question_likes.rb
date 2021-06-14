@@ -1,4 +1,6 @@
 require_relative  './connect.rb'
+require_relative  './users.rb'
+require_relative  './questions.rb'
 
 # Interact with Questions_likes table with Ruby objects
 
@@ -20,6 +22,46 @@ class Question_Like
         SQL
 
         Question_Like.new(data[0])
+    end 
+
+    def self.likers_for_question_id (question_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+            SELECT
+                u.*
+            FROM
+                question_likes AS l
+            JOIN users AS u
+                ON l.user_id = u.id
+            WHERE question_id = ?
+        SQL
+
+        data.map { |datum| User.new(datum) }
+    end 
+
+    def self.num_likes_for_question_id (question_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+            SELECT
+                COUNT(*) AS total
+            FROM
+                question_likes
+            WHERE question_id = ?
+        SQL
+
+        data[0]['total']
+    end
+
+    def self.liked_questions_for_user_id (user_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, user_id)
+            SELECT
+                q.*
+            FROM
+                question_likes AS l
+            JOIN questions AS q
+                ON l.question_id = q.id
+            WHERE l.user_id = ?
+        SQL
+
+        data.map { |datum| Question.new(datum) }
     end 
 
     def initialize(options)

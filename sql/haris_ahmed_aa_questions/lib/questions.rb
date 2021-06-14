@@ -2,6 +2,7 @@ require_relative  './connect.rb'
 require_relative  './users.rb'
 require_relative  './replies.rb'
 require_relative  './question_follows.rb'
+require_relative  './question_likes.rb'
 
 # Interact with Questions table with Ruby objects
 
@@ -83,6 +84,14 @@ class Question
 
     def followers
         Question_Follow.followers_for_question_id(@id)
+    end
+
+    def likers 
+        Question_Like.likers_for_question_id(@id)
+    end
+
+    def num_likes 
+        Question_Like.num_likes_for_question_id(@id)
     end
 
 end
