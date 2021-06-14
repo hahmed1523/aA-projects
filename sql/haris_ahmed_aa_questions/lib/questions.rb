@@ -35,7 +35,11 @@ class Question
         SQL
 
         data.map {|datum| Question.new(datum)}
-    end 
+    end
+
+    def self.most_followed(n)
+        Question_Follow.most_followed_questions(n)
+    end
 
     def initialize(options)
         @id = options['id']
@@ -80,4 +84,5 @@ class Question
     def followers
         Question_Follow.followers_for_question_id(@id)
     end
+
 end
