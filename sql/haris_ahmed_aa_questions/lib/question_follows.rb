@@ -1,4 +1,5 @@
 require_relative  './connect.rb'
+require_relative  './users.rb'
 
 # Interact with Question_follows table with Ruby objects
 
@@ -20,7 +21,21 @@ class Question_Follow
         SQL
 
         Question_Follow.new(data[0])
-    end 
+    end
+
+    def self.followers_for_question_id(question_id)
+        data = QuestionsDatabase.instance.execute(<<-SQL, question_id)
+        SELECT
+            *
+        FROM
+            users 
+        WHERE id IN (SELECT user_id
+                    FROM question_follows
+                    WHERE question_id = ?)
+        SQL
+
+        data.map {|datum| User.new(datum)}
+    end
 
     def initialize(options)
         @id = options['id']
