@@ -1,6 +1,7 @@
 require_relative  './connect.rb'
 require_relative  './questions.rb'
 require_relative  './replies.rb'
+require_relative  './question_follows.rb'
 
 # Interact with Users table with Ruby objects
 
@@ -73,5 +74,9 @@ class User
     def authored_replies
         raise "#{self} not in database" unless @id
         Reply.find_by_author_id(@id)
+    end
+
+    def followed_questions
+        Question_Follow.followed_questions_for_user_id(@id)
     end
 end

@@ -1,6 +1,7 @@
 require_relative  './connect.rb'
 require_relative  './users.rb'
 require_relative  './replies.rb'
+require_relative  './question_follows.rb'
 
 # Interact with Questions table with Ruby objects
 
@@ -74,5 +75,9 @@ class Question
     def replies
         raise "#{self} not in database" unless @id 
         Reply.find_by_question_id(@id)
+    end
+
+    def followers
+        Question_Follow.followers_for_question_id(@id)
     end
 end
