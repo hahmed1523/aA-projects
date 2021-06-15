@@ -85,4 +85,22 @@ class User
         Question_Like.liked_questions_for_user_id(@id)
     end
 
+    def average_karma
+        raise "#{self} not in database" unless @id
+        data = QuestionsDatabase.instance.execute(<<-SQL, @id)
+
+            SELECT AVG(l.total) AS avg
+            FROM questions AS q 
+            JOIN (SELECT question_id, COUNT(question_id) AS total 
+                  FROM question_likes 
+                  GROUP BY question_id) AS l
+            ON id = l.question_id 
+            WHERE author_id = ?
+            
+        SQL
+
+        data[0]['avg']
+        
+    end
+
 end
