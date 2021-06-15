@@ -42,6 +42,10 @@ class Question
         Question_Follow.most_followed_questions(n)
     end
 
+    def self.most_liked(n)
+        Question_Like.most_liked_questions(n)
+    end
+
     def initialize(options)
         @id = options['id']
         @title = options['title']
@@ -94,4 +98,5 @@ class Question
         Question_Like.num_likes_for_question_id(@id)
     end
 
+    
 end
