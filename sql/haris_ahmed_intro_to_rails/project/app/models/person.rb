@@ -11,4 +11,10 @@
 class Person < ApplicationRecord
     #must have name and house id
     validates :name, :house_id, presence: true
+
+    belongs_to(:house, {
+        primary_key: :id, #house's id
+        foreign_key: :house_id,
+        class_name: :House 
+    })
 end

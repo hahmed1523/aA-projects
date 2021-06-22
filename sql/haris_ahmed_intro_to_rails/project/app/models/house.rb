@@ -9,5 +9,11 @@
 #
 class House < ApplicationRecord
     #must have address
-    validates :address, presence: true 
+    validates :address, presence: true
+
+    has_many(:residents, {
+        primary_key: :id, #house's id
+        foreign_key: :house_id,
+        class_name: :Person
+    })
 end
