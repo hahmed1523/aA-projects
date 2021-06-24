@@ -61,6 +61,15 @@ class ShortenedUrl < ApplicationRecord
         self.visitors.count 
     end
 
+    #Count the number of distinct users who clicked in the last 10 minutes
+    def num_recent_uniques
+        visited
+          .select('user_id')
+          .where('created_at > ?', 10.minutes.ago)
+          .distinct
+          .count
+    end
+
     
     
 end
