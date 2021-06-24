@@ -19,6 +19,17 @@ class ShortenedUrl < ApplicationRecord
         class_name: :User 
     })
 
+    has_many(:visited, {
+        primary_key: :id, #shortened_url's id
+        foreign_key: :short_url_id,
+        class_name: :Visit 
+    })
+
+    has_many(:visitors, {
+        through: :visited,
+        source: :visitor 
+    })
+
     #creates a random url code that does not exists in the DB
     def self.random_code
         good_url = false
