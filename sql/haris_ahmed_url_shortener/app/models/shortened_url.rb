@@ -25,10 +25,14 @@ class ShortenedUrl < ApplicationRecord
         class_name: :Visit 
     })
 
-    has_many(:visitors, {
+    has_many :unique_visitors, 
+        Proc.new { distinct },
         through: :visited,
         source: :visitor 
-    })
+    
+    has_many :visitors, 
+        through: :visited,
+        source: :visitor 
 
     #creates a random url code that does not exists in the DB
     def self.random_code
@@ -51,6 +55,15 @@ class ShortenedUrl < ApplicationRecord
         ShortenedUrl.create!(long_url: long_url, short_url: url, user_id: user.id)
     end
 
+    #Count the number of visits on the shortened url
+    def num_clicks
+        self.visitors.count
+    end
+
+    #Count the number of distinct users who have clicked a link
+    def num_uniques
+        self.unique_visitors.count 
+    end
 
     
     
