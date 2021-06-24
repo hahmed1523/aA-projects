@@ -23,12 +23,8 @@ class User < ApplicationRecord
         class_name: :Visit
     })
 
-    has_many :unique_visited_urls,
-        Proc.new { distinct },
-        through: :visits,
-        source: :visited_url
-
     has_many :visited_urls,
+        Proc.new { distinct },
         through: :visits,
         source: :visited_url
 
