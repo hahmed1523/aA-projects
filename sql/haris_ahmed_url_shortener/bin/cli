@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+class CLI
+
+    def login
+        puts "Enter you email:"
+        email = gets.chomp
+        user_record = User.find_by(email: email)
+        raise if user_record == nil
+        
+    rescue
+        puts "This email address is not in the database. Try again."
+        sleep(2)
+        retry
+    end
+
+    def run
+        login
+    end
+end
+
+
+CLI.new.run
