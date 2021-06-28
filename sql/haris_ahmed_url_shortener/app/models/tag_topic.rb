@@ -16,4 +16,18 @@ class TagTopic < ApplicationRecord
         class_name: :Tagging
     })
 
+    has_many :urls,
+        # Proc.new { distinct },
+        through: :taggings,
+        source: :url 
+    
+
+    #return the 5 most visited links
+    def popular_links
+        urls.joins(:visited)
+            .group(:short_url, :long_url)
+            .order('COUNT(visited.id) DESC')
+            .select('long_url, short_url, COUNT(visited.id) as number_of_visits')
+            .limit(5)
+    end
 end

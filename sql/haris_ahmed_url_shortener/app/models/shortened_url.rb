@@ -79,7 +79,6 @@ class ShortenedUrl < ApplicationRecord
           .distinct
           .count
     end
-
-    
+   
     
 end
