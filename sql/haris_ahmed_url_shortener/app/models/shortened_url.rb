@@ -30,6 +30,16 @@ class ShortenedUrl < ApplicationRecord
         through: :visited,
         source: :visitor 
     
+    has_many :taggings,
+        primary_key: :id, #shortened_url's id
+        foreign_key: :url_id,
+        class_name: :Tagging
+    
+    has_many :tag_topics,
+        Proc.new { distinct },
+        through: :taggings,
+        source: :tag_topic
+    
     #creates a random url code that does not exists in the DB
     def self.random_code
         good_url = false
