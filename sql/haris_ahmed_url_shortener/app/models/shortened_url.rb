@@ -79,6 +79,10 @@ class ShortenedUrl < ApplicationRecord
           .distinct
           .count
     end
+
+    #Prevents users from submitting more than 5 URLs in a single minute
+    def no_spamming
+    end
    
     
 end

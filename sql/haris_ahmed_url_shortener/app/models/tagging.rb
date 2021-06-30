@@ -11,6 +11,10 @@
 #
 class Tagging < ApplicationRecord 
     validates :tag_id, :user_id, :url_id, presence: true
+    validates :url_id, uniqueness: {
+        scope: :tag_id,
+        message: 'already has this tag!'
+    }
 
     belongs_to(:tag_topic,{
         primary_key: :id, #tag_topic id
