@@ -23,7 +23,8 @@ class ShortenedUrl < ApplicationRecord
     has_many(:visited, {
         primary_key: :id, #shortened_url's id
         foreign_key: :short_url_id,
-        class_name: :Visit 
+        class_name: :Visit,
+        dependent: :destroy
     })
 
     has_many :visitors, 
@@ -34,7 +35,8 @@ class ShortenedUrl < ApplicationRecord
     has_many :taggings,
         primary_key: :id, #shortened_url's id
         foreign_key: :url_id,
-        class_name: :Tagging
+        class_name: :Tagging,
+        dependent: :destroy
     
     has_many :tag_topics,
         Proc.new { distinct },
@@ -81,6 +83,40 @@ class ShortenedUrl < ApplicationRecord
           .count
     end
 
+    # run `rails prune:old_urls minutes=n` to see this task in action
+    def self.prune(n)
+        ShortenedUrl
+        .joins(:submitter)
+        .joins('LEFT JOIN visits ON visits.short_url_id = shortened_urls.id')
+        .where("(shortened_urls.id IN (
+            SELECT shortened_urls.id
+            FROM shortened_urls
+            JOIN visits
+            ON visits.short_url_id = shortened_urls.id
+            GROUP BY shortened_urls.id
+            HAVING MAX(visits.created_at) < \'#{n.minute.ago}\'
+        ) OR (
+            visits.id IS NULL and shortened_urls.created_at < \'#{n.minutes.ago}\'
+        )) AND users.premium = \'f\'")
+        .destroy_all
+
+        # The sql for the query would be:
+        #
+        # SELECT shortened_urls.*
+        # FROM shortened_urls
+        # JOIN users ON users.id = shortened_urls.submitter_id
+        # LEFT JOIN visits ON visits.shortened_url_id = shortened_urls.id
+        # WHERE (shortened_urls.id IN (
+        #   SELECT shortened_urls.id
+        #   FROM shortened_urls
+        #   JOIN visits ON visits.shortened_url_id = shortened_urls.id
+        #   GROUP BY shortened_urls.id
+        #   HAVING MAX(visits.created_at) < "#{n.minute.ago}"
+        # ) OR (
+        #   visits.id IS NULL and shortened_urls.created_at < '#{n.minutes.ago}'
+        # )) AND users.premium = 'f'
+    end
+
     #Prevents users from submitting more than 5 URLs in a single minute
     def no_spamming
         last_minute = ShortenedUrl
@@ -90,6 +126,7 @@ class ShortenedUrl < ApplicationRecord
         errors[:maximum] << 'of five short urls per minute!' if last_minute >= 5
     end
 
+    #Prevents non-premium users from submitting more than 5 URLs
     def nonpremium_max
         return if User.find(self.user_id).premium
     
