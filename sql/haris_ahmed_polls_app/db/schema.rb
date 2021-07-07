@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_144045) do
+ActiveRecord::Schema.define(version: 2021_07_07_145404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "polls", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_polls_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
