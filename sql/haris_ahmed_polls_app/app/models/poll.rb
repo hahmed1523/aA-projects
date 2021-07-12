@@ -10,4 +10,10 @@
 #
 class Poll < ApplicationRecord
     validates :user_id, :title, presence: true 
+
+    #Associations
+    belongs_to :author,
+        primary_key: :id, #user's id
+        foreign_key: :user_id,
+        class_name: :User
 end
