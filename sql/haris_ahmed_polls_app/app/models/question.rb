@@ -10,4 +10,10 @@
 #
 class Question < ApplicationRecord
     validates :poll_id, :text, presence: true 
+
+    #Associations
+    belongs_to :poll,
+        primary_key: :id, #poll's id
+        foreign_key: :poll_id,
+        class_name: :Poll 
 end
