@@ -9,6 +9,13 @@
 #  updated_at  :datetime         not null
 #
 class AnswerChoice < ApplicationRecord
-    validates :question_id, :text, presence: true 
+    validates :question_id, :text, presence: true
+
+    #Associations
+    belongs_to :question,
+        primary_key: :id, #question's id
+        foreign_key: :question_id,
+        class_name: :Question 
+    
     
 end
