@@ -25,4 +25,42 @@ class Question < ApplicationRecord
     has_many :responses,
         through: :answer_choices,
         source: :responses
+    
+    def results_n
+        answer_choices = self.answer_choices
+        results = Hash.new(0)
+
+        answer_choices.each do |choice|
+            results[choice.text] = choice.responses.count
+        end
+
+        results 
+    end
+
+    def results_better
+        answer_choices = self.answer_choices.includes(:responses)
+        results = Hash.new(0)
+
+        answer_choices.each do |choice|
+            results[choice.text] = choice.responses.length
+        end
+
+        results
+    end
+
+    def results
+        answer_choices_with_counts = self
+            .answer_choices
+            .select("answer_choices.*, COUNT(responses.id) AS responses_count")
+            .left_outer_joins(:responses)
+            .group('answer_choices.id')
+        
+        results = {}
+
+        answer_choices_with_counts.each do |choice|
+            results[choice.text] = choice.responses_count
+        end
+
+        results 
+    end
 end

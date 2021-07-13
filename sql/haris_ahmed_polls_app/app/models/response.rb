@@ -48,10 +48,7 @@ class Response < ApplicationRecord
     end
 
     def respondent_is_not_poll_author
-        # The 3-query slow way:
-        # poll_author_id = self.answer_choice.question.poll.author_id
-    
-        # 1-query; joins two extra tables.
+
         poll_author_id = Poll
           .joins(questions: :answer_choices)
           .where('answer_choices.id = ?', self.answer_choice_id)
