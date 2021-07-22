@@ -1373,3 +1373,119 @@ Migrating to AddIndexToArtworkShares (20210722152439)
   [1m[36mArtworkShare Load (0.8ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 15]]
+Started GET "/users" for ::1 at 2021-07-22 14:50:21 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 52ms (Views: 19.9ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/users" for ::1 at 2021-07-22 14:51:24 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"test4"}}
+Unpermitted parameter: :username
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 422 Unprocessable Entity in 34ms (Views: 1.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/users" for ::1 at 2021-07-22 14:52:05 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"test4"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2021-07-22 14:52:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"test4"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test4"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "test4"], ["created_at", "2021-07-22 18:52:50.161761"], ["updated_at", "2021-07-22 18:52:50.161761"]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 64ms (Views: 0.7ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/users" for ::1 at 2021-07-22 14:53:00 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"test4"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/16" for ::1 at 2021-07-22 14:53:20 -0400
+Processing by UsersController#show as */*
+  Parameters: {"user"=>{"username"=>"test4"}, "id"=>"16"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/users/16" for ::1 at 2021-07-22 14:54:04 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"test2a"}, "id"=>"16"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test2a"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "test2a"], ["updated_at", "2021-07-22 18:54:04.752882"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 200 OK in 29ms (Views: 0.8ms | ActiveRecord: 12.8ms)
+
+
+Started PATCH "/users/16" for ::1 at 2021-07-22 14:54:12 -0400
+Processing by UsersController#update as */*
+  Parameters: {"user"=>{"username"=>"test2"}, "id"=>"16"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test2"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "test2"], ["updated_at", "2021-07-22 18:54:12.323736"], ["id", 16]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 8.0ms)
+
+
+Started DELETE "/users/18" for ::1 at 2021-07-22 14:54:36 -0400
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"test2"}, "id"=>"18"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:36
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 18]]
+  ↳ app/controllers/users_controller.rb:36
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/users_controller.rb:36
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:36
+Completed 200 OK in 78ms (Views: 2.5ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/users/" for ::1 at 2021-07-22 14:54:44 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"test2"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.5ms)
+
+
