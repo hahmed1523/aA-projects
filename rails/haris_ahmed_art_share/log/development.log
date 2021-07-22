@@ -1489,3 +1489,10 @@ Processing by UsersController#index as */*
 Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/artworks" for ::1 at 2021-07-22 15:05:41 -0400
+Processing by ArtworksController#index as */*
+  [1m[36mArtwork Load (1.0ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:3
+Completed 200 OK in 82ms (Views: 40.6ms | ActiveRecord: 13.3ms)
+
+
