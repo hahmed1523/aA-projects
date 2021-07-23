@@ -1722,3 +1722,115 @@ Completed 404 Not Found in 5ms (ActiveRecord: 1.7ms)
 ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=15):
   
 app/controllers/artworks_controller.rb:18:in `show'
+Started GET "/users" for ::1 at 2021-07-23 09:43:47 -0400
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"artwork"=>{"title"=>"testart4", "image_url"=>"testart4.com", "artist_id"=>"16"}}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:3
+Completed 200 OK in 71ms (Views: 11.4ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/artworks" for ::1 at 2021-07-23 09:43:54 -0400
+Processing by ArtworksController#index as */*
+  Parameters: {"artwork"=>{"title"=>"testart4", "image_url"=>"testart4.com", "artist_id"=>"16"}}
+  [1m[36mArtwork Load (3.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  ↳ app/controllers/artworks_controller.rb:3
+Completed 200 OK in 54ms (Views: 24.5ms | ActiveRecord: 10.6ms)
+
+
+  [1m[36mArtworkShare Load (5.0ms)[0m  [1m[34mSELECT "artwork_shares".* FROM "artwork_shares"[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/user?user[username]=test4" for ::1 at 2021-07-23 09:57:21 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/user"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2021-07-23 09:58:32 -0400
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"username"=>"test4"}}
+Completed 400 Bad Request in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:46:in `user_params'
+app/controllers/users_controller.rb:7:in `create'
+Started POST "/users" for ::1 at 2021-07-23 09:58:44 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"test4"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test4"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "test4"], ["created_at", "2021-07-23 13:58:44.206854"], ["updated_at", "2021-07-23 13:58:44.206854"]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 51ms (Views: 0.9ms | ActiveRecord: 20.0ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mArtwork Load (0.7ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/artwork_shares" for ::1 at 2021-07-23 10:02:36 -0400
+Processing by ArtworkSharesController#create as */*
+  Parameters: {"artwork_shares"=>{"artwork_id"=>"16", "viewer_id"=>"19"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/artwork_shares_controller.rb:6
+  [1m[36mArtworkShare Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artwork_shares" WHERE "artwork_shares"."viewer_id" = $1 AND "artwork_shares"."artwork_id" = $2 LIMIT $3[0m  [["viewer_id", 19], ["artwork_id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/artwork_shares_controller.rb:6
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/artwork_shares_controller.rb:6
+  [1m[36mArtwork Load (0.9ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" WHERE "artworks"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/artwork_shares_controller.rb:6
+  [1m[36mArtworkShare Create (3.1ms)[0m  [1m[32mINSERT INTO "artwork_shares" ("artwork_id", "viewer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["artwork_id", 16], ["viewer_id", 19], ["created_at", "2021-07-23 14:02:36.819350"], ["updated_at", "2021-07-23 14:02:36.819350"]]
+  ↳ app/controllers/artwork_shares_controller.rb:6
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/artwork_shares_controller.rb:6
+Completed 200 OK in 101ms (Views: 0.8ms | ActiveRecord: 26.7ms)
+
+
+  [1m[36mArtworkShare Load (0.6ms)[0m  [1m[34mSELECT  "artwork_shares".* FROM "artwork_shares" WHERE "artwork_shares"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Started DELETE "/artwork_shares/10" for ::1 at 2021-07-23 10:12:57 -0400
+Processing by ArtworkSharesController#destroy as */*
+  Parameters: {"artwork_shares"=>{"artwork_id"=>"16", "viewer_id"=>"19"}, "id"=>"10"}
+  [1m[36mArtworkShare Load (0.7ms)[0m  [1m[34mSELECT  "artwork_shares".* FROM "artwork_shares" WHERE "artwork_shares"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/artwork_shares_controller.rb:14
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/artwork_shares_controller.rb:16
+  [1m[36mArtworkShare Destroy (1.7ms)[0m  [1m[31mDELETE FROM "artwork_shares" WHERE "artwork_shares"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/artwork_shares_controller.rb:16
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/artwork_shares_controller.rb:16
+Completed 200 OK in 50ms (Views: 0.8ms | ActiveRecord: 21.3ms)
+
+
+  [1m[36mArtworkShare Load (1.0ms)[0m  [1m[34mSELECT  "artwork_shares".* FROM "artwork_shares" WHERE "artwork_shares"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
