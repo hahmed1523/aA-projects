@@ -1,9 +1,35 @@
 <h1><%= @cat.name %></h1>
 
-<h3>Birth Date: <%= @cat.birth_date %></h3>
-<h3>Color: <%= @cat.color %></h3>
-<h3>Sex: <%= @cat.sex %></h3>
 
-<p>
-    <%= @cat.description %>
-</p>
+<table>
+
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Age</td>
+            <td><%= @cat.age %></td>
+        </tr>
+
+        <tr>
+            <td>Birth Date</td>
+            <td><%= @cat.birth_date %></td>
+        </tr>
+
+        <tr>
+            <td>Color</td>
+            <td><%= @cat.color %></td>
+        </tr>
+
+        <tr>
+            <td>Sex</td>
+            <td><%= @cat.sex %></td>
+        </tr>
+    </tbody>
+
+
+</table>
