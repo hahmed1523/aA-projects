@@ -18,6 +18,7 @@ class CatsController < ApplicationController
 
     def new
         @colors = Cat::COLORS
+        @cat = Cat.new 
         render :new 
     end
 
