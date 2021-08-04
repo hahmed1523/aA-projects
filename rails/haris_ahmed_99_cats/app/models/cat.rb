@@ -18,6 +18,12 @@ class Cat < ApplicationRecord
     validates :color, inclusion: {in: COLORS, message: '%{value} is not a valid color'} 
     validates :sex, inclusion: {in: SEX, message: '%{value} is not a valid sex'}
 
+    has_many :requests,
+        dependent: :destroy,
+        primary_key: :id, #cat's id
+        foreign_key: :cat_id,
+        class_name: :CatRentalRequest
+
     def age
         ((Time.zone.now - self.birth_date.to_time)/ 1.year.seconds).floor
     end
