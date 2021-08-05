@@ -9,13 +9,14 @@ class CatRentalRequestsController < ApplicationController
 
 
     def create
-        # @cat = Cat.new(cat_params)
+        @cat_rental = CatRentalRequest.new(rent_params)
 
-        # if @cat.save
-        #     redirect_to cat_url(@cat)
-        # else
-        #     render :new 
-        # end
+        if @cat_rental.save 
+            redirect_to cat_url(@cat_rental.cat_id)
+        else
+            render :new 
+        end
+
     end
 
 
