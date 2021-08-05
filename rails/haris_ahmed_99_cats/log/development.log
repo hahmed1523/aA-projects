@@ -1664,3 +1664,40 @@ Migrating to AddIndexToCatRentalRequests (20210804144951)
   [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests"[0m
   [1m[36mCatRentalRequest Load (0.7ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests"[0m
+Started GET "/cats" for ::1 at 2021-08-05 09:54:38 -0400
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 453ms (Views: 424.7ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/cat_rental_requests/new" for ::1 at 2021-08-05 09:55:58 -0400
+
+ActionController::RoutingError - uninitialized constant CatRentalRequestsController:
+
+Started POST "/__better_errors/a759d27c3359aab6/variables" for ::1 at 2021-08-05 09:55:58 -0400
+Started GET "/cat_rental_requests/new" for ::1 at 2021-08-05 09:57:16 -0400
+
+ActionController::RoutingError - uninitialized constant CatRentalRequestsController:
+
+Started POST "/__better_errors/76355e610f32c4d2/variables" for ::1 at 2021-08-05 09:57:16 -0400
+Started GET "/cat_rental_requests/new" for ::1 at 2021-08-05 09:57:24 -0400
+
+ActionController::RoutingError - uninitialized constant CatRentalRequestsController:
+
+Started POST "/__better_errors/a5adf648957e05fb/variables" for ::1 at 2021-08-05 09:57:24 -0400
+Started GET "/cat_rental_requests/new" for ::1 at 2021-08-05 09:58:36 -0400
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  Rendered cat_rental_requests/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 64ms (Views: 30.5ms | ActiveRecord: 8.2ms)
+
+
+  [1m[36mCat Load (1.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats"."id" FROM "cats"[0m
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats"."id" FROM "cats"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "cats"."id" FROM "cats"[0m
