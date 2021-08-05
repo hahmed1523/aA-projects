@@ -47,13 +47,8 @@
         </tr>
     </thead>
     <tbody>
-        <% @requests.each do |request| %>
-        <tr>
-            <td><%= request.start_date %></td>
-            <td><%= request.end_date %></td>
-            <td><%= request.status %></td>
-            
-        </tr>
+        <% @requests.each do |req| %>
+            <%= render 'req_tr', req: req %>
         <% end %>
 
     </tbody>
