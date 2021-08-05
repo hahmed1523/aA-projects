@@ -3,7 +3,7 @@
 <form action="<%= cat_rental_requests_url %>" method="post">
     
     <label for="cats">Cat</label>
-    <select id="cats" name="cat_rental_requests[cat_id]">
+    <select id="cats" name="cat_rental_request[cat_id]">
         <option disabled selected>-- Select a Cat --</option>
         <% @cats.each do |cat| %>
             <option value="<%= cat.id %>"><%= cat.name %></option>
@@ -13,12 +13,12 @@
     <br>
 
     <label for="start_date">Start Date</label>
-    <input id="start_date" type="date" name="cat_rental_requests[start_date]">
+    <input id="start_date" type="date" name="cat_rental_request[start_date]">
 
     <br>
 
     <label for="end_date">End Date</label>
-    <input id="end_date" type="date" name="cat_rental_requests[end_date]">
+    <input id="end_date" type="date" name="cat_rental_request[end_date]">
 
     <br>
 

@@ -9,7 +9,8 @@ class CatsController < ApplicationController
     def show 
         @cat = Cat.find_by(id: params[:id])
 
-        if @cat 
+        if @cat
+            @requests = @cat.requests.order(:start_date)
             render :show
         else
             redirect_to cats_url
