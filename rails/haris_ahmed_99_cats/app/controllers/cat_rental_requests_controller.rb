@@ -3,7 +3,7 @@ class CatRentalRequestsController < ApplicationController
 
     def new 
         @cat_rental = CatRentalRequest.new 
-        @cat_ids = Cat.pluck(:id)
+        @cats = Cat.all 
         render :new
     end
 
