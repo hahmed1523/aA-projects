@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :require_current_user!, except: [:create, :new]
+    before_action :already_signed_in!
     def create
         @user = User.new(user_params)
 

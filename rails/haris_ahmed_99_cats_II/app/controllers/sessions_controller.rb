@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+    before_action :already_signed_in!, only: [:create, :new]
     def create 
         @user = User.find_by_credentials(
             params[:user][:username],
