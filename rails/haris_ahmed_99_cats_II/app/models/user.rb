@@ -17,6 +17,11 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6, allow_nil: true }
     after_initialize :ensure_session_token
 
+    has_many :cats,
+        primary_key: :id, #user's id,
+        foreign_key: :user_id,
+        class_name: :Cat 
+
 
     def password=(password)
         @password = password 
