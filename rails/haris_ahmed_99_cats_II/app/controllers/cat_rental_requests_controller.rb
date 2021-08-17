@@ -1,5 +1,5 @@
 class CatRentalRequestsController < ApplicationController
-  before_action :already_signed_in!, only: %i(approve deny)
+  before_action :require_current_user!, only: %i(approve deny)
   before_action :require_cat_ownership!, only: %i(approve deny)
 
   def approve
@@ -9,6 +9,7 @@ class CatRentalRequestsController < ApplicationController
 
   def create
     @rental_request = CatRentalRequest.new(cat_rental_request_params)
+    @rental_request.requester_id = current_user.id 
     if @rental_request.save
       redirect_to cat_url(@rental_request.cat)
     else
