@@ -21,6 +21,11 @@ class User < ApplicationRecord
         primary_key: :id, #user's id,
         foreign_key: :user_id,
         class_name: :Cat 
+    
+    has_many :requests,
+        primary_key: :id, #user's id,
+        foreign_key: :requester_id,
+        class_name: :CatRentalRequest
 
 
     def password=(password)
