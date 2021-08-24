@@ -160,3 +160,10 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/session/new" for ::1 at 2021-08-24 12:08:50 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 53ms (Views: 51.9ms | ActiveRecord: 0.0ms)
+
+
