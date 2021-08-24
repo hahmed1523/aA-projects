@@ -7,14 +7,21 @@ class SessionsController < ApplicationController
         )
 
         if user.nil?
-            render json: 'Credentials were wrong'
+            flash.now[:errors] = ["Incorrect email and/or password"]
+            render :new 
         else
-            render json: "Welcome back #{user.email}"
+            login!(user)
+            redirect_to user_url(user)
         end
     end
 
     def new
 
         render :new 
+    end
+
+    def destroy
+        logout! 
+        redirect_to new_session_url 
     end
 end

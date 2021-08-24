@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
+    before_action :require_current_user!, except: [:create, :new]
+
     def create
         @user = User.new(user_params)
 
-        if @user.save 
-            render json: @user 
+        if @user.save
+            login!(@user)
+            redirect_to user_url(@user) 
         else
-            render json: @user.errors.full_messages
+            flash.now[:errors] = @user.errors.full_messages
+            render :new 
         end
     end
 
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
         render :show 
     end
 
