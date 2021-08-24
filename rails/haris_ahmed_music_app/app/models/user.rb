@@ -10,6 +10,22 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
-    validates :email, :password_digest, :session_token, presence: true
+    attr_reader :password 
+
+    validates :email, :session_token, presence: true
+    validates :password_digest, presence { message: "Password can't be blank" }
     validates :email, uniqueness: true 
+    validates :password, length: { minimum: 6, allow_nil: true }
+
+
+    #set the password digest from the user provided password
+    def password=(password)
+        @password = password
+        self.password_digest = BCrypt::Password.create(password)
+    end
+
+    #simplify the password check
+    def is_password?(password)
+        BCrypt::Password.new(self.password_digest).is_password?(password)
+    end
 end
