@@ -1,0 +1,9 @@
+<h2 class="page-header">All the Bands</h2>
+
+<section class="bands-list"> 
+    <ul>
+        <% @bands.each do |band| %>
+            <li class="band-buttons"><a href="#"><%= band.name %></a></li>
+        <% end %>
+    </ul>
+</section>

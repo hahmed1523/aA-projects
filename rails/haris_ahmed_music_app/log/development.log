@@ -2040,3 +2040,161 @@ Migrating to CreateBands (20210825161719)
   [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/hahmed1523/.rbenv/versions/2.7.1/bin/annotate:23
   [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+Started GET "/bands" for ::1 at 2021-08-25 12:28:34 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  Rendered bands/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 48ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:29:34 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  Rendered bands/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:32:42 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (3.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 78ms (Views: 65.2ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:32:44 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 60ms (Views: 58.4ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBand Create (2.2ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test_band"], ["created_at", "2021-08-25 16:33:16.779983"], ["updated_at", "2021-08-25 16:33:16.779983"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/bands" for ::1 at 2021-08-25 12:33:21 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (2.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 86ms (Views: 77.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:34:06 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 69ms (Views: 67.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:34:24 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 65ms (Views: 61.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:34:26 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBand Create (0.8ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test_band2"], ["created_at", "2021-08-25 16:35:07.717225"], ["updated_at", "2021-08-25 16:35:07.717225"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/bands" for ::1 at 2021-08-25 12:35:11 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:37:08 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 209ms (Views: 206.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:37:22 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 127ms (Views: 124.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:37:58 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:38:00 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (3.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 67ms (Views: 62.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:38:01 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (2.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 67ms (Views: 63.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:38:08 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 132ms (Views: 130.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:38:24 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (2.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 109ms (Views: 106.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-25 12:38:53 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (4.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 113ms (Views: 108.0ms | ActiveRecord: 4.3ms)
+
+
