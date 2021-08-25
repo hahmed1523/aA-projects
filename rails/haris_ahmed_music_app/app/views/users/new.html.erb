@@ -1,5 +1,9 @@
-<h1>Sign Up!</h1>
+<section class="sign_up_section">
+    <h2 class="page-header">New User</h2>
 
-<%= render 'shared/errors' %>
+    <a class="button" href="<%= new_session_url %>">Go to Sign In!</a>
 
-<%= render "form", user: @user %>
+    <%= render 'shared/errors' %>
+
+    <%= render "form", user: @user %>
+</section>

@@ -1,26 +1,29 @@
-<h1>Sign In</h1>
+<section class="sign_in_section">
+    <h2 class="page-header">Sign-In</h2>
 
-<%= render 'shared/errors' %>
+    <a class="button" href="<%= new_user_url %>">Go to Sign-Up!</a>
 
-<form action="/session" method="POST">
-    <%= auth_token %>
+    <%= render 'shared/errors' %>
 
-    <label for="sign_in_user_email">Email</label>
-    <input
-        id="sign_in_user_email"
-        name="user[email]"
-        type="text">
+    <form action="/session" method="POST">
+        <%= auth_token %>
+        
+        <p>
+            <label for="sign_in_user_email">Email</label>
+            <input
+                id="sign_in_user_email"
+                name="user[email]"
+                type="text">
+        </p>
 
-    <br>
+        <p>
+        <label for="sign_in_user_password">Password</label>
+        <input
+            id="sign_in_user_password"
+            name="user[password]"
+            type="password">
+        </p>
 
-    <label for="sign_in_user_password">Password</label>
-    <input
-        id="sign_in_user_password"
-        name="user[password]"
-        type="password">
-    
-    <br>
+        <input type="submit" value="Sign In">
 
-    <input type="submit" value="Sign In">
-
-</form>
+    </form>

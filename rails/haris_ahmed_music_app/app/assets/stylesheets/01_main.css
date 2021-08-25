@@ -1,0 +1,40 @@
+body {
+    background-color: #000;
+}
+
+main {
+    background-color: #343030;
+    width: 900px;
+    margin: auto;
+}
+
+.main-logo{
+    font-size: 75px;
+    margin-bottom: 30px;
+    color: #FDDB61;
+}
+
+.page-header {
+    font-size: 40px;
+    color: #39BAAC;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Bungee Inline', cursive;
+}
+
+p, a, input {
+    font-family: 'Raleway', sans-serif;
+}
+
+.button {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: skyblue;
+    color: #000;
+    margin-bottom: 20px;
+    width: 120px;
+    text-align: center;
+}
