@@ -4,20 +4,26 @@ body {
 
 main {
     background-color: #343030;
-    width: 900px;
+    width: 800px;
     margin: auto;
+    padding: 30px;
+    border: solid grey;
+    border-width: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-logo{
     font-size: 75px;
-    margin-bottom: 30px;
+    margin-bottom: 150px;
     color: #FDDB61;
 }
 
 .page-header {
     font-size: 40px;
     color: #39BAAC;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 h1, h2, h3, h4 {
@@ -52,4 +58,25 @@ input[type="submit"]{
     background-color: skyblue;
     padding: 10px;
     border-radius: 5px;
+    width: 80px;
+    text-align: center;
+    align-self: flex-end;   
 }
+
+form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+form p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form p label, form p input {
+    display: block;
+}
+
