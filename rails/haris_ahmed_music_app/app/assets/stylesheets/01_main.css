@@ -24,8 +24,12 @@ h1, h2, h3, h4 {
     font-family: 'Bungee Inline', cursive;
 }
 
+p {
+    color: white;
+}
 p, a, input {
     font-family: 'Raleway', sans-serif;
+    font-size : 18px;
 }
 
 .button {
@@ -35,6 +39,17 @@ p, a, input {
     background-color: skyblue;
     color: #000;
     margin-bottom: 20px;
-    width: 120px;
+    width: 125px;
     text-align: center;
+}
+
+input[type="text"],input[type="password"]  {
+    width: 200px;
+    background-color: white;;
+}
+
+input[type="submit"]{
+    background-color: skyblue;
+    padding: 10px;
+    border-radius: 5px;
 }
