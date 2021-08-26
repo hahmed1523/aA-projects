@@ -1,0 +1,9 @@
+<h2 class="page-header"><%= @band.name %> - Albums</h2>
+
+<section class="album-list">
+    <ul>
+    <% @albums.each do |album| %>
+        <a href="<%= album_url(album) %>"><li class="album-buttons"><%= album.title %></li></a>
+    <% end %>
+    </ul>
+</section>
