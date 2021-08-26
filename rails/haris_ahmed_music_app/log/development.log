@@ -2331,3 +2331,211 @@ Processing by BandsController#index as HTML
 Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/bands/1" for ::1 at 2021-08-26 09:47:32 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 49ms (Views: 28.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/bands/3" for ::1 at 2021-08-26 09:47:36 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-26 09:47:36 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (2.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 46ms (Views: 42.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/new" for ::1 at 2021-08-26 09:51:48 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/bands/new" for ::1 at 2021-08-26 09:51:53 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 45ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-08-26 09:57:22 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.7ms)
+  Rendered bands/_form.html.erb (5.2ms)
+  Rendered bands/new.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `persisted?' for nil:NilClass:
+  app/views/bands/_form.html.erb:1:in `_app_views_bands__form_html_erb___2864186484889137317_25540'
+  app/views/bands/new.html.erb:5:in `_app_views_bands_new_html_erb___3046902049380759542_25500'
+  app/controllers/bands_controller.rb:19:in `new'
+
+Started POST "/__better_errors/5df7e07617360ac9/variables" for ::1 at 2021-08-26 09:57:22 -0400
+Started GET "/bands/new" for ::1 at 2021-08-26 09:58:38 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.9ms)
+  Rendered bands/_form.html.erb (1.3ms)
+  Rendered bands/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 72ms (Views: 47.6ms | ActiveRecord: 10.1ms)
+
+
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/bands/new" for ::1 at 2021-08-26 10:24:24 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.6ms)
+  Rendered bands/_form.html.erb (2.3ms)
+  Rendered bands/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 96ms (Views: 66.9ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/bands" for ::1 at 2021-08-26 10:24:26 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"wo8mYkCnmXqQzNFfXik8p7rO1SqAZs5bLuH0tgbQl8D7yQQgTZDObFDWLdikEmfsjH0ozSTpa/cRJ22KkMgimg==", "band"=>{"name"=>""}}
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:26
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:26
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.4ms)
+  Rendered bands/_form.html.erb (1.4ms)
+  Rendered bands/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 90ms (Views: 67.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-08-26 10:25:04 -0400
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/new" for ::1 at 2021-08-26 10:27:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/bands/new" for ::1 at 2021-08-26 10:27:20 -0400
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.2ms)
+  Rendered bands/_form.html.erb (1.6ms)
+  Rendered bands/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 113ms (Views: 111.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2021-08-26 10:27:22 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"PZXNX24Xdlv4voE2BX9o9Y7MsJqsG7r9QhPa8jQGj9QE0+8dYyAhTTikfbH/RDO+uH9NfQiUH1F91UPOoh46jg==", "band"=>{"name"=>""}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:26
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:26
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (2.3ms)
+  Rendered bands/_form.html.erb (1.1ms)
+  Rendered bands/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 74ms (Views: 66.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/bands" for ::1 at 2021-08-26 10:27:29 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"Wx6uRsFG60MKWo8bvMj+D0YQV09yD9obYfqzUck0QhhiWIwEzHG8VcpAc5xG86VEcKOqqNaAf7dePCptXyz3Qg==", "band"=>{"name"=>""}}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:26
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:26
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.4ms)
+  Rendered bands/_form.html.erb (2.3ms)
+  Rendered bands/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 80ms (Views: 64.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/bands" for ::1 at 2021-08-26 10:27:44 -0400
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"WHWqthxZUFFlKt4joCXnH+K4Q8sMcMwjFodmcbSIsaFhM4j0EW4HR6UwIqRaHrxU1Au+LKj/aY8pQf9NIpAE+w==", "band"=>{"name"=>""}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:26
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:26
+  Rendering bands/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.8ms)
+  Rendered bands/_form.html.erb (2.5ms)
+  Rendered bands/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 146ms (Views: 133.4ms | ActiveRecord: 0.7ms)
+
+

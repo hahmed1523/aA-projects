@@ -80,3 +80,7 @@ form p label, form p input {
     display: block;
 }
 
+.error {
+    color: red;
+    margin-bottom: 20px;
+}
