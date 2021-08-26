@@ -3,7 +3,7 @@
 <section class="bands-list"> 
     <ul>
         <% @bands.each do |band| %>
-            <li class="band-buttons"><a href="#"><%= band.name %></a></li>
+            <a href="<%= band_url(band) %>"><li class="band-buttons"><%= band.name %></li></a>
         <% end %>
     </ul>
 </section>
