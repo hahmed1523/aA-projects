@@ -18,8 +18,8 @@
     <main>
       <section class="login-section">
       <% if !current_user.nil? %>
-        <p>Hello, <%= @user.email %></p>
-        <form action="<%= session_url %>" method="POST">
+        <p>Hello, <%= current_user.email %></p>
+        <form class="logoff-button" action="<%= session_url %>" method="POST">
           <%= auth_token %>
           <input type="hidden" value="delete" name="_method"/>
           <input type="submit" value="Logout"/>
