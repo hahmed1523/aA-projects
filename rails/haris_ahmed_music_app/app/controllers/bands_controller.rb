@@ -31,6 +31,35 @@ class BandsController < ApplicationController
         end
     end
 
+
+    def edit
+        @band = Band.find_by(id: params[:id])
+        render :edit 
+    end
+
+    def update
+        @band = Band.find_by(id: params[:id])
+
+        if @band.update_attributes(band_params)
+            redirect_to band_url(@band)
+        else
+            flash.now[:errors] = @band.errors.full_messages
+            render :edit 
+        end
+    end
+
+    def destroy
+        @band = Band.find_by(id: params[:id])
+
+        if @band
+            @band.destroy
+            redirect_to bands_url 
+        else
+            flash.now[:errors] = @band.errors.full_messages
+            redirect_to bands_url 
+        end
+    end
+
     private
     def band_params
         params.require(:band).permit(:name)

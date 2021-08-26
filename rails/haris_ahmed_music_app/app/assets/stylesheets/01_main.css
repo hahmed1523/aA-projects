@@ -51,7 +51,8 @@ p, a, input {
 
 input[type="text"],input[type="password"]  {
     width: 200px;
-    background-color: white;;
+    background-color: white;
+    color: black;
 }
 
 input[type="submit"]{
@@ -83,4 +84,13 @@ form p label, form p input {
 .error {
     color: red;
     margin-bottom: 20px;
+}
+
+.delete-button input[type="submit"]{
+    background-color: orangered;
+    padding: 10px;
+    border-radius: 5px;
+    width: 125px;
+    text-align: center;
+    align-self: center;   
 }

@@ -1,1 +1,11 @@
+<a class="button" href="<%= bands_url %>">Home</a>
+
 <h2 class="page-header"><%= @band.name %></h2>
+
+<a class="button" href="<%= edit_band_path(@band) %>">Edit</a>
+
+<form class="delete-button" action="<%= band_url(@band) %>" method="POST">
+    <%= auth_token %>
+    <input type="hidden" value="DELETE" name="_method" />
+    <input type="submit" value="Delete">
+</form>
