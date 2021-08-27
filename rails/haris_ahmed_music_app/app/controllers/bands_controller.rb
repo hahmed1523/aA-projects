@@ -7,8 +7,10 @@ class BandsController < ApplicationController
 
     def show
         @band = Band.find_by(id: params[:id])
+        
 
-        if @band 
+        if @band
+            @albums = @band.albums
             render :show
         else 
             redirect_to bands_url

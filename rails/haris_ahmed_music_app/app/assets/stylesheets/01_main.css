@@ -64,7 +64,6 @@ input[type="submit"]{
     background-color: skyblue;
     padding: 10px;
     border-radius: 5px;
-    width: 80px; 
     text-align: center;
 }
 
@@ -104,13 +103,16 @@ form p label, form p input {
     margin-bottom: 20px;
 }
 
+.delete-button {
+    min-width: 100px;
+}
+
 .delete-button input[type="submit"]{
     background-color: orangered;
     padding: 10px;
     border-radius: 5px;
-    min-width: 100px;
     text-align: center;
-    align-self: center;   
+    display: inline-block;
 }
 
 .delete-button input[type="submit"]:hover{
