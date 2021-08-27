@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
 
+
     # def index
     #     if params.has_key?(:band_id)
     #         @band = Band.find_by(id: params[:band_id])
@@ -13,7 +14,7 @@ class AlbumsController < ApplicationController
     def new
         @band = Band.find_by(id: params[:band_id])
         @album = Album.new
-        render :new 
+        render :new  
     end
 
     def create
@@ -71,6 +72,6 @@ class AlbumsController < ApplicationController
 
     private
     def album_params
-        params.require(:album).permit(:title, :year, :live?, :band_id)
+        params.require(:album).permit(:title, :year, :live, :band_id)
     end
 end
