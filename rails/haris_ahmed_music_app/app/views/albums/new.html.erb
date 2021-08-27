@@ -1,1 +1,5 @@
-<h2 class="page-header">Add Album</h2>
+<h2 class="page-header">New <%= @band.name %> Album!</h2>
+
+<%= render 'shared/errors' %>
+
+<%= render "form", band: @band, album: @album %>

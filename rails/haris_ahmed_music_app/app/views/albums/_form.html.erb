@@ -1,0 +1,25 @@
+<% action = (album.persisted? ? album_url(album) : new_band_album_url) %>
+<% method = (album.persisted? ? "patch" : "post") %>
+<% message = (album.persisted? ? "Update" : "Create Album!") %>
+
+<form class="main-form" action="<%= action %>" method="post"> 
+    <input
+        name="_method"
+        type="hidden"
+        value="<%= method %>">
+
+    <%= auth_token %>
+
+    <p>
+        <label for="album_title">Album Title</label>
+        <input
+            id="album_title"
+            name="album[title]"
+            type="text"
+            value="<%= @album.title %>">
+    </p>
+
+
+    <input type="submit" value="<%= message %>">
+
+</form>
