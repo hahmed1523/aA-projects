@@ -1,6 +1,27 @@
+.bands-section {
+    width: 100%;
+}
+
+.bands-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .band-buttons {
-    background-color: lightgoldenrodyellow;
-    padding: 10px;
+    background-color: #FDDB61;
+    padding: 30px;
     border-radius: 5px;
     margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.band-buttons:hover {
+    background-color: #ecb900;
+}
+
+.links-header {
+    font-size: 25px;
+    color: coral;
+    margin-bottom: 25px;
 }

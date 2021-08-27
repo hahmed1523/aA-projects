@@ -9,4 +9,11 @@ class AlbumsController < ApplicationController
             redirect_to bands_url
         end 
     end
+
+    def new
+        render :new 
+    end
+
+    def create
+    end
 end

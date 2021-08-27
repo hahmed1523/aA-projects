@@ -16,7 +16,7 @@ main {
 
 .main-logo{
     font-size: 75px;
-    margin-bottom: 150px;
+    margin: 50px 0;
     color: #FDDB61;
 }
 
@@ -39,14 +39,19 @@ p, a, input {
 }
 
 .button {
-    display: block;
+    display: inline-block;
     padding: 10px;
     border-radius: 5px;
     background-color: skyblue;
     color: #000;
-    margin-bottom: 20px;
-    width: 125px;
+    /* width: 125px; */
+    min-width: 100px;
     text-align: center;
+}
+
+.button:hover {
+    background-color: #0a00ff;
+    color: white;
 }
 
 input[type="text"],input[type="password"]  {
@@ -59,16 +64,23 @@ input[type="submit"]{
     background-color: skyblue;
     padding: 10px;
     border-radius: 5px;
-    width: 80px;
+    width: 80px; 
     text-align: center;
-    align-self: flex-end;   
+}
+
+input[type="submit"]:hover {
+    background-color: #0a00ff;
+    color: white;
+}
+
+.main-form input[type="submit"]{
+    text-align: center;
+    align-self: flex-end;  
 }
 
 form {
-    width: 400px;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 100px;
+    flex-direction: column;   
 }
 
 form p {
@@ -81,6 +93,12 @@ form p label, form p input {
     display: block;
 }
 
+.main-form{
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
 .error {
     color: red;
     margin-bottom: 20px;
@@ -90,25 +108,26 @@ form p label, form p input {
     background-color: orangered;
     padding: 10px;
     border-radius: 5px;
-    width: 125px;
+    min-width: 100px;
     text-align: center;
     align-self: center;   
 }
 
+.delete-button input[type="submit"]:hover{
+    background-color: darkred;
+}
+
 .login-section {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    align-self: flex-end;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
-.logoff-button input[type="submit"] {
-    background-color: orangered;
-    font-size: 11px;
-    width: 40px;
-    margin-top: 10px;
+.login-info {
+    display: flex;
 }
 
-.login-section p {
-    font-size: 11px;
+.login-info p {
+    margin: 10px
 }

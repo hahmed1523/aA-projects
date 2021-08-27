@@ -2,7 +2,7 @@
 <% method = (user.persisted? ? "patch" : "post") %>
 <% message = (user.persisted? ? "Update" : "Submit") %>
 
-<form action="<%= action %>" method="post"> 
+<form class="main-form" action="<%= action %>" method="post"> 
     <input
         name="_method"
         type="hidden"

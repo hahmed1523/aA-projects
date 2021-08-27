@@ -16,18 +16,24 @@
   <body>
 
     <main>
-      <section class="login-section">
-      <% if !current_user.nil? %>
-        <p>Hello, <%= current_user.email %></p>
-        <form class="logoff-button" action="<%= session_url %>" method="POST">
-          <%= auth_token %>
-          <input type="hidden" value="delete" name="_method"/>
-          <input type="submit" value="Logout"/>
-        </form>
-    <% end %>
-    </section>
 
       <h1 class="main-logo">Music App</h1>
+
+      <section class="login-section">
+      <% if !current_user.nil? %>
+        <a class="button" href="<%= bands_url %>">Take me Home</a>
+        <div class="login-info">
+          <p>Hello, <%= current_user.email %></p>
+          <form class="logoff-button" action="<%= session_url %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" value="delete" name="_method"/>
+            <input type="submit" value="Logout"/>
+          </form>
+        </div>
+
+      <% end %>
+      </section>
+
     
 
     <%= yield %>
