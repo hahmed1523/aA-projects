@@ -1,0 +1,18 @@
+<h2 class="page-header"><%= @album.title %></h2>
+
+
+<h3 class="links-header">Links</h3>
+
+<section class="links-section">
+    <a class="button" href="#">New Track</a>
+
+    <a class="button" href="<%= edit_album_url(@album) %>">Edit Album</a>
+
+    <form class="delete-button" action="<%= album_url(@album) %>" method="POST">
+        <%= auth_token %>
+        <input type="hidden" value="DELETE" name="_method" />
+        <input type="submit" value="Destroy Album">
+    </form>
+
+    <a class="button" href="<%= band_url(@album.band) %>">Back to <%= @album.band.name %></a>
+</section>

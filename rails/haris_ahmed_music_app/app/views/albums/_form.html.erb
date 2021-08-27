@@ -1,4 +1,4 @@
-<% action = (album.persisted? ? album_url(album) : new_band_album_url) %>
+<% action = (album.persisted? ? album_url(album) : albums_path) %>
 <% method = (album.persisted? ? "patch" : "post") %>
 <% message = (album.persisted? ? "Update" : "Create Album!") %>
 
@@ -11,14 +11,35 @@
     <%= auth_token %>
 
     <p>
-        <label for="album_title">Album Title</label>
+        <label for="album_title">Title</label>
         <input
             id="album_title"
             name="album[title]"
             type="text"
-            value="<%= @album.title %>">
+            value="<%= album.title %>">
     </p>
 
+    <p>
+        <label for="album_live">Live</label>
+        <input type="radio" id="album_live", name="album[live?]", value="true" <%= album.live? ? "checked" : "" %>>
+
+        <label for="album_studio">Studio</label>
+        <input type="radio" id="album_studio", name="album[live?]", value="false" <%= album.live? ? "" : "checked"  %>>
+    </p>
+
+    <p>
+        <label for="album_year">Year</label>
+        <input
+            id="album_year"
+            name="album[year]"
+            type="number"
+            value="<%= album.year %>">
+    </p>
+        <input
+        id="album_band_id"
+        name="album[band_id]"
+        type="hidden"
+        value="<%= band.id %>">
 
     <input type="submit" value="<%= message %>">
 

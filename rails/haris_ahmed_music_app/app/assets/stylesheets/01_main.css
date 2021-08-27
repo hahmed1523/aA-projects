@@ -54,7 +54,7 @@ p, a, input {
     color: white;
 }
 
-input[type="text"],input[type="password"]  {
+input[type="text"],input[type="password"] , input[type="number"]  {
     width: 200px;
     background-color: white;
     color: black;
