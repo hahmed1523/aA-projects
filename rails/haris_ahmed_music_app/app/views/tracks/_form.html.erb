@@ -43,6 +43,13 @@
             type="number"
             value="<%= track.ord %>">
     </p>
+    <p>
+        <label for="track_lyrics">Lyrics</label>
+        <textarea name="track[lyrics]">
+            <%= @track.lyrics %>
+        </textarea>
+            
+    </p>
         <input
         id="track_album_id"
         name="track[album_id]"
