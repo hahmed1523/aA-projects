@@ -1,0 +1,54 @@
+<% action = (track.persisted? ? track_url(track) : tracks_path) %>
+<% method = (track.persisted? ? "patch" : "post") %>
+<% message = (track.persisted? ? "Update" : "Create track!") %>
+
+<form class="main-form" action="<%= action %>" method="post"> 
+    <input
+        name="_method"
+        type="hidden"
+        value="<%= method %>">
+
+    <%= auth_token %>
+
+    <p>
+        <label for="track_title">Title</label>
+        <input
+            id="track_title"
+            name="track[title]"
+            type="text"
+            value="<%= track.title %>">
+    </p>
+
+    <p>
+        <label for="track_bonus">Bonus</label>
+        <input type="radio" 
+            id="track_bonus" 
+            name="track[bonus]" 
+            value="true" 
+            <%= "checked" if track.bonus%>>
+
+        <label for="track_regular">Regular</label>
+        <input type="radio" 
+            id="track_regular" 
+            name="track[bonus]"
+             value="false" 
+             <%= "checked" if !track.bonus %>>
+    </p>
+
+    <p>
+        <label for="track_ord">Ord</label>
+        <input
+            id="track_ord"
+            name="track[ord]"
+            type="number"
+            value="<%= track.ord %>">
+    </p>
+        <input
+        id="track_album_id"
+        name="track[album_id]"
+        type="hidden"
+        value="<%= album.id %>">
+
+    <input type="submit" value="<%= message %>">
+
+</form>

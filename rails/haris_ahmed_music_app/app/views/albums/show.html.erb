@@ -1,10 +1,19 @@
 <h2 class="page-header"><%= @album.title %></h2>
 
+<h3 class="links-header"> Tracks</h3>
+
+<section class="bands-section">
+    <ul class="bands-list">
+    <% @tracks.each do |track| %>
+        <a href="<%= track_url(track) %>"><li class="band-buttons"><%= track.title %></li></a>
+    <% end %>
+    </ul>
+</section>
 
 <h3 class="links-header">Links</h3>
 
 <section class="links-section">
-    <a class="button" href="#">New Track</a>
+    <a class="button" href="<%= new_album_track_path(@album) %>">New Track</a>
 
     <a class="button" href="<%= edit_album_url(@album) %>">Edit Album</a>
 
