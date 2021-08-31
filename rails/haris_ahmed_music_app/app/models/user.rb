@@ -18,6 +18,10 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6, allow_nil: true }
     after_initialize :ensure_session_token
 
+    has_many :notes,
+        primary_key: :id, #user's id
+        foreign_key: :user_id,
+        class_name: :Note 
 
     #set the password digest from the user provided password
     def password=(password)

@@ -26,6 +26,11 @@ class Track < ApplicationRecord
     has_one :band,
         through: :album,
         source: :band 
+    
+    has_many :notes,
+        primary_key: :id, #track's id
+        foreign_key: :track_id,
+        class_name: :Note 
 
 
     def set_defaults
