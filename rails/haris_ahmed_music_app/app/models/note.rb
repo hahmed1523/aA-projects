@@ -21,4 +21,5 @@ class Note < ApplicationRecord
         primary_key: :id, #user's id
         foreign_key: :user_id,
         class_name: :User 
+
 end

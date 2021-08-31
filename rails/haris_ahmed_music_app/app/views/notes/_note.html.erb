@@ -1,0 +1,6 @@
+<ul class="notes-list">
+    <% notes.each do |note| %>
+        <li><%= note.message %></li>
+        <li>Authored by: <%= note.user.email %></li>
+    <% end %>
+</ul>
