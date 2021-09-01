@@ -1,0 +1,31 @@
+<% action = notes_path %>
+<% method = "post"%>
+<% message = "Create Note!" %>
+
+<form class="main-form" action="<%= action %>" method="post"> 
+    <input
+        name="_method"
+        type="hidden"
+        value="<%= method %>">
+
+    <%= auth_token %>
+      
+    <p>
+        <label for="note_message">Content</label>
+        <textarea 
+            name="note[message]"
+            rows="7"
+            cols="25">
+            
+        </textarea>
+            
+    </p>
+
+    <input
+        name="note[track_id]"
+        type="hidden"
+        value="<%= track.id %>">
+
+    <input type="submit" value="<%= message %>">
+
+</form>

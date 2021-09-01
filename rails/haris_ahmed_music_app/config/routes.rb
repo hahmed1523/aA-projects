@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'users#new'
+  root to: redirect('/bands')
   
   resources :users, only: [:new, :create, :show]
 
@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :tracks, only: [:show, :edit, :update, :create, :destroy]
+
+  resources :notes, only: [:create, :destroy]
 
 end
