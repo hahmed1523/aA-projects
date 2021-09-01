@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+    before_action :require_current_user!
+    
     def create 
         @note = Note.new(note_params)
         @note.user_id = current_user.id 
@@ -13,6 +15,16 @@ class NotesController < ApplicationController
     end
 
     def destroy
+        @note = Note.find_by(id: params[:id])
+        track = @note.track_id
+
+        if @note  
+            @note.destroy
+            redirect_to track_url(track) 
+        else
+            flash.now[:errors] = @track.errors.full_messages
+            redirect_to track_url(track)
+        end
     end
 
 

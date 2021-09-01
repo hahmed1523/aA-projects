@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    before_action :already_logged_in!
+    before_action :already_logged_in!, only: [:create, :new]
     
     def create
         user = User.find_by_credentials(

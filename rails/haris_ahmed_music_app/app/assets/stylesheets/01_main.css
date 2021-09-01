@@ -145,4 +145,23 @@ form p label, form p input {
 
 .notes-list{
     width: 400px;
+
+}
+
+.notes-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-delete-button input[type="submit"]{
+    background-color: orangered;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.note-delete-button input[type="submit"]:hover{
+    background-color: darkred;
 }

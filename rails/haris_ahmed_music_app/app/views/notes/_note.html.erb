@@ -1,6 +1,18 @@
 <ul class="notes-list">
     <% notes.each do |note| %>
-        <li><%= note.message %></li>
-        <li>Authored by: <%= note.user.email %></li>
+        <section class="notes-section">
+            <section class="notes-info">
+                <li><%= note.message %></li>
+                <li>Authored by: <%= note.user.email %></li>
+            </section>
+            <% if note.user_id == current_user.id %>
+            <form class="note-delete-button" action="<%= note_url(note.id) %>" method="POST">
+                <%= auth_token %>
+                <input type="hidden" value="DELETE" name="_method" />
+                <input type="submit" value="Destroy Note">
+            </form>
+        <% end %>
+        </section>
+
     <% end %>
 </ul>
