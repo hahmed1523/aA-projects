@@ -14626,3 +14626,20 @@ Migrating to RemoveActivationTokenToNullToUsers (20210903164640)
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
   [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "XHMj_aNgPVDRod9tHv4yxQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_3koPs8aqriOzLL2e4N9_Q"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "zHgnaE4WvBVCkWvoqViN9g"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xnbNUAvfDi4jY9TfP5hIQw"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xZA_9eRCKza1YuZD056IBw"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kvD8uGIrLbryuNcKGeADQQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "N44d2vvCD-pWJpTzqpz77A"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "iWwvG529OJTyExYdYxhkBA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ijuGFwTwvt5r_tJzl0XdaQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bmwh7TtmqxXguPJsxG-oGQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kAv8zTYGEuoJUY0HogcbWg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Mpya5XhWcCKxR-h5UgF0Dw"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "CH0E0aAlqirg7R_93X8u7w"], ["LIMIT", 1]]

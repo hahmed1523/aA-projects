@@ -44,7 +44,7 @@ class User < ApplicationRecord
     #Create session token if not already exist. Ensure and reset as well.
     def self.generate_session_token
         token = SecureRandom::urlsafe_base64(16)
-        while self.class.exists?(session_token: token)
+        while self.exists?(session_token: token)
             token = SecureRandom.urlsafe_base64(16)
         end
 
@@ -66,7 +66,7 @@ class User < ApplicationRecord
     end
 
     def activate!
-        self.update_attribute(activated: true)
+        self.update_attribute(:activated, true)
     end
 
     private 

@@ -1,0 +1,16 @@
+<h1>Welcome <%= @user.email %></h1>
+
+<p>
+    You have successfully signed up to Music App!
+    Please activate your account by visiting this link: 
+    <a href="<%= activate_users_url(activation_token_1: @user.activation_token_1) %>">Activate</a>
+</p>
+
+<p>
+    If you can't click the link, copy and paste this URL into your browser:
+    <%= activate_users_url(activation_token_1: @user.activation_token_1) %>
+</p>
+
+<p>
+    Thanks for joining and have a great day!
+</p>
