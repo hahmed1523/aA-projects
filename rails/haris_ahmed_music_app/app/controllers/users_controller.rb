@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         if @user.save
             msg = UserMailer.activation_email(@user)
             msg.deliver_now!
-            flash[:notice] = 'Successfully created your account! Check your inbox for an activation email'
+            flash[:notices] = 'Successfully created your account! Check your inbox for an activation email'
             redirect_to new_session_url 
         else
             flash.now[:errors] = @user.errors.full_messages
