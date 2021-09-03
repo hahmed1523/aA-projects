@@ -12,11 +12,12 @@
 class User < ApplicationRecord
     attr_reader :password 
 
-    validates :email, :session_token, presence: true
+    validates :email, :session_token, :activation_token_1, presence: true
     validates :password_digest, presence: { message: "Password can't be blank" }
     validates :email, uniqueness: true 
     validates :password, length: { minimum: 6, allow_nil: true }
     after_initialize :ensure_session_token
+    after_initialize :set_activation_token
 
     has_many :notes,
         primary_key: :id, #user's id
@@ -42,7 +43,12 @@ class User < ApplicationRecord
 
     #Create session token if not already exist. Ensure and reset as well.
     def self.generate_session_token
-        SecureRandom::urlsafe_base64(16)
+        token = SecureRandom::urlsafe_base64(16)
+        while self.class.exists?(session_token: token)
+            token = SecureRandom.urlsafe_base64(16)
+        end
+
+        token 
     end
 
     def reset_session_token!
@@ -51,10 +57,25 @@ class User < ApplicationRecord
         self.session_token 
     end
 
+    def generate_unique_activation_token
+        token = SecureRandom.urlsafe_base64(16)
+        while self.class.exists?(activation_token_1: token)
+            token = SecureRandom.urlsafe_base64(16)
+        end
+        token 
+    end
+
+    def activate!
+        self.update_attribute(activated: true)
+    end
+
     private 
     def ensure_session_token 
         self.session_token ||= self.class.generate_session_token
     end
 
+    def set_activation_token
+        self.activation_token_1 = generate_unique_activation_token 
+    end
 
 end

@@ -17,7 +17,7 @@ class Note < ApplicationRecord
         foreign_key: :track_id,
         class_name: :Track 
     
-    belongs_to :user,
+        belongs_to :user,
         primary_key: :id, #user's id
         foreign_key: :user_id,
         class_name: :User 
