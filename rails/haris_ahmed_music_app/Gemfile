@@ -54,6 +54,7 @@ group :development do
   gem 'pry-rails'
   gem 'bcrypt'
   gem 'letter_opener'
+  gem 'mailcatcher'
 end
 
 group :test do
