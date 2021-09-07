@@ -8,6 +8,9 @@
     </ul>
 </section>
 
-<h3 class="links-header">Links</h3>
+<% if current_user.administrator %>
+    <h3 class="links-header">Links</h3>
 
-<a class="button" href="<%= new_band_path %>">Add Band</a>
+
+    <a class="button" href="<%= new_band_path %>">Add Band</a>
+<% end %>

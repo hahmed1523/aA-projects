@@ -13,15 +13,17 @@
 <h3 class="links-header">Links</h3>
 
 <section class="links-section">
-    <a class="button" href="<%= new_album_track_path(@album) %>">New Track</a>
+    <% if current_user.administrator %>
+        <a class="button" href="<%= new_album_track_path(@album) %>">New Track</a>
 
-    <a class="button" href="<%= edit_album_url(@album) %>">Edit Album</a>
+        <a class="button" href="<%= edit_album_url(@album) %>">Edit Album</a>
 
-    <form class="delete-button" action="<%= album_url(@album) %>" method="POST">
-        <%= auth_token %>
-        <input type="hidden" value="DELETE" name="_method" />
-        <input type="submit" value="Destroy Album">
-    </form>
+        <form class="delete-button" action="<%= album_url(@album) %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" value="DELETE" name="_method" />
+            <input type="submit" value="Destroy Album">
+        </form>
+    <% end %>
 
     <a class="button" href="<%= band_url(@album.band) %>">Back to <%= @album.band.name %></a>
 </section>

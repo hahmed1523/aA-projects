@@ -19,6 +19,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6, allow_nil: true }
     after_initialize :ensure_session_token
     after_initialize :set_activation_token
+    after_initialize :set_defaults
 
     has_many :notes,
         primary_key: :id, #user's id

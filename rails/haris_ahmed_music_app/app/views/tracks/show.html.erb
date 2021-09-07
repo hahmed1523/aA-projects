@@ -15,14 +15,15 @@
 <h3 class="links-header">Links</h3>
 
 <section class="links-section">
+    <% if current_user.administrator %>
+        <a class="button" href="<%= edit_track_url(@track) %>">Edit Track</a>
 
-    <a class="button" href="<%= edit_track_url(@track) %>">Edit Track</a>
-
-    <form class="delete-button" action="<%= track_url(@track) %>" method="POST">
-        <%= auth_token %>
-        <input type="hidden" value="DELETE" name="_method" />
-        <input type="submit" value="Destroy Track">
-    </form>
+        <form class="delete-button" action="<%= track_url(@track) %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" value="DELETE" name="_method" />
+            <input type="submit" value="Destroy Track">
+        </form>
+    <% end %>
 
     <a class="button" href="<%= album_url(@track.album) %>"><%= @track.album.title %></a>
 </section>
