@@ -1,0 +1,31 @@
+.user-list {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.user-headers {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-list li {
+    color: white;
+}
+.user-list li {
+    font-family: 'Raleway', sans-serif;
+    font-size : 18px;
+    margin-bottom: 40px;
+}
+
+.user-headers li {
+    font-size: 25px;
+    color: coral;
+    margin-bottom: 25px;   
+}

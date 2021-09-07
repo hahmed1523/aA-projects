@@ -16303,3 +16303,1992 @@ Processing by BandsController#index as HTML
 Completed 200 OK in 73ms (Views: 64.2ms | ActiveRecord: 3.0ms)
 
 
+Started GET "/users" for ::1 at 2021-09-07 11:26:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zfD3bqv-oj_irCKcYjNJXw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KqU0XbGDe6-nIBd-9FZ96w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Filter chain halted as :already_logged_in! rendered or redirected
+Completed 302 Found in 45ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:26:28 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zfD3bqv-oj_irCKcYjNJXw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "luZBgu3MvOeZwJnSe-o5FQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 75ms (Views: 57.4ms | ActiveRecord: 7.9ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-07 11:26:35 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IeCNuqRYmg0KYMLVNfm0nu5cy80G6JwkHCYTpmVek+QCE5R9D3fFQFEDFLKuw9gW02dSc1sEnpjEwrPbSKy23A=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zfD3bqv-oj_irCKcYjNJXw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dTXnsiNhukM5CC4rF7ucqQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:58
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test2@abc.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "activation_token_1" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["activation_token_1", "dTXnsiNhukM5CC4rF7ucqQ"], ["updated_at", "2021-09-07 15:26:35.362708"], ["id", 3]]
+  ↳ app/models/user.rb:58
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:58
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 39ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-07 11:26:35 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.8ms)
+  Rendered shared/_notices.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 65ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-07 11:26:37 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.7ms)
+  Rendered shared/_notices.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-09-07 11:26:45 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Vx+cw8CVuffvtwKmuR7qaVyz+us3wUmRmAZrVw90WCR07IUEa7rmurTU1MEiJIbhYYhjVWotSy1A4ssqIoZ9HA==", "user"=>{"email"=>"test1@abc.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test1@abc.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "iuG_ZQNzv4CUutmjcmpvsw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 319ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:26:46 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hjIISjY82y5sDu2ZN4YRGA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 62ms (Views: 53.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:26:55 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (6.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ThVjOXlZj9KA8jrjNv9U7w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Filter chain halted as :already_logged_in! rendered or redirected
+Completed 302 Found in 21ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:26:55 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "egSeNbDs-2IksWurZPWxnQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 75ms (Views: 67.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:28:28 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FuqXgohf4fRcGQWN1690BQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 125ms (Views: 70.0ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:28:32 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (5.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HwBxjwtocT9XEDtsMwNaJQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Filter chain halted as :already_logged_in! rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:28:32 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HLw64Qh9fWiAyK6JW2mUbQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 80ms (Views: 72.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:29:16 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "07Y4ji946_gU4T924vYpfg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 143ms (Views: 89.3ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:29:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "QlcAq01OFx0rsz38B4c82Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 69ms (Views: 59.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:29:37 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "lJOzbRYR8sqmpqJTtNuY6g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 68ms (Views: 60.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:32:17 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "YPsZm7VAiHIqzmynL_jYqw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 96ms (Views: 61.0ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:32:19 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FNwPhYSOVKDEl0PjY_a0QQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 74ms (Views: 66.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:45:20 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "STmQ0IcsyzjP3wvoOhov2Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 139ms (Views: 78.7ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:45:30 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-c9c9mWrvlFsofu8o0NzHw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 56ms (Views: 45.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:45:31 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "AEh8wGEiLxJSfa6XDy76_A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 99ms (Views: 84.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:45:40 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OAtmcGHTAJ3GCbh35zMomQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 88ms (Views: 77.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 11:45:47 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TcFxyoP73XPBlWc61FrCPA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 71ms (Views: 57.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:49:11 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gwyxzSKS4UuT3xDr7mhrEg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "z3fK0aJN9qzKJmEANWCGMw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hT9NE7io6GuQ7OSMzw0_Jw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bQZQiAXdwoGiieQMJvokPg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KBgDPINgb5AcQBFFU_E0FQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gsJPr3pT-GoLONwgN35oeA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MwGRh0uuaEuQ8wN6dZaZmg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uAq1iOfAMi3fZa1B3HmSLQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "50dWPqV0g2fLIFKtmbMV3g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kWw8Quj8DfMXGFj5SxVmdA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 98ms (Views: 84.2ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:50:13 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "yTyyE7dNONz-cJvqOj6oWQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9BGIVlGXOPaGSCZwM8GClQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gvQj7TKHHBu4JnrjmkOZ_A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WXJHyFxr9LW0fC-Qvl9COA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "00g9Kbg5FRVHBme8rL7XtA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nQymBKRtzNzNejwqLeuivQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4L-UgzXj1EE3qjxU5wZgMw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-t0vi4Z2_UqMr4rVzfIMDg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bGTEPBDUqyCIsWypDGTgRw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "QXd1n-wbcA9_bnOUaNhtgw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 115ms (Views: 94.7ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "eY1wf8oYjnnO4OTtjIsHHw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gqQ6k8MQHBZ2nKH4XeLilw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1tfanCk_dF21kY9Q3Mk1GQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MzfSmVyMc7pMl2ZlH7OuyQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6pLbfZL9PxzJmdQKnGTiDw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "z8uVFwakl9S0IgpLGg1xXA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1FjQLvC9tIPiY9LbqRzjcQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "V-Yy8alxhVLIUGBDJMvlig"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "qch2qBUVmR8k1IGo4KiWEQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9cx_Ww-1E9tDZdlTuWhJKA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 121ms (Views: 97.3ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:16 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xPGZpZ6iI6RjMc4J1x7MFg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bOdcUvIMUDhrmCwRguuPLw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HpNizfncNgj_45wq8M89Cg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "K6R9kklct1cFCu5IAiqimg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kYG3VQy5AS3WSyUMXKjiZA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hSu027DdwNvHmGBcyZDcww"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TCb4Dto_YsX2MRtpVluv_A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "oOVsPh-arzkMkWgJeA5kZg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "20mVJD4noZrRMxpUO16nmg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jLQ0F_lYBAX0MmgjLzbLJQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 135ms (Views: 120.1ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MORSm4d6SntG-JDSPnELGw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZyTWYOZF06RTGFg3tCvVUg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "d9nEiBEXXOhDInUJbA6AIQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LYn4Tv6SAvf62DCp29FP5Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1WYHW1gYKM_KPuL816ivAw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dKI9Ch9XYCPFGagZIDoeKA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6N0HgYCkYsbCLLLxepvotw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "e3Day6KyEBoD5i1Wsr-VeA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1HdDqlxZ5fXJ8BQ67tOEjA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Zol3T3lnnlvyl-UsA5eLdQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 103ms (Views: 90.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "QuXaLl1hdCXfT6ni5yiYHw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (4.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Rpqf5cYIZKdt-OKdOvNwrA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OhSpgEUwy9NSHSHWGoBDaw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-88w68xjzWNGu-IBHReYUQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-9lwEYTLExjHEkvGHuyKvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LbgA8HzpzcufBMzTzRyZTA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZMCEzDOO2yWFNE3sy9r8FA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "vqkgWEtWYCpMxWKr928C6A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "PbMr59bgui3R9LKJzfzDyA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "CKqCauyNwGbDXBKGlyvc8A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 119ms (Views: 97.0ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "wU26RXkhsOJZQZbUZYYD3g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "cDav3qxFRdr9J_4HEeVybw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "B3L1LVSvb0N5-N4fJKjA2Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (7.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZsoyCU2pMVEj3CB8m4EaEA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FEfCxOPxZ60oXdFz1Vw1jA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ClArEZIaqLcme5TO5BF7ig"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "RKl9w3Kj9BKDbOvx7-b5iA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jKwmEVjzzxd32_wZQkGL5g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Klq4ISLTUXBR0ACzZS2XCg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "IBbB9D12JcyvUk3HkbbrJg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 93ms (Views: 66.9ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "msFMVbz5pr9A94gHs2_6JQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "beQrbDS_8XbBUQnz7wkFmQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "pNw5llDL5LlyLq4g8VO0lw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jKcV61k0MXYMhfBe_evuBQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (4.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "vOwn2Y2kWCES4jcfnxsuuw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gVX6NIJNkE9oMLKhvEqLiQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "P8B3mcETCp_X8zB3svCQRA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "IxcW0V-Nn901hBso58l4fA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Uz86arAP4YYG51EmF816fQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VH6VjtnotpyhwJpAYGUnHg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 109ms (Views: 88.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "byBZFgsTs7mDYNAhtR3ldA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "shI9KUmoeLm25_GDY0ep3g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "BAg2WAmVVREDu3rxgRTYdQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bvae12j535ksJwvjujW2Rg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WeBclW7W3Oxo4vPoQy88wQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WGHAHe2F9O13Z1LnAvaQww"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sjp5yYxRtwFxEuRB_70RuA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hhwCvB2hgP7XUjfINEX_wA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ctaeNo56BCjn1MzFfmYneQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZlapbPtB2iw0kM8wOTYd1Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 130ms (Views: 112.8ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:51:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "wq4HPEBXScQ19J1J2B1smA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "b5g3-J5pWWc5bcu6NKl7lA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uUJJlKP00Doq5Zgzn1NaYw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MrEwOFSlvrGVdkDHwst8GQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kBJxVOWUBuSmeS6i35TMjQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FSCkTwrOcMdzqjtxnQyqWA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7PrurazdMeCa5NiQTxiYvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bHt8EOT3yC-TKoDaTdLRgg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Q6_wpRCiMgpxJXpGj2rjEA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hktFSrNhFPviFUH27RVuMA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (49.5ms)
+Completed 200 OK in 141ms (Views: 117.3ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:52:02 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "8_1MC1egAHheNcbyPTbyPw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rC9g4_kd_V0Kin_6ADnYFA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "cADHXT35ElT6oAtOsggpcA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-zwhkIGUuUmXikuieleCFQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kYAAtu1vG1CvAhqa1T7i6g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nQldUUXreMHtxrHaBns4gg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LEhX-mIq-LdKVoHET07UvQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "PFO9ug_dqy-pc5w81Omq7A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "CaIojPlUA7-w-w5Mpt2X3Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_d8ESq42ZDnERLSun2ZK1A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 463ms (Views: 443.4ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:52:26 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WHhISpLOH3WZWdKUz2-pog"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9TfUqNBhvQBpJQ6mAsW05g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "q5b22VQD8VoBem5t9zcuVA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "BxnK5kG5YnQmuZdhf1-ZFw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "p2xJvldrxAk_HJG_bhkWDA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "5jVcf5npbMznUamDdNfv9A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "mgSxwDTrz3TL2i7aK0D2ag"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1GQXBUSLgzewQbWyjvw84Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "pwiMhx4bfOrNrN0_5ycn9w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "mXb8NK9uA-zpMn3uoYglRg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 132ms (Views: 113.3ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:52:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_WJT5HGC22ckqjC9Rac6Ag"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bwGsvqO-Y4GH0aN_j6YjGw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_7PMaMesbrvSKMAYVL4Wjw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZRPA9amci_bMa5rGgIkCSw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FcmDfKQ_WxQ73y1TYmhApg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "63hf_B7bO03PFDd_CARIgA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bX7dRTuUUXR7A3CdkOXO6Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "z2G0Bm24LTNx7D6StihZVQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (6.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "szPnS1xHqXv-NXonqjCjUA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xVYWn5-WSx8-7sXYcNrOYQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (47.9ms)
+Completed 200 OK in 156ms (Views: 133.5ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:53:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OrDMXbKlWZg0zCcUXcCdFA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KKIBxKFoyEV2qRZvZ7Uqfw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4RC0A-RkmwIsiknbFrCnwg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uAaWUOAwfTuzg6WqS03taA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "BvIYsYsMnK8s5U-Ft0BoxQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OOjjHyrknB66mUnHbNm9SQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "3E-AGAZAEtbzIv_xKbifLg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HMj3IZZDK9IXEoDrz9GeOQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OCW0S5-ggcYW6NQE86vgCA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "eqN2_JPrFzd_JjRCJTNKtg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 122ms (Views: 106.1ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:54:22 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "qUjVxShG1GmQSdbeRIYLTw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-25C_ZLDP1kVEHI-bfwt_g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OYWYrxXHafdxzxStQQAZmQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uhjR6cfYX_IaH6fRN8tebQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "oo0rx5XcfitVFIByQP6t3A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4TLv7DYFyVpMLGI455SY_A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rpyWaO72kNvUif_XYFoDzQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MKITjBDBJGGdboqCOMDnZA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "e3wVEhxe-G4876fxvPOlRg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "C1URDqhSyLIqhTk2c9shIw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 116ms (Views: 97.7ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:55:09 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6T21RdElNdWIHUOuQWoT8g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0sd9umiE9-Ewagg6XuoBSw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "UZySVAiAHEQeaDIl1giRPQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "C14uIwjz8NO2PesrnDp5Ww"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "PvVSJ_lAmarQPSkALIwl0w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "c9DkW-wVO8zAB4JRRdtHaQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4MEesmNTRSE52joST4lUBA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "u9oiRBy0MHJtU_SFi5ym1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "H-QJOJCovMFuhg7KOHrL-Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ObvR-sBkaQXPEO39lf7YLQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 158ms (Views: 142.1ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:55:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jreAY3s_iRF7Co5_vGN0Zg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HUpeBr2hYYyv4Fwr4Zw-jg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Z11im0lyzbc3vU17TcB4DA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0AKT_jVJsCPPG3TNaPIu2Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "lpkqMQoJnrKZukNrkO5ZQA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rK_5SQfnWuJvCal23kEfgA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "z7tHRTa2ydLuuNrc3QWbXQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "IUUyCHnBhTNZ9heE13jwew"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "--WuHO5eZVdfiU96ERaI6A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9BztP2aLgPOD3i4eoENM0w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 217ms (Views: 197.2ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:55:50 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kp0wmUBcxHc3FLyPTGS6EQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nXSnbKkHR5rArOWWfJXTuA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nqcDJ0UF2jKuthofE_S9tA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OFRHUvUUtIvQBbGBx7if6g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uS9n2hgvPyzwqljTu9YUJw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "CHvz2AspPXZ6of7OJUo0Mw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xc-VF-06QKGIQjXV9gPPPQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rZbNz2G6BjahYbI7UyN6Ww"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9Qmhp6e-BpJMI0JnfrDB5w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nyrHB_uvG0Ogp1FVMnMYyA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 200ms (Views: 181.5ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:56:06 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gRYfQsXZ5NusIGZy8KqRsw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "zUIU4bk7n-M_N88x4McYTQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "cXpXURkItr1SeYSv1ly5zQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6IM35HtYuAkQgoAeCbTeVQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "r44CumKORhvgfh5ABNzV2w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "NkWlJSiQgvKpgeokW0b7VQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "h8c64JXvxSLjvBimZ2gL-w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "c78ZeDfNm8D5_WuhvcAiVQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "La55ikasKVVkPIlT2uWBEQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LtERM4Ke3srBxhJ5_L5Hug"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 206ms (Views: 187.3ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:56:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sHa-YLE9hhzGL_t6qPRnFA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rCnrKoSoJSmEaTI8SU277Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "SyKwB7w7Ocj0KOVnOKjmgw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jOFqkcbaQBP7wxN_M5fOAw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Ojv7Z-feQdR9gU5T9m57TQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ra6mPWg-Di-Km0KlIT-oFw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "wRjWh9K7roDLluj44BS_GQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MF9CkVJq_EnETmolwoPU-w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "e-gxGXWrC7G9FRSfKHKpOQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (5.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "pA964vVjxQOiQWYlywokTA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 186ms (Views: 162.1ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:57:18 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OxO69w44ot8H6dgGWCEuVg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "zHBkM8zCUb1MNPC79_1S7w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (5.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6K6DM_StH_X3LPxpZf-9pw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "udVkEaiLOW6Er3n9SjY_QQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VJRs2ZGx8qXh9Q6R1lPggQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1IJnq4AG6zTdKfmJJaxMPA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "syBRS_58l43_a57_DjsfAA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "qYR1h5e0KX5EsBP1QU_yUw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dqWZDZCr9LEF8SofbZhw8A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fApKlNc3Yx0dUB_Dg8u6hw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 112ms (Views: 79.7ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:57:19 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "32siLp3gpdh1os4DzJqKAg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "SNxRboGv-s5hMcNGyHkziA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "8Q2rc6OCjm4x-dFSJPZjUg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZXkM_gqw75Pei9qDbSm0Bw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZnKXeD-D0byKIuIAjWikDA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "EeuK40JaX7UlX4NrTEEPRA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1FgB3p_RD_kDIB6iSKJ5Qw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ppfZlCgEKcRql-VPO12lsA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (5.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TyqanzJWa9qRZeKfBs0rrQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0A3VM9oSaf_HDT7JN5-0dw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (55.1ms)
+Completed 200 OK in 130ms (Views: 109.2ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:57:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TzKCsjGX878ZRC2dj3-LMw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7nu09AZerem96sQ2fqc2vg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "v5wBZTtJPDCvE1KxrcSh5Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Z70offRp0xYFPVa2QhgIZA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rjMiwTfXJ2bnWrvoIxk1XA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9rtzzi41_m1PqNwLVsNkIQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "YRBuCbnJa8bjQm_Sl1fH9A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "mtD4R8qoCpoBH29cWmRlLA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1FrSTUJGQmq4jTDD18yN1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hdNVVNGOwP8kkZocwqGulw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (42.7ms)
+Completed 200 OK in 176ms (Views: 158.6ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:58:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OprkG6prs11q9xz6kdRcgQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "GMEvNB3d4o3y4AFha6lNcw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "R94eF0K2kR1qu-x-z4oU4g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "wyr5FiNG9hB9D3on2h4HDA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "yFjsvgXGcxh_8CbYC_r4iw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VdD_vQwAoL7RsGxsNCQLzA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "AfFZ-HrryVbyez5x0c0WZg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fXVT8fhxu0-rS4LIEGh17Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0LtfVi4UAE3zNCPGkCkJuw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sjdYpQ6iHvIXhY5NY7AC4Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 172ms (Views: 147.2ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:58:31 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Dco4m3gAu9I_n7BZvOkfbw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rL_ET59vloyLSSXPHo0TFg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "vOwRYj_b-zpnFRIV1UCP8g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "djn2nT7PEMq8x9p5_Vrj2A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "tOGbsKfFTA8M4HQK0gzTYA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rW2TkF70kcnmYRQK_TnpMw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nnvyRoXZDEqC1JIqdoHOgA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "oo0R7KRP1R6_ipcFxpYiWg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1tPvn96hI71tuUa2IsA4KA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "m6PtXKjYcvLB1ebUSJlMnQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (50.4ms)
+Completed 200 OK in 157ms (Views: 144.5ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 11:58:42 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "6WyTxzNKBSGvcbKUV-Tyrg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sSdB_uhDCnmFFjyXmFU6ug"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "yjBl5djiUQZ2hde6P9Ng1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OlvGiJfOcIUEw07FwEe47g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7D2ceD2rSpgH5Or8Mc14kA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_2mvKpHWyyCYvNImoUX-RA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uKIV3mkO_0PojOd9dkIwIQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "M-wEKJ4mudQUGCZi98N4Tg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "yAzUn-qFfcrIIeXUmogqDQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bWLdJWnDdYwlKz_RkG71KQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (68.8ms)
+Completed 200 OK in 195ms (Views: 170.2ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:02:33 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "igjpsUa5jCYpK4sxZckN1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "U4_IPxVeP-iaNLMSJRXIhw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KSjRhqvDCiORejzTspOd_Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TwgYzbIMeFP__1WkzjBQkQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "feXvu6awbjNfCNXfGFpuOw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TRTiAN1C7NbInBMIxs_WZQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (6.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9XuVJIqyHy_r796dXz6a3g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LWq4SyqAYn6IrrpJEkrqtQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bPfrooOr5xFyp_nnoq4oWw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "B25V6jPGPfHAZpDrlOWLwg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 138ms (Views: 113.4ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:03:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "L6JPlFAvawxhlUKAA1KwCw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (5.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "feoqcPhF6oWyzmBeZ9FdPQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Cfx-S7MkkiICK8f8PHKn6A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (5.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MOz3DqubyIE_4hcjXoy7OQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "cJz0e38vNiqtMD164GxXcg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "PdMGBA3OL4aCFQKrDryDFQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "luLFu85OcRcIq7WMCKDc1g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "5RvEebLe8_M542MP8oMJmg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jxOD1UG2StkWbiK6xf1eQg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fzWVEybBFkdKgzGptrqtSA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 231ms (Views: 208.2ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:04:45 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "oy_-F_8A5lZNcM4zaJ3Mlg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "aC8x0pBd9ZWzeIdU8w9i5A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VIlDb0J2mjV7dlySR4zTGw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "w2u_8SS-SgV9HgL7ILN1Fg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Oi46yG1f_CcuffW688xaWg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "DYnFtYTK-Nsc1w3b1vQU8Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WVUYUWeoyC6AG5c7C3IOpw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "8scPcKT3gTPXtIgKG7iAQQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "n8Y1zpzQdTTWHlg5f0JKmA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "EtFCu3wmeQbv5S1CafrMjQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 185ms (Views: 160.2ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:05:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "64RxeR-zLIp-1UF8BTHu4g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TGonk7mXReMAA1IbEaW3Ag"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0dQduoWL7Qtb3rvPgHW-Hg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "DAb1JkJuBdPdVBK-308gwA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0IyduDvcZBFfaTGK6Qw4yQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ut8nMl3R7JKqvlMkKpq5uQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "YyRc0UN-RmrvYzAizB4GkQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Wx7sJ_CrHucPt3C37-R_Tw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "t0y8sNaX6r0YVWtOkuVRig"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "AQEfyEvTLJkSwNOGVRZ_sQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (53.3ms)
+Completed 200 OK in 112ms (Views: 89.9ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:32:25 -0400
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+...user).permit(:email, :password:, :administrator)
+...                              ^:
+  app/controllers/users_controller.rb:54:in `'
+
+Started POST "/__better_errors/c28fdab4f6b9ba28/variables" for ::1 at 2021-09-07 12:32:25 -0400
+Started GET "/users" for ::1 at 2021-09-07 12:32:50 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "t5umYLTIlUXUnDtKXAjDiQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-g6fq-4pNCGLjklbkSKSCg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7QQiwHkJTXJK5mAAjeuV9Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Be8FEcoCy3IyXxMMNfH1iA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kQi6CO0U3u0FbEVRBgCPxg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "iXBWBRRaYPcrb0nOCwpF1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "iGwsIncuzfTARwaHWTxGSw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rLsHwA7wFqjwUZ5R2jxomg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LEp0MX1DzGqTCG4gx1tBSw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "pnsgZmZLNQv8U7pFNKECag"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 175ms (Views: 101.8ms | ActiveRecord: 24.6ms)
+
+
+Started PATCH "/users/4" for ::1 at 2021-09-07 12:33:36 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"Bn7X/4MNW0drfKbHSPRPNaQlLcak0Om+ST1dCea8L7Mljc44KCIECjAfcKDTziO9mR60ePk86wKR2f10y04Kiw==", "id"=>"4"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OpbXENEt8ejmFvMpVgF29Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Filter chain halted as :already_logged_in! rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:33:36 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "U-x79dwQzVEfl7XcwQdomA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 82ms (Views: 61.9ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:34:18 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HB7-AvMck6Lg5wskt_BifQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7xEWvr1mXJmT_sXfOLPmTw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "qQLWqpTsHT1exQPjuNvUyA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VbpDDcycbV9o_H5ItcBP-Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0LxjRxFO6iyabErq1GTW0g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "R4hDX-Ge9STugDT82nmtHQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Nb-pSl6Gk46NbkA6jS1WuA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "DvCdhARAzRjT16BS05cglg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dxC6qT8Np5ygB889XsX3SA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "28uZ7HLrd9VyC99CqzShIA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 150ms (Views: 100.0ms | ActiveRecord: 11.6ms)
+
+
+Started PATCH "/users/4" for ::1 at 2021-09-07 12:34:20 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"lzJZHoT4VIXgcpECjDIr87/gMz82WwRXxZBWWbIiDLK0wUDZL9cLyLsRR2UXCEd7gtuqgWu3BusddPYkn9Apig==", "id"=>"4"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rhzWsUSsWT42yFb6aFlEoQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mUser Exists (5.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0FKu58E-blpkl86IwMip_g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "kanabana@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "activation_token_1" = $1, "administrator" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["activation_token_1", "0FKu58E-blpkl86IwMip_g"], ["administrator", true], ["updated_at", "2021-09-07 16:34:20.958162"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:45
+Redirected to http://localhost:3000/users
+Completed 302 Found in 48ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:34:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KuJg9zd079ROvfiaWhAglQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "2Aq-Ua8nAh4ax9qD6y4Z4g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0m5iO_8TprD90Ec5MeXHCg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-EcownJzS60xK1azYtzlfw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (6.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Xo-597ZWBlHImxNqX-XngQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "kZKrMyb0QdTFLcSRwGcGHA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZJbegqgxUabzHw6z4M_s7g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "SCMCkPWIS9nYvWnYWDDDkA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Yea_aPZ5MJj1mdwMHVSfzw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "vOWX1X2n3ORNH63rmTLyKQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (70.1ms)
+Completed 200 OK in 155ms (Views: 128.4ms | ActiveRecord: 21.9ms)
+
+
+Started PATCH "/users/4" for ::1 at 2021-09-07 12:34:27 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"GugZrPPJjwKhv0IueiGuKcoewoHhKC0uVV2OfnbHsW05GwBrWObQT/rclEnhG8Kh9yVbP7zEL5KNuS4DWzWUVQ==", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rbo8AFKPCQYNBDVWOzJ_nQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fJVM3ZLoV5H71nGxFulNlg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "kanabana@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "activation_token_1" = $1, "administrator" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["activation_token_1", "fJVM3ZLoV5H71nGxFulNlg"], ["administrator", false], ["updated_at", "2021-09-07 16:34:27.459920"], ["id", 4]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:45
+Redirected to http://localhost:3000/users
+Completed 302 Found in 45ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:34:27 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LpFLYfXwZ3yPeWdmZxnq5w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jtQeEx_cLXHmPSzTf1XnWg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gmlUOrInHDB1CltM0JcYaQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "CHcfUUPVtdL6ESfrLxMT9g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dcTKhufN7RzeHXUMyBR_NQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "RUbhoqawYh5b3I4oDQv7kg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "H96SkDWyBo_x2TMAAaHFBw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "0wzQvbtLGaqRtPaROl1s3g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-J8CBpjVPXPHA0NhMq1m9w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "aexxv4LCSA4CfRP3y3uPrg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 111ms (Views: 96.7ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:34:58 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "otx9S0weS-XXhI2zIfxsOA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ld8FrG74b5fnoTbXLkRRZw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bPjASThXD2mZVlPSzCud6g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "XF_HE74h5vNgIB71wQYPIQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "lOTI0tzRKm8gqPWn9RgNCw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "dOO8yrRLne70c28vx0cI0g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fj1ROyNHL1hjOu7SnGAKiA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "UiA70dEz7wnxy9J2Xzukkw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "plwa_IVr-VkcugfpX14vLA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "C0iv_bPcJS7gYBLxlaSsuQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 110ms (Views: 93.8ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:35:25 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "j_2A5paRI6O-MS0l8iXdgw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZRWgTfIOFdOPnNs0_Pd2AA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TDy458rATeWAisSZ8F_FxQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "98J3e3NfitJcRE_2yofk0g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4MGvzAGN0WJrCKJefG_vnw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "k7MGjFAtjEJMA3YxbkVpeg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "SL3S366tlvoC4uR99iIJiA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ejE8zu3yDxiWwVUIDHBAjQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "eK2C4Bpw8UX58GUtZTWdxg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_NxwMjbKuAcs5_5-5u-mIQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 192ms (Views: 166.0ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:37:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KXvs7VkVshQ_ZFQCr1s_8A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "FYyalWNXcE7cdnzOP0hSWA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "QhR7sV36MJRpZYPKXYVxUA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "htYqdMwpP3E8td4jJ9v-BA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "hvb-qjIOaQJxPeJBUUFsag"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fnl_348JLAG6mgB4T0mCvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HxQo_BPtWc-uhOSTLpsaoA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Er95R8t1K7KcQGn0VDN_2g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "2BqyrACs4bT-P1jL8z_Z7Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "H8mFmSySu7-B9mN67E-N0A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (57.4ms)
+Completed 200 OK in 261ms (Views: 244.3ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:38:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "eb3MLaT5abt0dK-MpdqDHw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "u_N9t6Zqb4E5GzUrH0ZdMA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jXh8AMpnVag1HjS6sMf8DQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "LXrYqxtxV-6n4WyGyNaVyw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "5EjUbo5nXJwMkUUsoSKosA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "GKpIMId7QVHtAN5WqnCWEg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "R_PuRMXT4HoHYetUL4taaQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "nyGlun9_M38K-2ZL3I7FoQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "mdXPCrDe1Vzipe4ozsqspA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TXc6uZC8JQBI1UbCcuI_GQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 149ms (Views: 116.1ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:38:59 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "WNYKg-atA8C1mLca2tHh4g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "2y7IN3-B57aMeWHe9_IC7Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "_yoYEpWiDph4if29Eipo1g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "j1hErEIZoFd9QCP6NnHtsA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "lHQPesDZq2r2NMAPLlIzPQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "93PEv1it1IqEqll6_lKz9A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "HahTg5N3VEGGU5DX-ashRg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "JeMbVCV_C4w9AjB3SqZ6vA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Zy7O3Tdjh-BK4FBXOhOW7A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "VsbFe1AgqYTu3z7pWNlcvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (55.1ms)
+Completed 200 OK in 120ms (Views: 97.1ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:39:44 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "BFfBApn9ZE2rjmLBWxv5yg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 80ms (Views: 59.6ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:40:24 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "N9T9l6ZYtpWUhy7WhhMJXQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sz_eZmdU3z3V_ocIX9jiWQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "bZcNLykcehG_veYiy9Nh9Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (4.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ZBFCFbUfPbUirozUccmz1g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "pFv7peUPV3NjF1FLX4MMWw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "PY_1z6FXgJSpwm5bVnlsrw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MdN19kAQnuCD4pKfVEfOwQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "G1YzA0ylZOjmjHkSsd0TXg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "E8aSMARbzOGU6tNJrHjg1w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "1ITgiBr9ljwmAIewdLzsCg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 123ms (Views: 99.3ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:40:39 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ic4XGDZn53Sb6TIQnNFDww"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 70ms (Views: 56.5ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-07 12:40:40 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "A0t-r1k9vAZDR8vGkBqKtg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 1]]
+  ↳ app/views/bands/show.html.erb:7
+  Rendered bands/show.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 105ms (Views: 56.2ms | ActiveRecord: 10.0ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-07 12:40:51 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2fyK5zMV6uTbfJEMR9nwO3l2nTpgrC0QHsjrZMcTuwD6D5MgmDq1qYAfR2vc45yzRE0EhD1AL6zGLEsZ6uGeOA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HPbvGa71S7K_8erqu-nEGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "i3tBiMCVZpUfmfOehjWIZw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:58
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test1@abc.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "activation_token_1" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["activation_token_1", "i3tBiMCVZpUfmfOehjWIZw"], ["updated_at", "2021-09-07 16:40:51.288240"], ["id", 2]]
+  ↳ app/models/user.rb:58
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:58
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 28ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-07 12:40:51 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.0ms)
+  Rendered shared/_notices.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 72ms (Views: 70.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-09-07 12:40:58 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"VjnRFWX28+cFVLf5jOeTXPJH1GKDnkw8L0yrdw9OjMR1ysjSztmsql43YZ4X3f/Uz3xN3N5yToD3qAsKIryp/A==", "user"=>{"email"=>"test2@abc.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2@abc.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "AQc8HXJ08eGAm4jzVTcppQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 317ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:40:58 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Id1UOMbu-kgn6q54A5qjBg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 61ms (Views: 54.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-09-07 12:41:07 -0400
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "yQ92bG1vKC_IzUPgMErT9A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (6.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 1]]
+  ↳ app/views/bands/show.html.erb:7
+  Rendered bands/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 82ms (Views: 63.1ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/albums/4" for ::1 at 2021-09-07 12:41:09 -0400
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uXhCmAI3Ti_OaqyDNz0nWw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mTrack Load (0.8ms)[0m  [1m[34mSELECT "tracks".* FROM "tracks" WHERE "tracks"."album_id" = $1[0m  [["album_id", 4]]
+  ↳ app/views/albums/show.html.erb:7
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:28
+  Rendered albums/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 88ms (Views: 58.0ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/tracks/4" for ::1 at 2021-09-07 12:41:11 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "OXDL6PlRQXytPn2GsTg89A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mTrack Load (0.5ms)[0m  [1m[34mSELECT  "tracks".* FROM "tracks" WHERE "tracks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tracks_controller.rb:40
+  Rendering tracks/show.html.erb within layouts/application
+  Rendered notes/_form.html.erb (1.4ms)
+  Rendered shared/_errors.html.erb (0.9ms)
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE "notes"."track_id" = $1[0m  [["track_id", 4]]
+  ↳ app/views/notes/_note.html.erb:2
+  Rendered notes/_note.html.erb (7.9ms)
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/tracks/show.html.erb:28
+  Rendered tracks/show.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 90ms (Views: 58.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:41:14 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "9hX7i2IH4P42TpH6ZO3iaw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 85ms (Views: 75.0ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-07 12:41:30 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lHZBV8oGMh0qYboVBFsHiQPJuceRWjjzkW4DYOFbgIi3hViQYSltUHECbHKfYWsBPvIgecy2Ok9JiqMdzKmlsA=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JBT716B7HsI8Rq20VEuDpA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "qQ5hHs8ifnhDlzaEC2Vzmg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rT-aCiNYjB8RCejIHhNnvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:58
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test2@abc.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "activation_token_1" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["session_token", "rT-aCiNYjB8RCejIHhNnvw"], ["activation_token_1", "qQ5hHs8ifnhDlzaEC2Vzmg"], ["updated_at", "2021-09-07 16:41:30.757869"], ["id", 3]]
+  ↳ app/models/user.rb:58
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:58
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 31ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-07 12:41:30 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (1.5ms)
+  Rendered shared/_notices.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 72ms (Views: 71.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-09-07 12:41:38 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"N183V5svcGRKEERBI1XMQDS30oJNsjpx45R0GfITqyAUrC6QMAAvKRFzkia4b6DICYxLPBBeOM07cNRk3+GOGA==", "user"=>{"email"=>"test1@abc.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test1@abc.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:41
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "KIweYArgQgOWyRDb42GQhQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 318ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:41:38 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "mctJI9ytsCEY4En_3wi4ug"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 62ms (Views: 56.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:41:43 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "aKNMhC8qvDyukHPvFdpt3A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "tvsTu7vRJn3AMqvb_ET9fg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "szphHfC9HUNaLOw7AqsYDg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "-0hCJHNF8sts4kD2JPBybA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "xTQwX-qsKeW1rIWNMVKiOg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MLcgM6zTWwK3cK5qCnZPxA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "gdVOfQIIxJ3gnNMUXFCSTQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "4BaDnU_GuUzdJOYaWcrY5A"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MN25dqOld2A0BpU5iXAlhg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "JjucCsgr6a3rUkVmdtuKgw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 95ms (Views: 71.2ms | ActiveRecord: 11.4ms)
+
+
+Started PATCH "/users/5" for ::1 at 2021-09-07 12:45:03 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"6/ajoOAp55sTCJSjN29taX8rdQ1JGiXU6DMHdBx7buHIBbpnSwa41khrQsSsVQHhQhDssxT2J2gw16cJMYlL2Q==", "id"=>"5"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "oU6HS7NWKiI-rh-Aq5aSiw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "o2AnJTklZiUIw9UTGV67jg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "testmail1@abc.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "activation_token_1" = $1, "administrator" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["activation_token_1", "o2AnJTklZiUIw9UTGV67jg"], ["administrator", true], ["updated_at", "2021-09-07 16:45:03.051954"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:45
+Redirected to http://localhost:3000/users
+Completed 302 Found in 46ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:45:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "sRWu460EWdYa22hjTc3MlQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "uaRwpnYt2d5QXEf0qTAbuA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "AS4wDs5VtKvAkAoGij6Rcw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "W-F0uPx2JLRAxvXV6IHhNw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "T_-OI3GyJuSDa4bQQawwEw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jwqYyrIFZe1mmtKVo2Lh8g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "UEu6tohGCBTW7fTvjziM4Q"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "jg30yo5xocL38RG3nxM26w"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7zQEX_MBy3LVZBojnt-3WQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "MyPAPV6-xK18Dv-4frzDpw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 100ms (Views: 77.6ms | ActiveRecord: 18.2ms)
+
+
+Started PATCH "/users/5" for ::1 at 2021-09-07 12:45:11 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"3Rmi5/Ey7Kf2Bbt7SySSK7t47EXZyUrSZAiJKLywp6b+6rsgWh2z6q1mbRzQHv6jhkN1+4QlSG687ClVkUKCng==", "id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Jw_U3jtByVYXwhIEpVY5jQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "IcdBSnkhklk6ze1CxDdqlA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "testmail1@abc.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "activation_token_1" = $1, "administrator" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["activation_token_1", "IcdBSnkhklk6ze1CxDdqlA"], ["administrator", false], ["updated_at", "2021-09-07 16:45:11.110287"], ["id", 5]]
+  ↳ app/controllers/users_controller.rb:45
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:45
+Redirected to http://localhost:3000/users
+Completed 302 Found in 28ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/users" for ::1 at 2021-09-07 12:45:11 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "cEi4DzcqZidBQagKsY9oDA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Q9NcBpBzoIJWNGayzyKBcg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "rdNj3C2g1_l5ba-ovN-VZg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "BONvCg17vTJ2XOSkYfOfaQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Ni55N_84_2e0pWbY7ksGSw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "Q5zkWIK-988lm0SQQ_iTKQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "7AqWvm5-AWnBelDuSOjPYQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "TCjN0WrUuR3mqsrOoEcJ_g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "klczfwTcoRY8-HoDTmDqFA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "ybduX7WcmycnWprE781vpg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendered users/index.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 96ms (Views: 82.5ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/bands" for ::1 at 2021-09-07 12:45:32 -0400
+Processing by BandsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "atuPZSe06r0pDnMF4tZqfw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:5
+  Rendered bands/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 71ms (Views: 54.7ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/session" for ::1 at 2021-09-07 12:46:22 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BYVI2ffhKI1ijgssTS0opD2oCyalSrAmnTT0dH2lZc0mdlEeXM53wDnt3UvWF0QsAJOSmPimsppF0FQJUFdA9Q=="}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cHFIlqu8WDxHAMeKmQdtLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token_1" = $1 LIMIT $2[0m  [["activation_token_1", "fCPRlq741-FnRl7l5gkAjw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:64
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3FwbCicC3VuU301G8CAsLg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:49
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:58
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test1@abc.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "activation_token_1" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["session_token", "3FwbCicC3VuU301G8CAsLg"], ["activation_token_1", "fCPRlq741-FnRl7l5gkAjw"], ["updated_at", "2021-09-07 16:46:22.991290"], ["id", 2]]
+  ↳ app/models/user.rb:58
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:58
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 34ms (ActiveRecord: 11.9ms)
+
+
+Started GET "/session/new" for ::1 at 2021-09-07 12:46:23 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.7ms)
+  Rendered shared/_notices.html.erb (0.8ms)
+  Rendered sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+

@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
     before_action :require_current_user!, except: [:create, :new, :activate]
-    before_action :already_logged_in!
+    before_action :already_logged_in!, except: [:index, :update]
+    before_action :only_admin!, only: [:index]
 
+    def index
+        @users = User.all 
+        render :index 
+    end
     def create
         @user = User.new(user_params)
 
@@ -34,10 +39,18 @@ class UsersController < ApplicationController
         redirect_to root_url 
     end
 
+    def update
+        @user = User.find_by(id: params[:id])
+        @user.toggle(:administrator)
+        @user.save 
+        redirect_to users_url
+
+    end
+
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :administrator)
     end
 end

@@ -1,0 +1,21 @@
+<h2 class="page-header">Users</h2>
+
+    <ul class="user-list">
+        <section class="user-headers">
+            <li><h2>User Email</h2></li>
+            <li><h2>Admin?</h2></li>
+            <li><h2>Toggle Admin</h2></li>
+        </section>
+    <% @users.each do |user| %>
+        <section class="user-info">
+            <li><%= user.email %></li>
+            <li><%= user.administrator %></li>
+            <form class="admin-toggle-button" action="<%= user_url(user) %>" method="POST">
+                <%= auth_token %>
+                <input type="hidden" value="patch" name="_method" />
+                <input type="submit" value="Toggle">
+            </form>
+        </section>
+
+    <% end %>
+    </ul>
