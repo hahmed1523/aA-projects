@@ -13,6 +13,7 @@ class User < ApplicationRecord
     attr_reader :password 
 
     validates :email, :session_token, :activation_token_1, presence: true
+    validates :administrator, inclusion: {in: [true, false]}
     validates :password_digest, presence: { message: "Password can't be blank" }
     validates :email, uniqueness: true 
     validates :password, length: { minimum: 6, allow_nil: true }
@@ -78,4 +79,7 @@ class User < ApplicationRecord
         self.activation_token_1 = generate_unique_activation_token 
     end
 
+    def set_defaults
+        self.administrator ||= false 
+    end
 end
