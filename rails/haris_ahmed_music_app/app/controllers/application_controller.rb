@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
     def already_logged_in!
         redirect_to bands_url if !current_user.nil?
     end
+
+    def only_admin!
+        current_user.administrator
+    end
 end

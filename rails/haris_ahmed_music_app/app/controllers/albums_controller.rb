@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
     before_action :require_current_user!
+    before_action :only_admin!, only: [:new, :create, :edit, :update, :destroy]
 
     def new
         @band = Band.find_by(id: params[:band_id])
