@@ -16,4 +16,13 @@ class User < ApplicationRecord
     validates :email,:password_digest, :session_token, 
               :admin, :activated, :activation_token, presence: true
     validates :email, :session_token, :activation_token, uniqueness: true 
+
+
+    def password=(password)
+        self.password_digest = BCrypt::Password.create(password)
+    end
+
+    def is_password?(password)
+        BCrypt::Password.new(self.password_digest).is_password?(password)
+    end
 end

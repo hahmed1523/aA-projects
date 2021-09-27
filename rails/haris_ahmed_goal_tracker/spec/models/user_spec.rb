@@ -13,6 +13,7 @@
 #  updated_at       :datetime         not null
 #
 require 'rails_helper'
+require 'bcrypt'
 
 RSpec.describe User, type: :model do
 
@@ -41,6 +42,22 @@ RSpec.describe User, type: :model do
   end
 
   describe 'class methods' do 
+
+    describe "password= method" do
+      it "should assign an encrypted password to password_digest" do 
+        user = User.new(email: 'test', password: 'password', session_token: 's_token', 
+          admin: false, activated: false, activation_token: 'a_token')
+        expect(BCrypt::Password.new(user.password_digest).is_password?('password')).to eq(true)
+      end
+    end
+
+    describe "is_password? method" do 
+      it "should check the password digest with password provided to see if it matches" do 
+        user = User.new(email: 'test', password: 'password', session_token: 's_token', 
+          admin: false, activated: false, activation_token: 'a_token')
+        expect(user.is_password?('password')).to eq(true)
+      end
+    end
   
   end
 
