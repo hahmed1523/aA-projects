@@ -1,2 +1,18 @@
 #ignore master.key for all
 *master.key 
+
+
+#ignore bundler config.
+*/.bundle 
+
+#ignore all logfiles and tempfiles
+*/log/*
+*/tmp/*
+!*/log/.keep
+!*/tmp/.keep 
+
+*/node_modules
+*/yarn-error.log 
+*.byebug_history
+
+*/public/assets
