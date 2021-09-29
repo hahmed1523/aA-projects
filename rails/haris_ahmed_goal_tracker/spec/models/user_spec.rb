@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
 
     #Validating presence
     it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:password_digest) }
+    #it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:session_token) }
     it { should validate_presence_of(:admin) }
     it { should validate_presence_of(:activated) }
@@ -32,6 +32,12 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     it { should validate_uniqueness_of(:session_token) }
     it { should validate_uniqueness_of(:activation_token) }
+
+    it 'fails validation with no password expecting a specific message' do 
+      no_pass = FactoryBot.build(:user, password_digest: nil)
+      no_pass.valid?
+      expect(no_pass.errors[:password_digest]).to include('Password can\'t be blank')
+    end
 
   
   end

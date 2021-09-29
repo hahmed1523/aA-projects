@@ -13,9 +13,10 @@
 #  updated_at       :datetime         not null
 #
 class User < ApplicationRecord
-    validates :email,:password_digest, :session_token, 
+    validates :email,:session_token, 
               :admin, :activated, :activation_token, presence: true
     validates :email, :session_token, :activation_token, uniqueness: true 
+    validates :password_digest, presence: { message: 'Password can\'t be blank' }
 
 
     def password=(password)
