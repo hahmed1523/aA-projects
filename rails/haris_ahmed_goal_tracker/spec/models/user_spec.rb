@@ -32,6 +32,7 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     it { should validate_uniqueness_of(:session_token) }
     it { should validate_uniqueness_of(:activation_token) }
+    it { should validate_length_of(:password).is_at_least(6) }
 
     it 'fails validation with no password expecting a specific message' do 
       no_pass = FactoryBot.build(:user, password_digest: nil)
