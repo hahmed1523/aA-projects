@@ -17,8 +17,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { "password" }
     session_token { Faker::Alphanumeric.alphanumeric(number: 16) }
-    admin { false }
-    activated {false}
     activation_token { Faker::Alphanumeric.alphanumeric(number: 16) }
   end
 end

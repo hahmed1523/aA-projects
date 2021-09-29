@@ -23,8 +23,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:email) }
     #it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:session_token) }
-    it { should validate_presence_of(:admin) }
-    it { should validate_presence_of(:activated) }
     it { should validate_presence_of(:activation_token) }
 
     #Validating uniqueness
@@ -60,6 +58,14 @@ RSpec.describe User, type: :model do
       it "should check the password digest with password provided to see if it matches" do 
         user = FactoryBot.build(:user)
         expect(user.is_password?('password')).to eq(true)
+      end
+    end
+
+    describe "::find_by_credentials" do 
+      test_1 = FactoryBot.create(:user)
+
+      it 'returns the correct user' do 
+        expect(User.find_by_credentials(test_1.email, test_1.password)).to eq(test_1)
       end
     end
   
