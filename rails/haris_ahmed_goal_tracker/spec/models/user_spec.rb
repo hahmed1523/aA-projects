@@ -68,6 +68,27 @@ RSpec.describe User, type: :model do
         expect(User.find_by_credentials(test_1.email, test_1.password)).to eq(test_1)
       end
     end
+
+    describe "::generate_security_token" do 
+      it 'return a 22 length token' do 
+        expect(User.generate_security_token.length).to eq(22)
+      end
+    end
+
+    describe "ensure_session_token" do
+      test1 = User.new
+      it 'when a new user is initialized, security token should be assigned' do 
+        expect(test1.session_token.nil?).to eq(false)
+      end
+    end
+
+    describe "reset_session_token!" do 
+      test1 = FactoryBot.create(:user)
+      old_token = test1.session_token
+      it 'change the session token' do 
+        expect(test1.reset_session_token!).not_to eq(old_token)
+      end
+    end
   
   end
 
