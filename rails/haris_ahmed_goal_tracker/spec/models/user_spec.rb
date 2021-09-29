@@ -28,8 +28,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:activation_token) }
 
     #Validating uniqueness
-    subject { User.new(email: 'test', password_digest: 'password', session_token: 's_token', 
-              admin: false, activated: false, activation_token: 'a_token' ) } 
+    subject { FactoryBot.build(:user) }
     it { should validate_uniqueness_of(:email) }
     it { should validate_uniqueness_of(:session_token) }
     it { should validate_uniqueness_of(:activation_token) }
@@ -45,16 +44,14 @@ RSpec.describe User, type: :model do
 
     describe "password= method" do
       it "should assign an encrypted password to password_digest" do 
-        user = User.new(email: 'test', password: 'password', session_token: 's_token', 
-          admin: false, activated: false, activation_token: 'a_token')
+        user = FactoryBot.build(:user)
         expect(BCrypt::Password.new(user.password_digest).is_password?('password')).to eq(true)
       end
     end
 
     describe "is_password? method" do 
       it "should check the password digest with password provided to see if it matches" do 
-        user = User.new(email: 'test', password: 'password', session_token: 's_token', 
-          admin: false, activated: false, activation_token: 'a_token')
+        user = FactoryBot.build(:user)
         expect(user.is_password?('password')).to eq(true)
       end
     end

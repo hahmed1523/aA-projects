@@ -14,9 +14,11 @@
 #
 FactoryBot.define do
   factory :user do
-    email { "MyString" }
-    password_digest { "MyString" }
-    session_token { "MyString" }
+    email { Faker::Internet.email }
+    password { "password" }
+    session_token { Faker::Alphanumeric.alphanumeric(number: 16) }
     admin { false }
+    activated {false}
+    activation_token { Faker::Alphanumeric.alphanumeric(number: 16) }
   end
 end
