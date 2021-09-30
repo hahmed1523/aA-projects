@@ -12,7 +12,11 @@ RSpec.describe UsersController, type: :controller do
 
 
     describe 'GET #show' do 
-        it 'renders the show template'
+        it 'renders the show template' do
+            user = User.create!(email: 'show_test', password_digest: 'qwertyuioplkjhgfdsaqwe', activation_token: 'asdfghjklasdfghjklasdf')
+            get :show, params: { id: user.id }
+            expect(response).to render_template(:show) 
+        end
     end
 
 
