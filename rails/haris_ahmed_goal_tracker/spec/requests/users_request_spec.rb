@@ -21,7 +21,7 @@ RSpec.describe "Users", type: :request do
             it 'is not a success' do 
                 get user_path(-1)
                 expect(flash[:errors]).to include("User is not found")
-                expect(response).to redirect_to(users_url)
+                expect(response).to redirect_to(:root)
             end 
         end
     end

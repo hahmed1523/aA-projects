@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             render :show
         else
             flash.now[:errors] = "User is not found"
-            redirect_to users_path 
+            redirect_to :root 
         end
     end
 
