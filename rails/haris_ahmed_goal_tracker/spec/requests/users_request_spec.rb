@@ -131,4 +131,19 @@ RSpec.describe "Users", type: :request do
 
     end
 
+    describe 'DELETE #destroy' do 
+        it 'deletes the record' do 
+            user = FactoryBot.create(:user)
+            delete user_url(user)
+            expect(flash[:notices]).to include("User was succesfully deleted")
+            expect(response).to redirect_to(users_url)
+        end
+
+        it 'does not delete the record' do 
+            delete user_url(-1)
+            expect(flash[:errors]).to include("User could not be deleted")
+            expect(response).to redirect_to(users_url)
+        end
+    end
+
 end
