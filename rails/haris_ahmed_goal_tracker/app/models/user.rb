@@ -21,6 +21,7 @@ class User < ApplicationRecord
     validates :password_digest, presence: { message: 'Password can\'t be blank' }
     validates :password, length: { minimum: 6, allow_nil: true }
     after_initialize :ensure_session_token
+    after_initialize :set_activation_token
     
 
 
@@ -49,8 +50,24 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    def self.generate_unique_activation_token
+        token = SecureRandom.urlsafe_base64(16)
+        while self.exists?(activation_token: token)
+            token = SecureRandom.urlsafe_base64(16)
+        end
+        token  
+    end
+
+    def activate! 
+        self.update_attributes(:activated, true)
+    end
+
     private
     def ensure_session_token
         self.session_token ||= self.class.generate_security_token
+    end
+
+    def set_activation_token
+        self.activation_token ||= self.class.generate_unique_activation_token
     end
 end
