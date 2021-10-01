@@ -25,6 +25,7 @@ RSpec.describe "Users", type: :request do
             end 
         end
     end
+ 
 
     describe "GET #new" do 
         it 'render new template' do 
@@ -94,6 +95,40 @@ RSpec.describe "Users", type: :request do
         end
 
         
+    end
+
+    describe "GET #edit" do 
+        it 'renders the edit template' do 
+            user = FactoryBot.create(:user)
+            get edit_user_path(user)
+            expect(response).to render_template(:edit)
+        end
+
+        context 'if the user does not exist' do 
+            it 'is not a success' do 
+                get edit_user_path(-2)
+                expect(flash[:errors]).to include("User is not found")
+                expect(response).to redirect_to(:root)
+            end 
+        end
+    end
+
+
+    describe "PATCH #update" do 
+        it 'successfully updates record' do 
+            user = FactoryBot.create(:user)
+            patch user_url(user), params: {user: {email: 'patch_test'}}
+            expect(response).to redirect_to(user_url(User.find_by(email: 'patch_test')))
+        end
+        
+        it 'does not update record' do 
+            user = FactoryBot.create(:user)
+            patch user_url(user), params: { user: {email: ''} }
+            expect(flash[:errors]).to include("Email can't be blank")
+            expect(response).to render_template(:edit)
+        end
+
+
     end
 
 end
