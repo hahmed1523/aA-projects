@@ -69,9 +69,14 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe "::generate_security_token" do 
-      it 'return a 22 length token' do 
-        expect(User.generate_security_token.length).to eq(22)
+    describe "::generate_session_token" do 
+      it 'returns a 22 length token' do 
+        expect(User.generate_session_token.length).to eq(22)
+      end
+
+      it 'returns a unique token' do
+        token = User.generate_session_token
+        expect(User.exists?(session_token: token)).to eq(false)
       end
     end
 
@@ -88,6 +93,18 @@ RSpec.describe User, type: :model do
       it 'change the session token' do 
         expect(test1.reset_session_token!).not_to eq(old_token)
       end
+    end
+
+    describe "::generate_unique_activation_token" do
+      it 'return a 22 length token' do
+        expect(User.generate_unique_activation_token.length).to eq(22)
+      end
+
+      it 'returns a unique token' do
+        token = User.generate_unique_activation_token
+        expect(User.exists?(activation_token: token)).to eq(false)
+      end
+
     end
   
   end
