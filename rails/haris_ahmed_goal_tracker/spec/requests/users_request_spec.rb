@@ -139,6 +139,11 @@ RSpec.describe "Users", type: :request do
             expect(response).to redirect_to(users_url)
         end
 
+        it 'record is removed from database' do 
+            user = FactoryBot.create(:user)
+            expect{ delete user_url(user) }.to change(User, :count).by(-1)
+        end
+
         it 'does not delete the record' do 
             delete user_url(-1)
             expect(flash[:errors]).to include("User could not be deleted")
