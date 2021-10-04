@@ -106,6 +106,23 @@ RSpec.describe User, type: :model do
       end
 
     end
+
+    describe "set_activation_token" do
+      test1 = User.new
+      it 'assigns activation token when user is initialized' do 
+        expect(test1.activation_token.nil?).to eq(false)
+      end
+    end
+
+    describe "activate!" do 
+      it 'changes the activated field from false to true' do
+        user = FactoryBot.create(:user)
+        expect(user.activated).to eq(false)
+        user.activate!
+        expect(user.activated).to eq(true)
+      end
+
+    end
   
   end
 

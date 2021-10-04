@@ -63,7 +63,7 @@ class User < ApplicationRecord
     end
 
     def activate! 
-        self.update_attributes(:activated, true)
+        self.update_attribute(:activated, true)
     end
 
     private
