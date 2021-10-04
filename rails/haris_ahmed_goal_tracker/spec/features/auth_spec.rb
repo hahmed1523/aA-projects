@@ -14,8 +14,8 @@ feature "user features", type: :feature do
 
             before(:each) do 
                 visit new_user_url 
-                fill_in 'email', with: 'new_email_test'
-                fill_in 'password', with: 'password'
+                fill_in 'Email', with: 'new_email_test'
+                fill_in 'Password', with: 'password'
                 click_on 'Create User'
             end
 

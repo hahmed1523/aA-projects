@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
+    before_action :require_user!, except: [:new, :create]
 
     def index
         @users = User.all 

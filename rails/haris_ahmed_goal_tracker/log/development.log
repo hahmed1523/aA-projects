@@ -338,3 +338,16 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 59ms (Views: 46.2ms | ActiveRecord: 6.9ms)
 
 
+Started GET "/users/new" for ::1 at 2021-10-04 14:38:16 -0400
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "aVlmvurNZvNVCvNNsD6JBA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:45
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "fswfS8Y4lrXykgUdOHPqnQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 97ms (Views: 50.0ms | ActiveRecord: 15.1ms)
+
+
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
