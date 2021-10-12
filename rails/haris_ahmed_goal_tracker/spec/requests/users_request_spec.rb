@@ -129,7 +129,7 @@ RSpec.describe "Users", type: :request do
 
                 it 'redirects to user page' do 
                     post users_path, params: valid_params
-                    expect(response).to redirect_to(user_url(User.last))
+                    expect(response).to redirect_to(root_url)
                 end
 
             end

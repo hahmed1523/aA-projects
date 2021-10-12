@@ -27,8 +27,10 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            #render json: @user, status: :created, location: @user 
-            redirect_to user_url(@user)
+            #render json: @user, status: :created, location: @user
+            @user.activate!
+            login_user!(@user) 
+            redirect_to root_url
         else
             #render json: @user.errors.full_messages, status: :unprocessable_entity
             flash.now[:errors] = @user.errors.full_messages
