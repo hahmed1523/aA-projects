@@ -23,6 +23,10 @@ feature "user features", type: :feature do
                 expect(page).to have_content 'new_email_test'
             end
 
+            scenario 'shows Sign Out button on the homepage after signup' do
+                expect(page).to have_selector(:link_or_button, 'Sign Out')
+            end
+
         end
 
     end
