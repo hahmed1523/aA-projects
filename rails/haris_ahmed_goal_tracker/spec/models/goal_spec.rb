@@ -16,6 +16,7 @@ require 'rails_helper'
 RSpec.describe Goal, type: :model do
 
   describe 'validations' do 
+    let(:user) { FactoryBot.create(:user) }
 
     #Validation presence
     it { should validate_presence_of(:title) }
@@ -25,6 +26,10 @@ RSpec.describe Goal, type: :model do
     #Validates booleans
     it { is_expected.not_to allow_value(nil).for(:private) }
     it { is_expected.not_to allow_value(nil).for(:completed) }
+
+    #Validates uniqueness 
+    subject { FactoryBot.create(:goal, user_id: user.id) }
+    it { should validate_uniqueness_of(:title).scoped_to(:user_id) }
   end
 
   describe 'associations' do 
