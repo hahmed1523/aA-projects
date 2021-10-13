@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe "Goals", type: :request do
 
     let(:user) { FactoryBot.create(:user) }
 
@@ -25,6 +25,13 @@ RSpec.describe "Users", type: :request do
             end
         end
 
+    end
+
+    describe "GET #new" do 
+        it 'renders new template' do 
+            get new_goal_path 
+            expect(response).to render_template(:new)
+        end
     end
 
 end

@@ -12,6 +12,11 @@ class GoalsController < ApplicationController
         end
     end
 
+    def new 
+        @goal = Goal.new 
+        render :new 
+    end
+
 
     private
 
