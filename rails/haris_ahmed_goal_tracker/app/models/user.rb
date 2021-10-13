@@ -25,6 +25,11 @@ class User < ApplicationRecord
     after_initialize :set_activation_token
     after_initialize :set_defaults
     
+    has_many :goals, 
+        dependent: :destroy,
+        primary_key: :id, #User's id
+        foreign_key: :user_id,
+        class_name: :Goal 
 
 
     def password=(password)
