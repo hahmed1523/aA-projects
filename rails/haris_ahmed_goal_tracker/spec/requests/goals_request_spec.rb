@@ -103,4 +103,38 @@ RSpec.describe "Goals", type: :request do
         end
     end
 
+    describe 'PATCH #update' do 
+        let(:goal) { FactoryBot.create(:goal, user_id: user.id) }
+
+        it 'successfully updates record and redirects to goal page' do 
+            patch goal_url(goal), params: { goal: {details: "Patched"} }
+            goal_after_patch = Goal.find_by(id: goal.id)
+            expect(goal_after_patch.details).to eq("Patched")
+            expect(response).to redirect_to(goal_url(goal))
+        end
+
+        it 'does not update record with invalid params' do 
+            patch goal_url(goal), params: { goal: {details: ""} }
+            expect(flash[:errors]).to include("Details can't be blank")
+            expect(response).to render_template(:edit) 
+        end
+    end
+
+    describe 'DELETE #destroy' do 
+        let(:goal) { FactoryBot.create(:goal, user_id: user.id) }
+        
+
+        it 'deletes the record' do 
+            delete goal_url(goal)
+            expect(flash[:notices]).to include("Goal was succesfully deleted")
+            expect(response).to redirect_to(user_url(user))
+        end
+
+        it 'does not delete the record' do 
+            delete goal_url(-1)
+            expect(flash[:errors]).to include("Goal could not be deleted")
+            expect(response).to redirect_to(root_url)
+        end
+    end
+
 end

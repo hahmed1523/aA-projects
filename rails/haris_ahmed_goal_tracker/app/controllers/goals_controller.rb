@@ -42,6 +42,31 @@ class GoalsController < ApplicationController
 
     end
 
+    def update 
+        @goal = Goal.find_by(id: params[:id])
+
+        if @goal.update(goal_params)
+            redirect_to goal_url(@goal)
+        else
+            flash.now[:errors] = @goal.errors.full_messages
+            render :edit 
+        end
+    end
+
+    def destroy
+        @goal = Goal.find_by(id: params[:id])
+        
+        if @goal 
+            @user_id = @goal.user_id
+            @goal.destroy
+            flash.now[:notices] = "Goal was succesfully deleted" 
+            redirect_to user_url(@user_id)
+        else
+            flash.now[:errors] = "Goal could not be deleted" 
+            redirect_to root_url
+        end
+    end
+
 
     private
 
