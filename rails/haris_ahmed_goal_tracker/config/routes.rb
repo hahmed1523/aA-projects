@@ -3,5 +3,11 @@ Rails.application.routes.draw do
   root to: redirect('/users')
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users 
+
+  resources :users do 
+    resources :goals, only [:index]
+  end
+
+  resources :goals
+  
 end
