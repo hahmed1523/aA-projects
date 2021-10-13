@@ -40,6 +40,28 @@ RSpec.describe Goal, type: :model do
       end
     end
 
+    describe "privatize!" do
+      let(:goal) { FactoryBot.create(:goal) }
+
+      it 'changes the private field from false to true' do 
+        expect(goal.private).to eq(false)
+        goal.privatize!
+        expect(goal.private).to eq(true)
+      end
+      
+    end
+
+    describe "complete!" do
+      let(:goal) { FactoryBot.create(:goal) }
+
+      it 'changes the completed field from false to true' do 
+        expect(goal.completed).to eq(false)
+        goal.complete!
+        expect(goal.completed).to eq(true)
+      end
+      
+    end
+
   end
   
 end

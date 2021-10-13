@@ -16,7 +16,13 @@ class Goal < ApplicationRecord
     validates :private, :completed, inclusion: { in: [true, false] }
     after_initialize :set_defaults
 
+    def privatize!
+        self.update_attribute(:private, true)
+    end
 
+    def complete!
+        self.update_attribute(:completed, true)
+    end
 
     private 
     def set_defaults
