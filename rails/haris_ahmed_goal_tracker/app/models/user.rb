@@ -20,8 +20,10 @@ class User < ApplicationRecord
     validates :email, :session_token, :activation_token, uniqueness: true 
     validates :password_digest, presence: { message: 'Password can\'t be blank' }
     validates :password, length: { minimum: 6, allow_nil: true }
+    validates :admin, :activated,  inclusion: { in: [true, false] }
     after_initialize :ensure_session_token
     after_initialize :set_activation_token
+    after_initialize :set_defaults
     
 
 
@@ -73,5 +75,10 @@ class User < ApplicationRecord
 
     def set_activation_token
         self.activation_token ||= self.class.generate_unique_activation_token
+    end
+
+    def set_defaults
+        self.admin ||= false 
+        self.activated ||= false 
     end
 end

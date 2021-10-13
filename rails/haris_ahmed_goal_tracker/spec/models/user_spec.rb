@@ -25,6 +25,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:session_token) }
     it { should validate_presence_of(:activation_token) }
 
+    #Boolean validation
+    it { is_expected.not_to allow_value(nil).for(:admin) }
+    it { is_expected.not_to allow_value(nil).for(:activated) }
+
     #Validating uniqueness
     subject { FactoryBot.build(:user) }
     it { should validate_uniqueness_of(:email) }
@@ -122,6 +126,14 @@ RSpec.describe User, type: :model do
         expect(user.activated).to eq(true)
       end
 
+    end
+
+    describe "set_defaults" do 
+      let(:test_user){ User.new(admin: nil, activated: nil) }
+      it 'sets the value to false if nil' do 
+        expect(test_user.admin.nil?).to eq(false)
+        expect(test_user.activated.nil?).to eq(false)
+      end
     end
   
   end
