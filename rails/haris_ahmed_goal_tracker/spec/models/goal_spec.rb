@@ -28,6 +28,9 @@ RSpec.describe Goal, type: :model do
   end
 
   describe 'associations' do 
+
+    it { should belong_to(:user) }
+
   end
 
   describe 'class methods' do 
@@ -41,7 +44,8 @@ RSpec.describe Goal, type: :model do
     end
 
     describe "privatize!" do
-      let(:goal) { FactoryBot.create(:goal) }
+      let(:user) { FactoryBot.create(:user) }
+      let(:goal) { FactoryBot.create(:goal, user_id: user.id) }
 
       it 'changes the private field from false to true' do 
         expect(goal.private).to eq(false)
@@ -52,7 +56,8 @@ RSpec.describe Goal, type: :model do
     end
 
     describe "complete!" do
-      let(:goal) { FactoryBot.create(:goal) }
+      let(:user) { FactoryBot.create(:user) }
+      let(:goal) { FactoryBot.create(:goal, user_id: user.id) }
 
       it 'changes the completed field from false to true' do 
         expect(goal.completed).to eq(false)

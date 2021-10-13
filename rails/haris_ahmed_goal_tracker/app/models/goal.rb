@@ -16,6 +16,11 @@ class Goal < ApplicationRecord
     validates :private, :completed, inclusion: { in: [true, false] }
     after_initialize :set_defaults
 
+    belongs_to :user,
+        primary_key: :id, #User's id
+        foreign_key: :user_id,
+        class_name: :User
+
     def privatize!
         self.update_attribute(:private, true)
     end
