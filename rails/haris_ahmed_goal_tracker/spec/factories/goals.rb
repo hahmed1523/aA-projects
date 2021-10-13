@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :goal do
-    title { "MyString" }
-    details { "MyString" }
+    title { Faker::Hobby.activity }
+    details { Faker::Lorem.sentence }
     private { false }
     completed { false }
-    user_id { "" }
+    user_id { 1 }
   end
 end
