@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :users do 
-    resources :goals, only [:index]
+    resources :goals, only: [:index]
   end
 
-  resources :goals
-  
+  resources :goals, except: [:index]
+
 end
