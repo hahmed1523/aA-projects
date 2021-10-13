@@ -85,4 +85,22 @@ RSpec.describe "Goals", type: :request do
 
     end
 
+    describe "GET #edit" do 
+        let(:goal) {FactoryBot.create(:goal, user_id: user.id)}
+        it 'renders the edit template' do 
+            get edit_goal_path(goal)
+            expect(response).to render_template(:edit)
+        end
+
+        context 'if the goal does not exist' do 
+            before(:each) { get edit_goal_path(-1) }
+            it 'adds error message to flash' do 
+                expect(flash[:errors]).to include("Goal is not found")
+            end
+            it 'redirects to root' do 
+                expect(response).to redirect_to(root_url)
+            end
+        end
+    end
+
 end

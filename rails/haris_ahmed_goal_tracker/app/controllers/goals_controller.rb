@@ -30,6 +30,18 @@ class GoalsController < ApplicationController
         end
     end
 
+    def edit
+        @goal = Goal.find_by(id: params[:id])
+
+        if @goal  
+            render :edit
+        else
+            flash.now[:errors] = "Goal is not found"
+            redirect_to :root 
+        end
+
+    end
+
 
     private
 
