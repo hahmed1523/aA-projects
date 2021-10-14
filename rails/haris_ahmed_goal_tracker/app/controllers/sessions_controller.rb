@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         else
             #render json: @user
             login_user!(@user)
-            redirect_to root_url 
+            redirect_to user_url(@user)
         end
         #render json: params[:user][:email] 
     end

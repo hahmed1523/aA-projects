@@ -1,1 +1,13 @@
-<h2><%= @user.email %></h2>
+<h2><%= @user.email %>'s Page</h2>
+
+<h3>My Goals</h3>
+
+<% if @user.goals.empty? %>
+    <p>You have no goals.</p>
+<% else %>
+    <ul>
+        <% @user.goals.each do |goal| %>
+            <li><%= goal.title %></li>
+        <% end %>
+    </ul>
+<% end %>

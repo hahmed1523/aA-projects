@@ -30,7 +30,7 @@ class UsersController < ApplicationController
             #render json: @user, status: :created, location: @user
             @user.activate!
             login_user!(@user) 
-            redirect_to root_url
+            redirect_to user_url(@user)
         else
             #render json: @user.errors.full_messages, status: :unprocessable_entity
             flash.now[:errors] = @user.errors.full_messages
