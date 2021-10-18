@@ -4,3 +4,16 @@
 <p>Details: <%= @goal.details %></p>
 <p>Private: <%= @goal.private %></p>
 <p>Completed: <%= @goal.completed %></p>
+
+<ul class="page-links">
+    <% if @goal.user_id == current_user.id %>
+        <li><a class="button" href="<%= edit_goal_url(@goal) %>">Edit Goal</a></li>
+        <li>
+            <form action="<%= goal_url(@goal) %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <%= auth_token %>
+                <input type="submit" value="Delete Goal">
+            </form>
+        </li>
+    <% end %>
+</ul>

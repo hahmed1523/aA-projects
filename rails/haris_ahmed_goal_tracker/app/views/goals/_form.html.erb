@@ -23,7 +23,7 @@
         <label for="goal_details">Details</label>
         <textarea id="goal_details"
             rows="7" cols="30"
-            name="goal[details]"></textarea>
+            name="goal[details]"><%= goal.details %></textarea>
     </p>
 
         <p>
@@ -55,7 +55,7 @@
             id="goal_on_going" 
             name="goal[completed]"
              value="false" 
-             <%= "checked" if !goal.private %>>
+             <%= "checked" if !goal.completed %>>
     </p>
 
 

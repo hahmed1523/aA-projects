@@ -50,5 +50,77 @@ feature "goal features", type: :feature do
             expect(page).to have_content('New Goal Test')
         end
     end
+
+    feature 'edit a goal' do 
+
+        scenario 'edits the details' do 
+            goal = FactoryBot.create(:goal, user_id: user2.id)
+            sign_on_u2
+            click_on goal.title 
+            click_on 'Edit Goal'
+            expect(page).to have_content(goal.details)
+            fill_in "Details", with: 'This is the edited detail'
+            click_on 'Update'
+            expect(page).to have_content('This is the edited detail')
+        end
+
+        scenario 'changes the public to private' do 
+            goal = FactoryBot.create(:goal, user_id: user2.id)
+            sign_on_u2
+            click_on goal.title
+            expect(page).not_to have_content("true") 
+            click_on 'Edit Goal'
+            choose 'Private'
+            click_on 'Update'
+            updated_goal = Goal.find_by(id: goal.id)
+            expect(updated_goal.private).to eq(true)
+            expect(page).to have_content("true")
+
+        end
+
+        scenario 'Edit goal button should not be available to another user' do
+            goal = FactoryBot.create(:goal, user_id: user2.id)
+            sign_on_u1
+            visit users_url 
+            click_on user2.email 
+            click_on goal.title 
+            expect(page).not_to have_selector(:link_or_button, 'Edit Goal')
+        end
+    end
+
+    feature 'deletes a goal' do 
+        scenario 'title should no longer be on user page after deleting' do 
+            goal = FactoryBot.create(:goal, user_id: user2.id)
+            sign_on_u2
+            click_on goal.title 
+            click_on 'Delete Goal'
+            expect(page).not_to have_content(goal.title)
+        end
+
+        scenario 'Delete Goal button should not be available to another user' do
+            goal = FactoryBot.create(:goal, user_id: user2.id)
+            sign_on_u1
+            visit users_url 
+            click_on user2.email 
+            click_on goal.title 
+            expect(page).not_to have_selector(:link_or_button, 'Delete Goal')
+        end
+    end
+
+    feature 'another user should not see private goal' do 
+        scenario 'private goal title not visible of another user' do 
+            goal = FactoryBot.create(:goal, user_id: user2.id, private: true)
+            sign_on_u1
+            visit users_url 
+            click_on user2.email 
+            expect(page).not_to have_content(goal.title)
+        end
+
+        scenario 'user should see all their goals even if private' do 
+            goal = FactoryBot.create(:goal, user_id: user2.id, private: true)
+            sign_on_u2
+            expect(page).to have_content(goal.title)
+        end
+    end
     
 end
