@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :goals, except: [:index]
 
+  resources :comments, only: [:create]
+
 end

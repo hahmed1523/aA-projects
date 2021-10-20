@@ -12,6 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Goal < ApplicationRecord
+    include Commentable 
+
     validates :title, :details, :user_id, presence: true 
     validates :private, :completed, inclusion: { in: [true, false] }
     validates :title, uniqueness: { scope: :user_id }
