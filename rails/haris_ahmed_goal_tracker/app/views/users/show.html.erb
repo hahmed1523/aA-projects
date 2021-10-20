@@ -14,6 +14,15 @@
     </ul>
 <% end %>
 
+<section>
+    <% @user.comments.each do |comment| %>
+        <p> <%= comment.body %> </p>
+    <% end %>
+
+    <%= render "shared/comments_form", commentable_id: @user.id, commentable_type: "User" %>
+</section>
+
+
 <ul class="page_links">
     <li><a class="button" href="<%= new_goal_url %>">Add Goal</li>
 </ul>

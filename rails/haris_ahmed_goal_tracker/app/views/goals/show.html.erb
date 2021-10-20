@@ -5,6 +5,16 @@
 <p>Private: <%= @goal.private %></p>
 <p>Completed: <%= @goal.completed %></p>
 
+<section>
+    <h4>Comments</h4>
+
+    <% @goal.comments.each do |comment| %>
+        <p> <%= comment.body %> </p>
+    <% end %>
+
+    <%= render "shared/comments_form", commentable_id: @goal.id, commentable_type: "Goal" %>
+</section>
+
 <ul class="page-links">
     <% if @goal.user_id == current_user.id %>
         <li><a class="button" href="<%= edit_goal_url(@goal) %>">Edit Goal</a></li>
