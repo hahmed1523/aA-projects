@@ -27,6 +27,10 @@
 	ul {
 		display: flex;
 	}
+
+	li:first-of-type {
+		font-weight: bold;
+	}
 }
 
 .logo {
@@ -44,6 +48,10 @@
 	li {
 		margin-left: 10px;
 		border-right: 1px solid $light-gray;
+	}
+
+	li:last-of-type {
+		border-right: none;
 	}
 
 	button {
