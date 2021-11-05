@@ -16,6 +16,6 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     url { Faker::Internet.url }
     content { Faker::Lorem.sentence }
-    author { 1 }
+    author_id { 1 }
   end
 end
