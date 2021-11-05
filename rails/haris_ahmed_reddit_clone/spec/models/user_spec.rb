@@ -41,6 +41,11 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'associations' do 
+    it { should have_many(:subs).dependent(:destroy) }
+    it { should have_many(:posts).dependent(:destroy) }
+  end
+
 
   describe 'class methods' do 
 

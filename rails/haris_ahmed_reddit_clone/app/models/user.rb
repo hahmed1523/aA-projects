@@ -24,6 +24,18 @@ class User < ApplicationRecord
     after_initialize :set_activation_token
     after_initialize :set_defaults
 
+    has_many :subs, 
+        dependent: :destroy,
+        primary_key: :id, #User's id
+        foreign_key: :moderator,
+        class_name: :Sub 
+    
+    has_many :posts,
+        dependent: :destroy,
+        primary_key: :id, #User's id
+        foreign_key: :author,
+        class_name: :Post 
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
