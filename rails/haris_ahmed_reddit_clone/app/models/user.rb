@@ -25,16 +25,16 @@ class User < ApplicationRecord
     after_initialize :set_defaults
 
     has_many :subs, 
-        dependent: :destroy,
         primary_key: :id, #User's id
-        foreign_key: :moderator,
-        class_name: :Sub 
+        foreign_key: :moderator_id,
+        class_name: :Sub,
+        inverse_of: :moderator  
     
     has_many :posts,
-        dependent: :destroy,
         primary_key: :id, #User's id
         foreign_key: :author,
-        class_name: :Post 
+        class_name: :Post,
+        inverse_of: :author 
 
     def password=(password)
         @password = password

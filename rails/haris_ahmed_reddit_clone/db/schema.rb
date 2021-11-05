@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_144142) do
+ActiveRecord::Schema.define(version: 2021_11_05_160622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,21 +19,19 @@ ActiveRecord::Schema.define(version: 2021_11_05_144142) do
     t.string "title", null: false
     t.string "url"
     t.string "content"
-    t.integer "sub", null: false
-    t.integer "author", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author"], name: "index_posts_on_author"
-    t.index ["sub"], name: "index_posts_on_sub"
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
   create_table "subs", force: :cascade do |t|
     t.string "title", null: false
     t.string "description", null: false
-    t.integer "moderator", null: false
+    t.integer "moderator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["moderator"], name: "index_subs_on_moderator"
+    t.index ["moderator_id"], name: "index_subs_on_moderator_id"
   end
 
   create_table "users", force: :cascade do |t|

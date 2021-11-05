@@ -42,8 +42,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do 
-    it { should have_many(:subs).dependent(:destroy) }
-    it { should have_many(:posts).dependent(:destroy) }
+    it { should have_many(:subs) }
+    it { should have_many(:posts) }
   end
 
 

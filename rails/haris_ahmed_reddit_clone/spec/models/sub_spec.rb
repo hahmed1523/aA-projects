@@ -24,15 +24,14 @@ RSpec.describe Sub, type: :model do
     it { should validate_presence_of(:moderator) }
 
     # #Validating uniqueness
-    subject { FactoryBot.create(:sub, moderator: user.id) }
-    it { should validate_uniqueness_of(:title).scoped_to(:moderator) }
+    subject { FactoryBot.create(:sub, moderator_id: user.id) }
+    it { should validate_uniqueness_of(:title)}
 
 
   end
 
   describe 'associations' do 
-    it { should belong_to(:moderator_a) }
-    it { should have_many(:posts) }
+    it { should belong_to(:moderator) }
   end
 
 end
