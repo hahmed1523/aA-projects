@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
         if @user.save
             login_user!(@user)
-            redirect_to user_url(@user)
+            redirect_to root_url
         else
             flash.now[:errors] = @user.errors.full_messages
             render :new 
@@ -61,10 +61,10 @@ class UsersController < ApplicationController
         if @user 
             @user.destroy
             flash.now[:notices] = "User was successfully deleted"
-            redirect_to users_url
+            redirect_to root_url
         else
             flash.now[:errors] = "User could not be deleted"
-            redirect_to users_url
+            redirect_to root_url
         end
     end
 
