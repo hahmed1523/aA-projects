@@ -514,3 +514,109 @@ Processing by SubsController#index as HTML
 Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/" for ::1 at 2021-11-08 14:40:57 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:40:57 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (8.0ms)
+  Rendered shared/_main_nav.html.erb (0.7ms)
+Completed 200 OK in 44ms (Views: 32.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:41:35 -0500
+Processing by SubsController#new as HTML
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_user! rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 14:41:35 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+  Rendered shared/_main_nav.html.erb (0.7ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:47:19 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:47:19 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.9ms)
+  Rendered shared/_main_nav.html.erb (233.2ms)
+Completed 500 Internal Server Error in 277ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `logged_in?' for #<#<Class:0x00007f584578f178>:0x00007f5844c7d820>
+Did you mean?  logger?:
+  app/views/shared/_main_nav.html.erb:4:in `_app_views_shared__main_nav_html_erb__2429582546737141800_32040'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___4534072571114158477_32020'
+  app/controllers/subs_controller.rb:7:in `index'
+
+Started POST "/__better_errors/2984b9342fe3ea96/variables" for ::1 at 2021-11-08 14:47:20 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:52:58 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (22.4ms)
+  Rendered shared/_main_nav.html.erb (1.1ms)
+Completed 200 OK in 83ms (Views: 60.1ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/subs" for ::1 at 2021-11-08 14:56:58 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (4.9ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/subs" for ::1 at 2021-11-08 15:00:53 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (3.6ms)
+  Rendered shared/_main_nav.html.erb (1.0ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 15:01:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-11-08 15:01:09 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "s9aSmRvXJ-3fLtPIPWSimw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "bgZ935lsFKwMAdh3FfuoBQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:70
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+  Rendered shared/_main_nav.html.erb (1.2ms)
+Completed 200 OK in 77ms (Views: 28.9ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 15:01:15 -0500
+Started GET "/subs" for ::1 at 2021-11-08 15:01:15 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (11.5ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 1.6ms)
+
+
