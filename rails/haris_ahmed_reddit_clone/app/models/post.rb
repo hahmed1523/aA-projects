@@ -28,4 +28,8 @@ class Post < ApplicationRecord
         class_name: :PostSub,
         inverse_of: :post 
 
+        has_many :subs,
+            through: :post_subs,
+            source: :sub 
+
 end

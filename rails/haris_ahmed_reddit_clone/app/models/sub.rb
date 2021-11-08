@@ -25,5 +25,9 @@ class Sub < ApplicationRecord
         foreign_key: :sub_id,
         class_name: :PostSub,
         inverse_of: :sub 
+
+    has_many :posts,
+        through: :post_subs,
+        source: :post 
     
 end
