@@ -232,3 +232,285 @@ Migrating to CreatePostSubs (20211108141522)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-11-08 13:06:00 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/subs" for ::1 at 2021-11-08 13:06:00 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 631ms (Views: 607.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/subs" for ::1 at 2021-11-08 13:06:10 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/subs" for ::1 at 2021-11-08 13:09:16 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 13:09:17 -0500
+Processing by SubsController#new as HTML
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_user! rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 13:09:17 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 13:16:08 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 69ms (Views: 67.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 13:16:24 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-08 14:05:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered shared/_main_nav.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:08:13 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:08:13 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (8.3ms)
+  Rendered shared/_main_nav.html.erb (0.5ms)
+Completed 200 OK in 45ms (Views: 33.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:08:19 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (0.4ms)
+  Rendered subs/new.html.erb within layouts/application (2.1ms)
+  Rendered shared/_main_nav.html.erb (0.7ms)
+Completed 200 OK in 82ms (Views: 36.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:18:12 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (4.7ms)
+  Rendered subs/new.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected `ensure', expecting ')'
+          ensure
+          ^~~~~~
+/home/hahmed1523/Documents/appacademy/aA-projects/rails/haris_ahmed_reddit_clone/app/views/subs/_form.html.erb:35: syntax error, unexpected `end', expecting ')'
+          end
+          ^~~:
+  app/views/subs/_form.html.erb:33:in `'
+  app/views/subs/new.html.erb:3:in `_app_views_subs_new_html_erb___956318000298112140_21100'
+  app/controllers/subs_controller.rb:23:in `new'
+
+Started POST "/__better_errors/ecb1fcf01b229714/variables" for ::1 at 2021-11-08 14:18:12 -0500
+Started GET "/subs/new" for ::1 at 2021-11-08 14:18:46 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.1ms)
+  Rendered subs/new.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected `ensure', expecting ')'
+          ensure
+          ^~~~~~
+/home/hahmed1523/Documents/appacademy/aA-projects/rails/haris_ahmed_reddit_clone/app/views/subs/_form.html.erb:35: syntax error, unexpected `end', expecting ')'
+          end
+          ^~~:
+  app/views/subs/_form.html.erb:33:in `'
+  app/views/subs/new.html.erb:3:in `_app_views_subs_new_html_erb___956318000298112140_21300'
+  app/controllers/subs_controller.rb:23:in `new'
+
+Started POST "/__better_errors/d06252578d110308/variables" for ::1 at 2021-11-08 14:18:46 -0500
+Started POST "/__better_errors/d06252578d110308/variables" for ::1 at 2021-11-08 14:19:03 -0500
+Started POST "/__better_errors/d06252578d110308/variables" for ::1 at 2021-11-08 14:19:05 -0500
+Started GET "/subs/new" for ::1 at 2021-11-08 14:21:15 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (50.1ms)
+  Rendered subs/new.html.erb within layouts/application (54.9ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `description' for #<Post:0x00007f5844a22990>:
+  app/views/subs/_form.html.erb:26:in `_app_views_subs__form_html_erb__4187362271805551412_21420'
+  app/views/subs/new.html.erb:3:in `_app_views_subs_new_html_erb___956318000298112140_21400'
+  app/controllers/subs_controller.rb:23:in `new'
+
+Started POST "/__better_errors/0c6961088866b198/variables" for ::1 at 2021-11-08 14:21:15 -0500
+Started GET "/subs/new" for ::1 at 2021-11-08 14:22:54 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.7ms)
+  Rendered subs/new.html.erb within layouts/application (5.2ms)
+  Rendered shared/_main_nav.html.erb (1.0ms)
+Completed 200 OK in 96ms (Views: 58.0ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:23:45 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (2.2ms)
+  Rendered subs/new.html.erb within layouts/application (5.2ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 56ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:25:35 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.2ms)
+  Rendered subs/new.html.erb within layouts/application (4.7ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:25:37 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:25:37 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (6.5ms)
+  Rendered shared/_main_nav.html.erb (0.8ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:25:49 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.8ms)
+  Rendered subs/new.html.erb within layouts/application (7.8ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:25:52 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:25:52 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (5.2ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 56ms (Views: 53.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:38:05 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:38:05 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.2ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 55ms (Views: 50.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:38:08 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (1.7ms)
+  Rendered subs/new.html.erb within layouts/application (4.9ms)
+  Rendered shared/_main_nav.html.erb (0.8ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:38:10 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:38:10 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.0ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (5.0ms)
+  Rendered shared/_main_nav.html.erb (0.8ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:38:37 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (3.1ms)
+  Rendered subs/new.html.erb within layouts/application (5.8ms)
+  Rendered shared/_main_nav.html.erb (2.9ms)
+Completed 200 OK in 59ms (Views: 58.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-08 14:38:39 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:38:39 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.2ms)
+  Rendered shared/_main_nav.html.erb (0.7ms)
+Completed 200 OK in 65ms (Views: 63.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/new" for ::1 at 2021-11-08 14:39:01 -0500
+Processing by SubsController#new as HTML
+  Rendering subs/new.html.erb within layouts/application
+  Rendered subs/_form.html.erb (5.1ms)
+  Rendered subs/new.html.erb within layouts/application (7.1ms)
+  Rendered shared/_main_nav.html.erb (2.0ms)
+Completed 200 OK in 73ms (Views: 71.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subs" for ::1 at 2021-11-08 14:39:12 -0500
+Processing by SubsController#create as HTML
+  Parameters: {"authenticity_token"=>"0C78wuVlx+j6AAiUlUcMp6TBPS84GLx8BCstPVjvfKeuOCckI3OEsAEqiIIeFmsD+ktc8V7sZGcT8AEeLuuRgg==", "sub"=>{"title"=>"Test1", "description"=>"Test 1 description        "}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/controllers/subs_controller.rb:28:in `create'
+
+Started POST "/__better_errors/00c020fc4b09830e/variables" for ::1 at 2021-11-08 14:39:12 -0500
+Started GET "/subs" for ::1 at 2021-11-08 14:39:36 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (2.9ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 0.6ms)
+
+

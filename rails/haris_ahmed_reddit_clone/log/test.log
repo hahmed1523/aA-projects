@@ -19439,3 +19439,101 @@ Completed 302 Found in 16ms (ActiveRecord: 1.7ms)
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for 127.0.0.1 at 2021-11-08 12:56:20 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 12:56:20 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 492ms (Views: 411.8ms | ActiveRecord: 16.0ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2021-11-08 12:56:21 -0500
+Started GET "/assets/application-2399b1ae694345e273b17d1f00b2dba405061592546ed68fb84aa197ac124a08.js" for 127.0.0.1 at 2021-11-08 12:56:21 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:00:31 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.3ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:00:34 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2021-11-08 13:01:20 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:01:20 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 351ms (Views: 297.6ms | ActiveRecord: 18.3ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2021-11-08 13:01:20 -0500
+Started GET "/assets/application-2399b1ae694345e273b17d1f00b2dba405061592546ed68fb84aa197ac124a08.js" for 127.0.0.1 at 2021-11-08 13:01:20 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:01:45 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.9ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:01:47 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.7ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:02:25 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.5ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:02:26 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:02:27 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.5ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:09 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2021-11-08 13:03:12 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:12 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+Started GET "/" for 127.0.0.1 at 2021-11-08 13:03:16 -0500
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:16 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.6ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:29 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (42.3ms)
+Completed 200 OK in 392ms (Views: 310.9ms | ActiveRecord: 16.2ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:52 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+Started GET "/subs" for 127.0.0.1 at 2021-11-08 13:03:56 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  Rendered subs/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.5ms)

@@ -19,7 +19,7 @@ class SubsController < ApplicationController
     end
 
     def new 
-        @sub = Post.new 
+        @sub = Sub.new 
         render :new 
     end
 
