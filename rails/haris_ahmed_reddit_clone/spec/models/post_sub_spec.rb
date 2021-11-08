@@ -16,4 +16,11 @@ RSpec.describe PostSub, type: :model do
 
   end
 
+  describe 'associations' do 
+
+    it { should belong_to(:post) }
+    it { should belong_to(:sub) }
+
+  end
+
 end

@@ -19167,3 +19167,79 @@ Completed 302 Found in 16ms (ActiveRecord: 1.7ms)
   [1m[36mPostSub Load (0.4ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs"[0m
   [1m[36mPostSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" = $1 AND "post_subs"."sub_id" = $2 LIMIT $3[0m  [["post_id", 7], ["sub_id", 8], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jy5fL028lxjAjsaPOo4jcA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "myY9AQddo0XjhZjlVk7PtA"], ["LIMIT", 1]]
+  [1m[35m (7.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"taylor.kiehn\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "byr3na85tr2l2ad7ywuwva"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "83vs0140g761izkp97kcn5"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"taylor.kiehn\"}"], ["password_digest", "$2a$12$OeyVmSo7022ZzbXRhnkRv.TrI0AxCQoPqLcm87x.BUxUaImlaTQOC"], ["session_token", "83vs0140g761izkp97kcn5"], ["activation_token", "byr3na85tr2l2ad7ywuwva"], ["created_at", "2021-11-08 14:55:13.813452"], ["updated_at", "2021-11-08 14:55:13.813452"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Create (3.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Veniam quia rem quo."], ["url", "http://thompson.com/calandra_collier"], ["content", "Vitae odit consectetur reprehenderit."], ["author_id", 8], ["created_at", "2021-11-08 14:55:13.906148"], ["updated_at", "2021-11-08 14:55:13.906148"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSub Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "Bruen-Smitham - Computer Networking"], ["LIMIT", 1]]
+  [1m[36mSub Create (4.4ms)[0m  [1m[32mINSERT INTO "subs" ("title", "description", "moderator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Bruen-Smitham - Computer Networking"], ["description", "Ut ea et sit."], ["moderator_id", 8], ["created_at", "2021-11-08 14:55:14.012608"], ["updated_at", "2021-11-08 14:55:14.012608"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPostSub Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" IS NULL AND "post_subs"."sub_id" = $1 LIMIT $2[0m  [["sub_id", 8], ["LIMIT", 1]]
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "C-SGJEO_oirQ1R9jitWbHA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "skP0g1WjY0UzfSt8cDg1jw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"randee\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "wjy875h1r6bedhy2vdhp4m"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "k3fj8k0kduwfxpztjhmlin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"randee\"}"], ["password_digest", "$2a$12$GP6OJ4xXoxfk3LTWmtqDbOyKV1Ejqcwjd/33r2QYp5DAxE5Brz6o."], ["session_token", "k3fj8k0kduwfxpztjhmlin"], ["activation_token", "wjy875h1r6bedhy2vdhp4m"], ["created_at", "2021-11-08 14:55:14.461926"], ["updated_at", "2021-11-08 14:55:14.461926"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Nisi sequi suscipit impedit."], ["url", "http://prohaska-gorczany.name/michaela"], ["content", "Voluptas qui doloremque sed."], ["author_id", 9], ["created_at", "2021-11-08 14:55:14.470070"], ["updated_at", "2021-11-08 14:55:14.470070"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "Schulist Group - Transportation / Trucking / Railroad"], ["LIMIT", 1]]
+  [1m[36mSub Create (0.5ms)[0m  [1m[32mINSERT INTO "subs" ("title", "description", "moderator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Schulist Group - Transportation / Trucking / Railroad"], ["description", "Voluptatem sed velit iusto."], ["moderator_id", 9], ["created_at", "2021-11-08 14:55:14.477425"], ["updated_at", "2021-11-08 14:55:14.477425"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPostSub Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" = $1 AND "post_subs"."sub_id" IS NULL LIMIT $2[0m  [["post_id", 9], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ACjrZnMa1z74qBIOVkJS9g"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "pMT0QFH5sVOUbMrxyg2Jvg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"hana\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "tx44e0nlyvnk1cc294ihx8"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "atxbq3meuuluyuqmf9v152"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"hana\"}"], ["password_digest", "$2a$12$xFHnKi.34Ln4gAgs7Ivd/.JY3C4qIlXW3HM2eFYNcRqvVUJc5kecu"], ["session_token", "atxbq3meuuluyuqmf9v152"], ["activation_token", "tx44e0nlyvnk1cc294ihx8"], ["created_at", "2021-11-08 14:55:14.801760"], ["updated_at", "2021-11-08 14:55:14.801760"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Quia molestias ducimus illum."], ["url", "http://hudson.com/alejandra_borer"], ["content", "Et recusandae unde suscipit."], ["author_id", 10], ["created_at", "2021-11-08 14:55:14.809899"], ["updated_at", "2021-11-08 14:55:14.809899"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "subs" WHERE "subs"."title" = $1 LIMIT $2[0m  [["title", "Wyman and Sons - Shipbuilding"], ["LIMIT", 1]]
+  [1m[36mSub Create (0.5ms)[0m  [1m[32mINSERT INTO "subs" ("title", "description", "moderator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Wyman and Sons - Shipbuilding"], ["description", "Doloribus vitae corporis expedita."], ["moderator_id", 10], ["created_at", "2021-11-08 14:55:14.817585"], ["updated_at", "2021-11-08 14:55:14.817585"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPostSub Load (0.4ms)[0m  [1m[34mSELECT  "post_subs".* FROM "post_subs" ORDER BY "post_subs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPostSub Create (0.7ms)[0m  [1m[32mINSERT INTO "post_subs" ("post_id", "sub_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["post_id", 10], ["sub_id", 10], ["created_at", "2021-11-08 14:55:14.823480"], ["updated_at", "2021-11-08 14:55:14.823480"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPostSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" = $1 AND "post_subs"."sub_id" = $2 LIMIT $3[0m  [["post_id", 10], ["sub_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPostSub Load (0.4ms)[0m  [1m[34mSELECT "post_subs".* FROM "post_subs"[0m
+  [1m[36mPostSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" = $1 AND "post_subs"."sub_id" = $2 LIMIT $3[0m  [["post_id", 10], ["sub_id", 11], ["LIMIT", 1]]
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" IS NULL AND "post_subs"."sub_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPostSub Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "post_subs" WHERE "post_subs"."post_id" IS NULL AND "post_subs"."sub_id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
