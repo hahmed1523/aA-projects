@@ -1,9 +1,11 @@
 <nav>
-    <a href="<%= root_url %>">Home</a>
+    <ul>
+        <li><a href="<%= root_url %>">Home</a></li>
 
     <% if logged_in? %>
         <section class="user-detail">
-            <p>Logged in as : <%= current_user.username %></p>
+            <li>Logged in as : <%= current_user.username %></li>
+            <li><a href="<%= new_sub_url %>">Create a sub!</a></li>
             <form action="<%= session_url %>" method="post">
                 <input
                     type="hidden"
@@ -15,12 +17,13 @@
                 <input 
                     type="submit" value="Logout">
             </form>
+
         </section>
     <% else %>
-        <ul>
-            <li><a href="<%= new_session_url %>">Sign In!</a></li>
-            <li><a href="<%= new_user_url %>">Sign Up!</a></li>
-        </ul>
+
+        <li><a href="<%= new_session_url %>">Sign In!</a></li>
+        <li><a href="<%= new_user_url %>">Sign Up!</a></li>
+
     <% end %>
 
 </nav>
