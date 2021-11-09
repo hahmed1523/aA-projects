@@ -19910,3 +19910,205 @@ Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.5ms)
   [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ludtVng1molo4Q_8ffRxjw"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "hiACtSpAmqKesEW4lJHr-g"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"rosalia\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "69al1q7fw1bxswmupe9cea"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "re1g6voxuavd94bo4fmkhi"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"rosalia\"}"], ["password_digest", "$2a$12$AC/yVH98TFRBbid4fqGsN.8ipdSMKQp7NDGPzurcbCwJ5XKEuDAOu"], ["session_token", "re1g6voxuavd94bo4fmkhi"], ["activation_token", "69al1q7fw1bxswmupe9cea"], ["created_at", "2021-11-09 17:03:39.073143"], ["updated_at", "2021-11-09 17:03:39.073143"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_o_BD2yvvJi_PbGdsJjq5w"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "fpImhBfWrKVtUEoVLW_72g"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"alphonse\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "tm3fhwugpd1fcgadiwan03"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xxzeaw2sf1j777hvudfcjt"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"alphonse\"}"], ["password_digest", "$2a$12$BcERF6lEuHm6OwoLdWJDruXIjcHMqJSg4.fk8m3pF8V6feyuKOQqi"], ["session_token", "xxzeaw2sf1j777hvudfcjt"], ["activation_token", "tm3fhwugpd1fcgadiwan03"], ["created_at", "2021-11-09 17:03:39.431142"], ["updated_at", "2021-11-09 17:03:39.431142"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "dZpGIs8JVjnPCD7Ebh5s_w"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "KzeihpdAPBxV5DHAcvX8MQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"jonie\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "7fcn5wh3o0ojqlot8s5kn9"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7yqrmy1deo8q8niyy3qvbu"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"jonie\"}"], ["password_digest", "$2a$12$lRawH2fUu.hQ2EVQi/ov0eFiRzgYInN0F8yVrQz66VLcszTRO3jbG"], ["session_token", "7yqrmy1deo8q8niyy3qvbu"], ["activation_token", "7fcn5wh3o0ojqlot8s5kn9"], ["created_at", "2021-11-09 17:08:48.392629"], ["updated_at", "2021-11-09 17:08:48.392629"]]
+  [1m[35m (1.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XQOhV_4bVxV32vj5Gy-vdQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "nGHt807Eg_vtJFXnA7wLGg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"francisca_kuhlman\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "95elyh6i51y13hfnby0yfe"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "neuc4ix0feief44hrmfd03"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"francisca_kuhlman\"}"], ["password_digest", "$2a$12$IEquv6ECzcEbOkEFvp9HleWgeqvr5RhskD..RbDi18Q5JwAL3cKQe"], ["session_token", "neuc4ix0feief44hrmfd03"], ["activation_token", "95elyh6i51y13hfnby0yfe"], ["created_at", "2021-11-09 17:10:27.016734"], ["updated_at", "2021-11-09 17:10:27.016734"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "p5rgW6jso2VVTX7ttKOv4A"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "4gFBbtauvs0q8m2ONtBcww"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"donella\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "fbrgbv0xh5a2pb1p02dt4l"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1f8aytpc3avlvvdwpqsxub"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"donella\"}"], ["password_digest", "$2a$12$s.hvYMBGkfDT8N8Bajr9guHKDw.kGLiVzXWli9o9ft24C7dEiDwo."], ["session_token", "1f8aytpc3avlvvdwpqsxub"], ["activation_token", "fbrgbv0xh5a2pb1p02dt4l"], ["created_at", "2021-11-09 17:12:06.903252"], ["updated_at", "2021-11-09 17:12:06.903252"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Create (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Dolorem ut placeat omnis."], ["url", "http://bernier.biz/dean"], ["content", "Sed corporis fuga numquam."], ["author_id", 10], ["created_at", "2021-11-09 17:12:06.960805"], ["updated_at", "2021-11-09 17:12:06.960805"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:12:06 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"1", "body"=>"This is a comment!"}}
+No template found for CommentsController#create, rendering head :no_content
+Completed 204 No Content in 44ms (ActiveRecord: 4.7ms)
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "BwrCtAGWb1hfg1kEpzpc4A"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "dA7nwXzEqmCg4MiD_Zu5Mw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"willie\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "w7x3n1lg9ymwui60yr2wzn"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "adni8nwk6myd29f673yi5d"], ["LIMIT", 1]]
+  [1m[36mUser Create (12.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"willie\"}"], ["password_digest", "$2a$12$twWE2j0R9ZF9yX.XC79c2eXWm1wRAtpXoM4rXxFtcUHC6dc3/m/22"], ["session_token", "adni8nwk6myd29f673yi5d"], ["activation_token", "w7x3n1lg9ymwui60yr2wzn"], ["created_at", "2021-11-09 17:15:37.143728"], ["updated_at", "2021-11-09 17:15:37.143728"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Ut qui quo suscipit."], ["url", "http://dicki.co/gail.yundt"], ["content", "Nesciunt ex eaque iusto."], ["author_id", 11], ["created_at", "2021-11-09 17:15:37.232084"], ["updated_at", "2021-11-09 17:15:37.232084"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:15:37 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"2", "body"=>"This is a comment!"}}
+No template found for CommentsController#create, rendering head :no_content
+Completed 204 No Content in 36ms (ActiveRecord: 2.6ms)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f703twe-tivFj4rFG7Cr5g"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "OESrAkYJoXJ0GIoG3JD9uQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"guy\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "7yvptldoe6ky6mbnz1ss9x"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "euu5qi96pf68mvlc9jtcei"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"guy\"}"], ["password_digest", "$2a$12$hL3pF4St8e1DolKL1CM1.efJSWdswt1V26fnU2eSd4Vxi6fymSoTS"], ["session_token", "euu5qi96pf68mvlc9jtcei"], ["activation_token", "7yvptldoe6ky6mbnz1ss9x"], ["created_at", "2021-11-09 17:17:27.859716"], ["updated_at", "2021-11-09 17:17:27.859716"]]
+  [1m[35m (4.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Necessitatibus unde repellendus soluta."], ["url", "http://torphy.com/lana.kulas"], ["content", "Sint sint nesciunt culpa."], ["author_id", 12], ["created_at", "2021-11-09 17:17:27.929217"], ["updated_at", "2021-11-09 17:17:27.929217"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:17:27 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"3", "body"=>"This is a comment!"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mComment Create (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "post_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 12], ["post_id", 3], ["body", "This is a comment!"], ["created_at", "2021-11-09 17:17:27.987231"], ["updated_at", "2021-11-09 17:17:27.987231"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/3
+Completed 302 Found in 41ms (ActiveRecord: 8.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ID3pRqVeEdTrbqRctRfoDA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "5hFTeoQ6anf-u085oeoUvw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"orville\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "rilz4l4ppfpynuomn4jsby"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xl72kco71oze1ci6z8az7h"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"orville\"}"], ["password_digest", "$2a$12$thCsgJ/cFpaz2WSj2aVMmOY1t/1pYrClLca77kRPb6CmAyEyhENIa"], ["session_token", "xl72kco71oze1ci6z8az7h"], ["activation_token", "rilz4l4ppfpynuomn4jsby"], ["created_at", "2021-11-09 17:18:01.998822"], ["updated_at", "2021-11-09 17:18:01.998822"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Quos et et molestiae."], ["url", "http://torphy-stamm.info/lucio.schumm"], ["content", "Harum numquam maxime optio."], ["author_id", 13], ["created_at", "2021-11-09 17:18:02.060574"], ["updated_at", "2021-11-09 17:18:02.060574"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:18:02 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"4", "body"=>"This is a comment!"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Create (0.8ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "post_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["post_id", 4], ["body", "This is a comment!"], ["created_at", "2021-11-09 17:18:02.114851"], ["updated_at", "2021-11-09 17:18:02.114851"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/4
+Completed 302 Found in 36ms (ActiveRecord: 4.9ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "3--f1Cs3dqi8t9OS9WgdHw"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "2dtrkjmxoufArXJJck95tA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"corie\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "8hst1cj4ix1rhqpidkjeqc"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vq2ltvjqsje1o3fzon244o"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"corie\"}"], ["password_digest", "$2a$12$Bd6.c54oufPY7svmfj7UwuakKbe2bejGyK08ww0TTTOb2d3AJdCli"], ["session_token", "vq2ltvjqsje1o3fzon244o"], ["activation_token", "8hst1cj4ix1rhqpidkjeqc"], ["created_at", "2021-11-09 17:18:02.456744"], ["updated_at", "2021-11-09 17:18:02.456744"]]
+  [1m[35m (1.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "yKvKQNicZ-vOb3MrCJG5VQ"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "NjPPso2frAdJBhnKeK8DLQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"virginia\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "gbna9d68emmn96p7w9laqm"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "p4x3fg3p1g7csdb8a1lnux"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"virginia\"}"], ["password_digest", "$2a$12$bQKAbKUU6ruYYXq1c6NuWeZa35ISVajJMRVzTi/AmldoOWluDzMGO"], ["session_token", "p4x3fg3p1g7csdb8a1lnux"], ["activation_token", "gbna9d68emmn96p7w9laqm"], ["created_at", "2021-11-09 17:19:14.160492"], ["updated_at", "2021-11-09 17:19:14.160492"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPost Create (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Laborum et quia veritatis."], ["url", "http://maggio.biz/jewell"], ["content", "Autem aut voluptatibus aliquid."], ["author_id", 15], ["created_at", "2021-11-09 17:19:14.231255"], ["updated_at", "2021-11-09 17:19:14.231255"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:19:14 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"5", "body"=>"This is a comment!"}}
+  [1m[35m (5.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mComment Create (0.8ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "post_id", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 15], ["post_id", 5], ["body", "This is a comment!"], ["created_at", "2021-11-09 17:19:14.299200"], ["updated_at", "2021-11-09 17:19:14.299200"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/5
+Completed 302 Found in 51ms (ActiveRecord: 10.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kdjasZv2GSBtrz6EXK5UEg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "G2CoufEQLpwoeyVog8YOEQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "{:username=>\"magaly\"}"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 LIMIT $2[0m  [["activation_token", "r7m6gsa5o8srk2ll5t3uce"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6u7osyb3i5ywzhov84au3i"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "activation_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "{:username=>\"magaly\"}"], ["password_digest", "$2a$12$oYuj65qNiYv7V8RQK9KwPurhygudOYYPq7bXSCwKs8oE6EsyCmxGa"], ["session_token", "6u7osyb3i5ywzhov84au3i"], ["activation_token", "r7m6gsa5o8srk2ll5t3uce"], ["created_at", "2021-11-09 17:19:14.647795"], ["updated_at", "2021-11-09 17:19:14.647795"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "url", "content", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Illo natus eaque officiis."], ["url", "http://volkman.org/modesto_mann"], ["content", "Odio sit reprehenderit incidunt."], ["author_id", 16], ["created_at", "2021-11-09 17:19:14.661998"], ["updated_at", "2021-11-09 17:19:14.661998"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/comments" for 127.0.0.1 at 2021-11-09 12:19:14 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"comment"=>{"post_id"=>"6"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/posts/6/comments/new
+Completed 302 Found in 12ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
