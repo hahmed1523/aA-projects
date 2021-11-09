@@ -13,5 +13,17 @@
 </section>
 
 <section>
+    <h2>Comments</h2>
+    
+    <a href="<%= new_post_comment_url(@post) %>">Comment on this post!</a>
+
+    <ul>
+        <% @post.comments.each do |comment| %>
+            <li><a href="#"><%= comment.body %></a></li>
+        <% end %>
+    </ul>
+</section>
+
+<section>
     <a href="<%= edit_post_url(@post) %>">Edit</a>
 <section>

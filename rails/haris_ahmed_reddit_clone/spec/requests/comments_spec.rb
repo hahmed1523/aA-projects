@@ -30,4 +30,13 @@ RSpec.describe "Comments", type: :request do
       expect(response).to redirect_to(new_post_comment_url(post1.id))
     end
   end
+
+  # describe 'GET #show' do 
+  #   let(:comment1) { Comment.new(post_id: post1.id, body:"this is a comment") }
+
+  #   it 'renders show template' do 
+  #     get comment_url(comment1.id)
+  #     expect(response).to render_template(:show)
+  #   end
+  # end
 end
