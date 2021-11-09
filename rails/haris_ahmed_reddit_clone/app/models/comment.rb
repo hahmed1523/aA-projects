@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
     validates :author, :post, :body, presence: true 
 
+    after_initialize :ensure_post_id!
+
     belongs_to :author,
         primary_key: :id, #User's id
         foreign_key: :user_id,
@@ -19,4 +21,10 @@ class Comment < ApplicationRecord
         foreign_key: :parent_comment_id,
         class_name: :Comment,
         optional: true 
+
+    private
+    def ensure_post_id!
+        self.post_id ||= self.parent_comment.post_id if parent_comment
+    end
+
 end

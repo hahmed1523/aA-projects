@@ -17,19 +17,14 @@ class CommentsController < ApplicationController
         end
     end
 
-    # def show
-    #     @comment = Comment.find_by(id: params[:id])
-
-    #     if @comment 
-    #         render :show 
-    #     else
-    #         flash.now[:errors] = @comment.errors.full_messages
-    #         redirect_to root_url 
-    #     end
-    # end
+    def show
+        @comment = Comment.find_by(id: params[:id])
+        @new_comment = @comment.child_comments.new 
+        
+    end
 
     private
     def comment_params
-        params.require(:comment).permit(:post_id, :body)
+        params.require(:comment).permit(:post_id, :body, :parent_comment_id)
     end
 end

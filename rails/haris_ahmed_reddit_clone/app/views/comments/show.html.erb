@@ -1,0 +1,8 @@
+<section>
+    <h1><%= @comment.body %> by <%= @comment.author.username %></h1>
+
+    <h3>Reply to this comment:</h3>
+
+    <%= render 'form', comment: @new_comment %>
+
+</section>

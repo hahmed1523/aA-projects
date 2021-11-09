@@ -17,11 +17,14 @@
     
     <a href="<%= new_post_comment_url(@post) %>">Comment on this post!</a>
 
+    <% top_level_comments = @post.comments.where(parent_comment_id: nil) %>
+
     <ul>
-        <% @post.comments.each do |comment| %>
-            <li><a href="#"><%= comment.body %></a></li>
+        <% top_level_comments.each do |t_comment| %>
+            <li><a href="<%= comment_url(t_comment) %>"><%= t_comment.body %></a></li>
         <% end %>
     </ul>
+
 </section>
 
 <section>
