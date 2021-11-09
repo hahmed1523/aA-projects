@@ -36,6 +36,8 @@ class User < ApplicationRecord
         class_name: :Post,
         inverse_of: :author 
 
+    has_many :comments, inverse_of: :author 
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
