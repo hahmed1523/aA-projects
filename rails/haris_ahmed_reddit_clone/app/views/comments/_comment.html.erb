@@ -1,0 +1,17 @@
+<p>
+    <a href="<%= comment_url(comment) %>"><%= comment.body %></a>
+</p>
+
+<% child_comments = comment.child_comments %>
+<% if child_comments.present? %>
+    <ul>
+    <% child_comments.each do |child_comment| %>
+        <li>
+            <%= render("comments/comment",
+                            comment: child_comment,
+                            top_level_comments: child_comments) %>
+        </li>
+    <% end %>
+    </ul>
+
+<% end %>

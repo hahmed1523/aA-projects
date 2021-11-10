@@ -20,8 +20,12 @@
     <% top_level_comments = @post.comments.where(parent_comment_id: nil) %>
 
     <ul>
-        <% top_level_comments.each do |t_comment| %>
-            <li><a href="<%= comment_url(t_comment) %>"><%= t_comment.body %></a></li>
+        <% top_level_comments.each do |top_level_comment| %>
+            <li>
+                <%= render("comments/comment",
+                            comment: top_level_comment,
+                            top_level_comments: top_level_comments) %>        
+            </li>
         <% end %>
     </ul>
 
