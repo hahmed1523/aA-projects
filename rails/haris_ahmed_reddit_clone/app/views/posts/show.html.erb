@@ -17,15 +17,17 @@
     
     <a href="<%= new_post_comment_url(@post) %>">Comment on this post!</a>
 
-    <% top_level_comments = @post.comments.where(parent_comment_id: nil) %>
+    <% all_comments = @post.comments.includes(:author) %>
 
     <ul>
-        <% top_level_comments.each do |top_level_comment| %>
+        <% all_comments.each do |top_level_comment| %>
+            <% if top_level_comment.parent_comment_id == nil %>
             <li>
                 <%= render("comments/comment",
                             comment: top_level_comment,
-                            top_level_comments: top_level_comments) %>        
+                            all_comments: all_comments) %>        
             </li>
+            <% end %>
         <% end %>
     </ul>
 

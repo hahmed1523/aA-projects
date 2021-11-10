@@ -1,17 +1,18 @@
 <p>
-    <a href="<%= comment_url(comment) %>"><%= comment.body %></a>
+    <a href="<%= comment_url(comment) %>"><%= comment.body %></a> <br>
+    <%= comment.author.username %> <%= comment.created_at %>
 </p>
 
-<% child_comments = comment.child_comments %>
-<% if child_comments.present? %>
-    <ul>
-    <% child_comments.each do |child_comment| %>
-        <li>
-            <%= render("comments/comment",
-                            comment: child_comment,
-                            top_level_comments: child_comments) %>
-        </li>
-    <% end %>
-    </ul>
 
+<ul>
+<% all_comments.each do |child_comment| %>
+    <% if child_comment.parent_comment_id == comment.id %>
+            <li>
+                <%= render("comments/comment",
+                                comment: child_comment,
+                                all_comments: all_comments) %>
+            </li>
+    <% end %>
 <% end %>
+</ul>
+
