@@ -5,7 +5,7 @@ module Votable
         has_many :user_votes,
             as: :votable,
             class_name: :UserVote,
-            dependent: :destory
+            dependent: :destroy
     end
 
     def  votes 

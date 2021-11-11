@@ -13,5 +13,6 @@ RSpec.describe Comment, type: :model do
     it { should belong_to(:post) }
     it { should have_many(:child_comments) }
     it { should belong_to(:parent_comment).optional }
+    it { should have_many(:user_votes) }
   end
 end
