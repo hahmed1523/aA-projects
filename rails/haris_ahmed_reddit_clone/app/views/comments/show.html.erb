@@ -1,5 +1,14 @@
 <section>
-    <h1><%= @comment.body %> by <%= @comment.author.username %></h1>
+    <h1>(<%= @comment.votes %>) <%= @comment.body %> by <%= @comment.author.username %></h1>
+
+    <form action="<%= upvote_comment_url(@comment) %>" method="POST">
+        <%= auth_token %>
+        <input type="submit" value="Upvote">
+    </form>
+    <form action="<%= downvote_comment_url(@comment) %>" method="POST">
+        <%= auth_token %>
+        <input type="submit" value="Downvote">
+    </form>
 
     <h3>Reply to this comment:</h3>
 

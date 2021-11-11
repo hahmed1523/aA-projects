@@ -1,7 +1,17 @@
-<h1><%= @post.title %> by <%= @post.author.username %></h1>
+<h1>(<%= @post.votes %>) <%= @post.title %> by <%= @post.author.username %></h1>
 
 <h4>Content:</h4>
 <p><%= @post.content %></p>
+
+<br>
+<form action="<%= upvote_post_url(@post) %>" method="POST">
+    <%= auth_token %>
+    <input type="submit" value="Upvote">
+</form>
+<form action="<%= downvote_post_url(@post) %>" method="POST">
+    <%= auth_token %>
+    <input type="submit" value="Downvote">
+</form>
 
 <section>
     <h4>Subs</h4>

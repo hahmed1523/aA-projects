@@ -1,5 +1,5 @@
 <p>
-    <a href="<%= comment_url(comment) %>"><%= comment.body %></a> <br>
+    (<%= comment.votes %>) <a href="<%= comment_url(comment) %>"><%= comment.body %></a> <br>
     <%= comment.author.username %> <%= comment.created_at %>
 </p>
 

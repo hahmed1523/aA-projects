@@ -46,9 +46,28 @@ class PostsController < ApplicationController
         end
     end
 
+    def downvote 
+        vote(-1)
+    end
+
+    def upvote
+        vote(1)
+    end
+
     private 
 
     def post_params 
         params.require(:post).permit(:title, :url, :content, sub_ids: [])
+    end
+
+    def vote(direction)
+        @post = Post.find(params[:id])
+        @user_vote = @post.user_votes.find_or_initialize_by(user_id: current_user_id)
+
+        unless @user_vote.update(value: direction)
+            flash[:errors] = @user_vote.errors.full_messages 
+        end
+
+        redirect_to post_url(@post)
     end
 end

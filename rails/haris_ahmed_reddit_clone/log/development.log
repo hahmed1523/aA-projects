@@ -4414,3 +4414,1099 @@ Migrating to CreateUserVotes (20211111152145)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-11-11 12:00:52 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hahmed1523/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Started GET "/subs" for ::1 at 2021-11-11 12:00:52 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (3.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (33.7ms)
+  Rendered shared/_main_nav.html.erb (1.5ms)
+Completed 200 OK in 620ms (Views: 587.4ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-11-11 12:00:55 -0500
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (2.0ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:11
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (5.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:11
+  Rendered subs/show.html.erb within layouts/application (71.5ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 121ms (Views: 93.5ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:01:01 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (3.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered comments/_comment.html.erb (1.8ms)
+  Rendered comments/_comment.html.erb (6.6ms)
+  Rendered posts/show.html.erb within layouts/application (145.4ms)
+  Rendered shared/_main_nav.html.erb (1.7ms)
+Completed 200 OK in 182ms (Views: 153.6ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:01:18 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (1.1ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (3.9ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (3.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (1.5ms)
+  Rendered comments/_comment.html.erb (2.7ms)
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered comments/_comment.html.erb (2.0ms)
+  Rendered comments/_comment.html.erb (8.7ms)
+  Rendered posts/show.html.erb within layouts/application (66.7ms)
+  Rendered shared/_main_nav.html.erb (1.0ms)
+Completed 200 OK in 110ms (Views: 91.8ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-11-11 12:02:23 -0500
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:11
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (17.7ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 123ms (Views: 117.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:04:52 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (2.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:9
+  [1m[36mComment Load (2.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (1.8ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.6ms)
+  Rendered comments/_comment.html.erb (2.5ms)
+  Rendered comments/_comment.html.erb (0.9ms)
+  Rendered comments/_comment.html.erb (4.6ms)
+  Rendered comments/_comment.html.erb (11.0ms)
+  Rendered posts/show.html.erb within layouts/application (82.7ms)
+  Rendered shared/_main_nav.html.erb (1.0ms)
+Completed 200 OK in 121ms (Views: 106.9ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:08:25 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (3.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered comments/_comment.html.erb (2.6ms)
+  Rendered comments/_comment.html.erb (0.6ms)
+  Rendered comments/_comment.html.erb (2.5ms)
+  Rendered comments/_comment.html.erb (14.5ms)
+  Rendered posts/show.html.erb within layouts/application (66.9ms)
+  Rendered shared/_main_nav.html.erb (1.3ms)
+Completed 200 OK in 110ms (Views: 98.3ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/posts/1/upvote" for ::1 at 2021-11-11 12:08:30 -0500
+Processing by PostsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"0Cv/18CzDBJGjhtij/XIDz0HC9+H2IvjFoye7fcSjfk6fEieSqSpeqashU33bR9T8wGt4ht5vlJnQ9ddJCHAKw==", "id"=>"1"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_user! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-11 12:08:30 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:08:37 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:08:37 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (2.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (10.8ms)
+  Rendered shared/_main_nav.html.erb (1.6ms)
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/session/new" for ::1 at 2021-11-11 12:08:41 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.4ms)
+  Rendered shared/_main_nav.html.erb (1.0ms)
+Completed 200 OK in 60ms (Views: 59.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2021-11-11 12:08:47 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"AWBEFT+/335dywwp5iCWDm8UZ/HEppaLpfMwQs+8pM7rN/Nctah6Fr3pkgaeuEFSoRLBzFgHozrUPHnyHI/pHA==", "user"=>{"username"=>"test1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test1"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:52
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["activation_token", "JfSUj7hFWsYoUyCui9wg2w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["updated_at", "2021-11-11 17:08:47.887654"], ["id", 1]]
+  ↳ app/models/user.rb:67
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:67
+Redirected to http://localhost:3000/
+Completed 302 Found in 331ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:08:47 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:08:47 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (12.7ms)
+Completed 200 OK in 45ms (Views: 41.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-11-11 12:09:21 -0500
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (1.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:11
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:11
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.6ms)
+Completed 200 OK in 62ms (Views: 55.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:29 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.4ms)
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered comments/_comment.html.erb (1.8ms)
+  Rendered comments/_comment.html.erb (7.2ms)
+  Rendered posts/show.html.erb within layouts/application (66.2ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.4ms)
+Completed 200 OK in 118ms (Views: 100.3ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/posts/1/upvote" for ::1 at 2021-11-11 12:09:30 -0500
+Processing by PostsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"/RTtbIf85fp3CirKekiJyvef/3ZeWC6qpF7c//Swi/kXQ1olDetAkpcotOUC0F6WOZlZS8L5GxvVkZVPJ4PGKw==", "id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:64
+  [1m[36mUserVote Load (0.6ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Post"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:65
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."votable_id" = $2 AND "user_votes"."votable_type" = $3 LIMIT $4[0m  [["user_id", 1], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Create (1.1ms)[0m  [1m[32mINSERT INTO "user_votes" ("user_id", "value", "votable_id", "votable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["value", 1], ["votable_id", 1], ["votable_type", "Post"], ["created_at", "2021-11-11 17:09:30.442259"], ["updated_at", "2021-11-11 17:09:30.442259"]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:67
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 74ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:30 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (2.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered comments/_comment.html.erb (1.5ms)
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.7ms)
+  Rendered comments/_comment.html.erb (9.5ms)
+  Rendered posts/show.html.erb within layouts/application (49.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.3ms)
+Completed 200 OK in 86ms (Views: 76.5ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/posts/1/downvote" for ::1 at 2021-11-11 12:09:33 -0500
+Processing by PostsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"IiXDBCvNRgMauFZWd2UsK/vHfFa9TJmExnF5sv6jvEbIcnRNodrja/qayHkP/ft3NcHaayHtrDW3vjACLZDxlA==", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:64
+  [1m[36mUserVote Load (2.2ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Post"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 1], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Update (0.7ms)[0m  [1m[33mUPDATE "user_votes" SET "value" = $1, "updated_at" = $2 WHERE "user_votes"."id" = $3[0m  [["value", -1], ["updated_at", "2021-11-11 17:09:33.271967"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:67
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 38ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:33 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (4.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.8ms)
+  Rendered comments/_comment.html.erb (4.6ms)
+  Rendered comments/_comment.html.erb (0.6ms)
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered comments/_comment.html.erb (14.0ms)
+  Rendered posts/show.html.erb within layouts/application (65.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 111ms (Views: 96.4ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/posts/1/downvote" for ::1 at 2021-11-11 12:09:37 -0500
+Processing by PostsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"8EnZWX4yiP+Ww9QicOgytdqDx3b7nrEfDniO8xgopAYaHm4Q9CUtl3bhSg0IcOXpFIVhS2c/hK5/t8dDyxvp1A==", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:64
+  [1m[36mUserVote Load (1.0ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Post"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 1], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:67
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 29ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:37 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (2.3ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered comments/_comment.html.erb (1.9ms)
+  Rendered comments/_comment.html.erb (7.2ms)
+  Rendered posts/show.html.erb within layouts/application (59.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.0ms)
+Completed 200 OK in 105ms (Views: 94.3ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/posts/1/upvote" for ::1 at 2021-11-11 12:09:38 -0500
+Processing by PostsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"T5J4XzS7KwUYDlWS0UoqxvEMy8OQywPZgEIlZbgF6Ailxc8WvqyObfgsy72p0v2aPwpt/gxqNmjxjWzVazal2g==", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:64
+  [1m[36mUserVote Load (1.8ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Post"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:65
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Exists (6.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 1], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Update (2.6ms)[0m  [1m[33mUPDATE "user_votes" SET "value" = $1, "updated_at" = $2 WHERE "user_votes"."id" = $3[0m  [["value", 1], ["updated_at", "2021-11-11 17:09:38.675288"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:67
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 39ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:38 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (2.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.3ms)
+  Rendered comments/_comment.html.erb (0.7ms)
+  Rendered comments/_comment.html.erb (2.8ms)
+  Rendered comments/_comment.html.erb (9.8ms)
+  Rendered posts/show.html.erb within layouts/application (53.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.2ms)
+Completed 200 OK in 96ms (Views: 86.0ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/posts/1/upvote" for ::1 at 2021-11-11 12:09:39 -0500
+Processing by PostsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"DZf2N8risyrq1b99Gzjw+xKYMMKrRWhUI1B9ShmrNfrnwEF+QPUWQgr3IVJjoCen3J6W/zfkXeVSnzT6yph4KA==", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:64
+  [1m[36mUserVote Load (1.9ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Post"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:65
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[36mUserVote Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 1], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:67
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 25ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:09:40 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (1.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (2.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.3ms)
+  Rendered comments/_comment.html.erb (1.5ms)
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered comments/_comment.html.erb (7.8ms)
+  Rendered comments/_comment.html.erb (12.9ms)
+  Rendered posts/show.html.erb within layouts/application (61.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (5.0ms)
+Completed 200 OK in 109ms (Views: 89.1ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:09:58 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:09:58 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-11-11 12:09:59 -0500
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:11
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.2ms)
+Completed 200 OK in 67ms (Views: 61.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:10:15 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  Rendered comments/_comment.html.erb (0.8ms)
+  Rendered comments/_comment.html.erb (2.3ms)
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered comments/_comment.html.erb (1.9ms)
+  Rendered comments/_comment.html.erb (8.7ms)
+  Rendered posts/show.html.erb within layouts/application (77.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.1ms)
+Completed 200 OK in 121ms (Views: 107.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:11:04 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 4], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (3.3ms)
+  Rendered comments/_comment.html.erb (12.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 3], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 5], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (5.3ms)
+  Rendered comments/_comment.html.erb (9.5ms)
+  Rendered comments/_comment.html.erb (29.6ms)
+  Rendered posts/show.html.erb within layouts/application (92.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.3ms)
+Completed 200 OK in 143ms (Views: 120.2ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:12:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 4], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (4.7ms)
+  Rendered comments/_comment.html.erb (11.6ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 3], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 5], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (6.7ms)
+  Rendered comments/_comment.html.erb (14.0ms)
+  Rendered comments/_comment.html.erb (32.7ms)
+  Rendered posts/show.html.erb within layouts/application (93.0ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (6.2ms)
+Completed 200 OK in 156ms (Views: 137.6ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/comments/1" for ::1 at 2021-11-11 12:12:47 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  Rendering comments/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/show.html.erb:2
+  Rendered comments/_form.html.erb (1.3ms)
+  Rendered comments/show.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.6ms)
+Completed 200 OK in 54ms (Views: 43.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/comments/1" for ::1 at 2021-11-11 12:13:06 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  Rendering comments/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/show.html.erb:2
+  Rendered comments/_form.html.erb (0.9ms)
+  Rendered comments/show.html.erb within layouts/application (21.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.0ms)
+Completed 200 OK in 81ms (Views: 65.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/comments/1/upvote" for ::1 at 2021-11-11 12:13:08 -0500
+Processing by CommentsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"2745n4g7WhGEZ0pTMiQ9EOIzDCMtxR0Y78l/Zniu+REx6Y7WAiz/eWRF1HxKvOpMLDWqHrFkKKmeBjbWq520ww==", "id"=>"1"}
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUserVote Load (0.9ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Comment"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:41
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."votable_id" = $2 AND "user_votes"."votable_type" = $3 LIMIT $4[0m  [["user_id", 1], ["votable_id", 1], ["votable_type", "Comment"], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Create (0.6ms)[0m  [1m[32mINSERT INTO "user_votes" ("user_id", "value", "votable_id", "votable_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["value", 1], ["votable_id", 1], ["votable_type", "Comment"], ["created_at", "2021-11-11 17:13:08.112119"], ["updated_at", "2021-11-11 17:13:08.112119"]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:43
+Redirected to http://localhost:3000/comments/1
+Completed 302 Found in 44ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/comments/1" for ::1 at 2021-11-11 12:13:08 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  Rendering comments/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/show.html.erb:2
+  Rendered comments/_form.html.erb (1.0ms)
+  Rendered comments/show.html.erb within layouts/application (22.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.3ms)
+Completed 200 OK in 70ms (Views: 58.6ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/comments/1/downvote" for ::1 at 2021-11-11 12:13:10 -0500
+Processing by CommentsController#downvote as HTML
+  Parameters: {"authenticity_token"=>"3qweGiIxyRsIVG6KsxOdP3Rz/bc9moGtPDhBQYLhTP80+6lTqCZsc+h28KXLi0pjunVbiqE7tBxN9wjxUdIBLQ==", "id"=>"1"}
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUserVote Load (1.5ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Comment"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:41
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 2], ["votable_id", 1], ["votable_type", "Comment"], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Update (0.8ms)[0m  [1m[33mUPDATE "user_votes" SET "value" = $1, "updated_at" = $2 WHERE "user_votes"."id" = $3[0m  [["value", -1], ["updated_at", "2021-11-11 17:13:10.193144"], ["id", 2]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:43
+Redirected to http://localhost:3000/comments/1
+Completed 302 Found in 45ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/comments/1" for ::1 at 2021-11-11 12:13:10 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  Rendering comments/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/show.html.erb:2
+  Rendered comments/_form.html.erb (2.2ms)
+  Rendered comments/show.html.erb within layouts/application (18.4ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (5.1ms)
+Completed 200 OK in 66ms (Views: 55.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/comments/1/upvote" for ::1 at 2021-11-11 12:13:11 -0500
+Processing by CommentsController#upvote as HTML
+  Parameters: {"authenticity_token"=>"P7RjFkend2KL8uIZ70HGBT5WmmuLZFHnS23Z2jsM32zV49RfzbDSCmvQfDaX2RFZ8FA8VhfFZFY6opBq6D+Svg==", "id"=>"1"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:40
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUserVote Load (1.3ms)[0m  [1m[34mSELECT  "user_votes".* FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2 AND "user_votes"."user_id" = $3 LIMIT $4[0m  [["votable_id", 1], ["votable_type", "Comment"], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_votes" WHERE "user_votes"."user_id" = $1 AND "user_votes"."id" != $2 AND "user_votes"."votable_id" = $3 AND "user_votes"."votable_type" = $4 LIMIT $5[0m  [["user_id", 1], ["id", 2], ["votable_id", 1], ["votable_type", "Comment"], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[36mUserVote Update (0.6ms)[0m  [1m[33mUPDATE "user_votes" SET "value" = $1, "updated_at" = $2 WHERE "user_votes"."id" = $3[0m  [["value", 1], ["updated_at", "2021-11-11 17:13:11.573975"], ["id", 2]]
+  ↳ app/controllers/comments_controller.rb:43
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:43
+Redirected to http://localhost:3000/comments/1
+Completed 302 Found in 42ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/comments/1" for ::1 at 2021-11-11 12:13:11 -0500
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:21
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  Rendering comments/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/show.html.erb:2
+  Rendered comments/_form.html.erb (6.8ms)
+  Rendered comments/show.html.erb within layouts/application (17.3ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.9ms)
+Completed 200 OK in 64ms (Views: 51.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:13:13 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:13:13 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (1.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (4.5ms)
+Completed 200 OK in 52ms (Views: 47.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subs/1" for ::1 at 2021-11-11 12:13:15 -0500
+Processing by SubsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (3.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:11
+  Rendering subs/show.html.erb within layouts/application
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "post_subs" ON "posts"."id" = "post_subs"."post_id" WHERE "post_subs"."sub_id" = $1[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.html.erb:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered subs/show.html.erb within layouts/application (19.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.1ms)
+Completed 200 OK in 70ms (Views: 55.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/posts/1" for ::1 at 2021-11-11 12:13:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:5
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Post"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:1
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs" INNER JOIN "post_subs" ON "subs"."id" = "post_subs"."sub_id" WHERE "post_subs"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:19
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/models/post.rb:42
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 1], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 2], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 4], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (5.6ms)
+  Rendered comments/_comment.html.erb (10.3ms)
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 3], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("user_votes"."value") FROM "user_votes" WHERE "user_votes"."votable_id" = $1 AND "user_votes"."votable_type" = $2[0m  [["votable_id", 5], ["votable_type", "Comment"]]
+  ↳ app/models/concerns/votable.rb:12
+  Rendered comments/_comment.html.erb (4.8ms)
+  Rendered comments/_comment.html.erb (9.8ms)
+  Rendered comments/_comment.html.erb (26.4ms)
+  Rendered posts/show.html.erb within layouts/application (88.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.0ms)
+Completed 200 OK in 127ms (Views: 103.4ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:15:28 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:15:28 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  Rendered shared/_main_nav.html.erb (3.2ms)
+Completed 200 OK in 57ms (Views: 54.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/session" for ::1 at 2021-11-11 12:16:27 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"B36L9JU80uYVZNDNPh7oVsXBu9TWL6581Y2GxBNBLF7tKTy9Hyt3jvVGTuJGhj8KC8cd6UqOm82kQs90wHJhjA=="}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "E2tc_SmepDmH-dI81XTm5g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JvvoIjU__NlXHQRxw9mpvw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "test1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."activation_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["activation_token", "JfSUj7hFWsYoUyCui9wg2w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "JvvoIjU__NlXHQRxw9mpvw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:67
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "JvvoIjU__NlXHQRxw9mpvw"], ["updated_at", "2021-11-11 17:16:27.830385"], ["id", 1]]
+  ↳ app/models/user.rb:67
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:67
+Redirected to http://localhost:3000/
+Completed 302 Found in 54ms (ActiveRecord: 15.4ms)
+
+
+Started GET "/" for ::1 at 2021-11-11 12:16:27 -0500
+Started GET "/subs" for ::1 at 2021-11-11 12:16:27 -0500
+Processing by SubsController#index as HTML
+  Rendering subs/index.html.erb within layouts/application
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.html.erb:4
+  Rendered subs/index.html.erb within layouts/application (3.8ms)
+  Rendered shared/_main_nav.html.erb (0.9ms)
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 0.4ms)
+
+
