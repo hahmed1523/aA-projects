@@ -37,6 +37,7 @@ class User < ApplicationRecord
         inverse_of: :author 
 
     has_many :comments, inverse_of: :author 
+    has_many :user_votes, inverse_of: :user 
 
     def password=(password)
         @password = password

@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+    include Votable 
+
     validates :author, :post, :body, presence: true 
 
     after_initialize :ensure_post_id!

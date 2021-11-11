@@ -12,6 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
+    include Votable
+
     validates :title, :author, presence: true 
     #validates :title, uniqueness: { scope: [:author, :sub]}
 
